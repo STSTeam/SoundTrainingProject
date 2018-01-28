@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="STS.Database.dll" />
-			<Metadata Name="FileName" Value="F:\PROJECTS\STS\SOUNDTRAININGPROJECT\STS.DATABASE\OBJ\DEBUG\STS.DATABASE.DLL" />
+			<Metadata Name="FileName" Value="C:\STS\SOUNDTRAININGPROJECT\STS.DATABASE\OBJ\DEBUG\STS.DATABASE.DLL" />
 			<Metadata Name="AssemblyName" Value="STS.Database" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\STS\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
