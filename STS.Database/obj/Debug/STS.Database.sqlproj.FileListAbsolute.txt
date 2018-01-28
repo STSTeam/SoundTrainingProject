@@ -7,3 +7,12 @@ F:\PROJECTS\SoundTraining\SoundTrainingSolution\STS.Database\obj\Debug\postdeplo
 F:\PROJECTS\SoundTraining\SoundTrainingSolution\STS.Database\obj\Debug\predeploy.sql
 F:\PROJECTS\SoundTraining\SoundTrainingSolution\STS.Database\obj\Debug\STS.Database.dll
 F:\PROJECTS\SoundTraining\SoundTrainingSolution\STS.Database\obj\Debug\STS.Database.pdb
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\bin\Debug\STS.Database.dacpac
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\bin\Debug\STS.Database.dll
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\bin\Debug\STS.Database.pdb
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.dll
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.pdb
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\Model.xml
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\refactor.xml
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\postdeploy.sql
+F:\PROJECTS\STS\SoundTrainingProject\STS.Database\obj\Debug\predeploy.sql
