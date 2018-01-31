@@ -1,4 +1,3 @@
-F:\PROJECTS\STS\SoundTrainingProject\STS.WebApp\bin\ApplicationInsights.config
 F:\PROJECTS\STS\SoundTrainingProject\STS.WebApp\bin\STS.WebApp.dll.config
 F:\PROJECTS\STS\SoundTrainingProject\STS.WebApp\bin\STS.WebApp.dll
 F:\PROJECTS\STS\SoundTrainingProject\STS.WebApp\bin\STS.WebApp.pdb
