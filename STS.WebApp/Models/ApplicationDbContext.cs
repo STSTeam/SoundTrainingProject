@@ -12,6 +12,8 @@ namespace STS.WebApp.Models
         }
         public DbSet<Level> Levels { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Sound> Sounds { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         public static ApplicationDbContext Create()
         {
