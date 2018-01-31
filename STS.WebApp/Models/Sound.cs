@@ -13,12 +13,7 @@ namespace STS.WebApp.Models
         public int SessionId { get; set; }
         public string Name { get; set; }
         public virtual Session Session { get; set; }
-    }
-
-    public class Image
-    {
-        public int Id { get; set; }
-        public int Name { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
     }
 
     

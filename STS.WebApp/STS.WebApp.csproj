@@ -410,6 +410,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="App_Start\IdentityHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Level.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Sound.cs" />
