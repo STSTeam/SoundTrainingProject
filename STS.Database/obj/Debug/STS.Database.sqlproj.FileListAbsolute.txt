@@ -25,3 +25,12 @@ C:\STS\SoundTrainingProject\STS.Database\obj\Debug\postdeploy.sql
 C:\STS\SoundTrainingProject\STS.Database\obj\Debug\predeploy.sql
 C:\STS\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.dll
 C:\STS\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.pdb
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\bin\Debug\STS.Database.dacpac
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\bin\Debug\STS.Database.dll
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\bin\Debug\STS.Database.pdb
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\obj\Debug\Model.xml
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\obj\Debug\refactor.xml
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\obj\Debug\postdeploy.sql
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\obj\Debug\predeploy.sql
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.dll
+C:\Users\rayan\source\repos\SoundTrainingProject\STS.Database\obj\Debug\STS.Database.pdb
