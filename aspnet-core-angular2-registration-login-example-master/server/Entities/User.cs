@@ -1,5 +1,8 @@
+using Dapper;
+
 namespace WebApi.Entities
 {
+    [Table("Users")]
     public class User
     {
         public int Id { get; set; }

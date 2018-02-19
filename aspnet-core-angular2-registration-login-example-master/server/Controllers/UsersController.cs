@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Services;
 using WebApi.Dtos;
 using AutoMapper;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using WebApi.Entities;
 using Microsoft.AspNetCore.Authorization;
+using WebApi.Repo;
 
 namespace WebApi.Controllers
 {
@@ -19,12 +19,12 @@ namespace WebApi.Controllers
     [Route("[controller]")]
     public class UsersController : Controller
     {
-        private IUserService _userService;
+        private IUserRepository _userService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
         public UsersController(
-            IUserService userService,
+            IUserRepository userService,
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
@@ -97,7 +97,7 @@ namespace WebApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var user =  _userService.GetById(id);
+            var user =  _userService.Get(id);
             var userDto = _mapper.Map<UserDto>(user);
             return Ok(userDto);
         }

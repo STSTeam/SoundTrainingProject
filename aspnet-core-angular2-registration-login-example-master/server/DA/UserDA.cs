@@ -1,36 +1,22 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WebApi.Entities;
+using WebApi.Repo;
+using Dapper;
 using WebApi.Helpers;
 
-namespace WebApi.Services
+namespace WebApi.DA
 {
-    public interface IUserService
+    public class UserDA : BaseDataAccess<User, int>, IUserRepository
     {
-        User Authenticate(string username, string password);
-        IEnumerable<User> GetAll();
-        User GetById(int id);
-        User Create(User user, string password);
-        void Update(User user, string password = null);
-        void Delete(int id);
-    }
-
-    public class UserService : IUserService
-    {
-        private DataContext _context;
-
-        public UserService(DataContext context)
-        {
-            _context = context;
-        }
-
         public User Authenticate(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return null;
 
-            var user = _context.Users.SingleOrDefault(x => x.Username == username);
+            var user = dbConnection.GetList<User>(new { Username = username }).FirstOrDefault();
 
             // check if username exists
             if (user == null)
@@ -44,23 +30,14 @@ namespace WebApi.Services
             return user;
         }
 
-        public IEnumerable<User> GetAll()
-        {
-            return _context.Users;
-        }
-
-        public User GetById(int id)
-        {
-            return _context.Users.Find(id);
-        }
-
         public User Create(User user, string password)
         {
             // validation
             if (string.IsNullOrWhiteSpace(password))
                 throw new AppException("Password is required");
 
-            if (_context.Users.Any(x => x.Username == user.Username))
+
+            if (dbConnection.GetList<User>(new {UserName = user.Username }).FirstOrDefault() != null )
                 throw new AppException("Username " + user.Username + " is already taken");
 
             byte[] passwordHash, passwordSalt;
@@ -69,15 +46,14 @@ namespace WebApi.Services
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            dbConnection.Insert(user);
 
             return user;
         }
 
         public void Update(User userParam, string password = null)
         {
-            var user = _context.Users.Find(userParam.Id);
+            var user = dbConnection.Get<User>(userParam.Id);
 
             if (user == null)
                 throw new AppException("User not found");
@@ -85,7 +61,7 @@ namespace WebApi.Services
             if (userParam.Username != user.Username)
             {
                 // username has changed so check if the new username is already taken
-                if (_context.Users.Any(x => x.Username == userParam.Username))
+                if (dbConnection.GetList<User>(new { Username = userParam.Username }).FirstOrDefault() != null)
                     throw new AppException("Username " + userParam.Username + " is already taken");
             }
 
@@ -104,34 +80,9 @@ namespace WebApi.Services
                 user.PasswordSalt = passwordSalt;
             }
 
-            _context.Users.Update(user);
-            _context.SaveChanges();
+            dbConnection.Update(user);
         }
-
-        public void Delete(int id)
-        {
-            var user = _context.Users.Find(id);
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-                _context.SaveChanges();
-            }
-        }
-
-        // private helper methods
-
-        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            if (password == null) throw new ArgumentNullException("password");
-            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
-
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
-        }
-
+        
         private static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
             if (password == null) throw new ArgumentNullException("password");
@@ -149,6 +100,18 @@ namespace WebApi.Services
             }
 
             return true;
+        }
+
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            if (password == null) throw new ArgumentNullException("password");
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
         }
     }
 }

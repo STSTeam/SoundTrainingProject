@@ -9,7 +9,7 @@ namespace WebApi.Helpers
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=TestDb123;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=.\sqlexpress;Database=TestDb123;Trusted_Connection=True;");
 
         }
 

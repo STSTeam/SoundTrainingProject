@@ -3,8 +3,19 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Helpers\DataContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
+    <PackageReference Include="Dapper" Version="1.50.4" />
+    <PackageReference Include="Dapper.SimpleCRUD.NetCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
