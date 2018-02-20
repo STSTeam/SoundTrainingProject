@@ -23,7 +23,12 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "bootstrap-rtl": "3.3.4",
+    "font-awesome": "4.7.0",
+    "mdn-polyfills": "3.5.0",
+    "ng2-archwizard": "2.1.0",
+    "primeng": "4.3.0"
   },
   "devDependencies": {
     "@angular/cli": "1.6.8",

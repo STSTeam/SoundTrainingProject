@@ -1,0 +1,128 @@
+/*************************** Fonts ***************************
+*****************************************************************/
+body .ui-widget, body .ui-widget .ui-widget, body .ui-widget input, body .ui-widget select, body .ui-widget textarea, body .ui-widget button {
+    font-family: 'din' ,  "Helvetica Neue", Arial, sans-serif;
+}
+
+/*************************** Datatable ***************************
+*****************************************************************/
+/* Table Head */
+body .ui-datatable .ui-datatable-thead > tr > th {vertical-align: top;background: #e5e5e5; border: none; font-weight: 700; color: #555;text-align: right }
+/* Table tbody */
+.ui-datatable-tablewrapper .ui-datatable-data {border: none;font-size: 15px;}
+/* Table TR  */
+.ui-datatable .ui-datatable-data>tr>td {border: none}
+body .ui-datatable .ui-datatable-data tr.ui-widget-content {border: none}
+/* Table Row Even */
+body .ui-datatable .ui-datatable-data tr.ui-datatable-even {background: #f3f3f1;}
+/* Table Row odd  */
+body .ui-datatable .ui-datatable-data tr.ui-widget-odd  {background-color: #fcfcfc;}
+/* Datatable Pagenation */
+body .ui-datatable .ui-paginator {border: none;background: none;padding: 10px;text-align: right;}
+body .ui-datatable .ui-paginator .ui-paginator-pages {direction: rtl}
+body .ui-datatable .ui-paginator .ui-dropdown {float: right;text-align: left;}
+
+
+/*************************** Buttons  ***************************
+*****************************************************************/
+body .ui-button {background-color: #1a9456;border-radius: 0}
+body .ui-button:enabled:hover , body .ui-button:enabled:active , body .ui-button:enabled:focus {background-color: #156f41;box-shadow: none}
+
+
+/*************************** Pagination ***************************
+*******************************************************************/
+/* Active */
+body .ui-state-active {background: #1a9456}
+/* Active hover */
+body .ui-paginator .ui-paginator-pages .ui-paginator-page:hover.ui-state-active {background: #156f41;}
+/* Arrows/Numbers color  */
+body .ui-paginator .ui-paginator-first, 
+body .ui-paginator .ui-paginator-prev, 
+body .ui-paginator .ui-paginator-next, 
+body .ui-paginator .ui-paginator-last , 
+body .ui-paginator .ui-paginator-pages .ui-paginator-page {color:#1a9456}
+.ui-paginator .fa-step-backward:before {content: "\F051";}
+.ui-paginator .fa-step-forward:before {content: "\F048";}
+.ui-paginator .fa-forward:before {content: "\F04A"}
+.ui-paginator .fa-backward:before {content: "\F04E";}
+
+
+/*************************** File upload*************************
+*****************************************************************/
+/* Button hover */
+body .ui-fileupload-choose:not(.ui-state-disabled):hover, body .ui-fileupload-choose.ui-state-focus {background: #156f41;}
+/* Remove image */
+p-fileupload + img {display: none}
+
+
+/***************************  Pick List *************************
+*****************************************************************/
+/* Selector highlight */
+body .ui-picklist .ui-picklist-list .ui-picklist-item.ui-state-highlight {background: rgb(219, 219, 219);color: #555;width:100%}
+/* RTL direction of arrows */
+body .ui-picklist .ui-button-icon-left {transform: rotate(180deg);}
+.ui-picklist-buttons-cell .ui-button-text {display: none}
+/* Arrows */
+.ui-picklist.ui-picklist-responsive .ui-picklist-buttons button {padding: 15px}
+
+
+/***************************  List Box **************************
+*****************************************************************/
+/* List Style */
+body .ui-listbox {width: 100%}
+/* List box input */
+body .ui-listbox .ui-listbox-header .ui-listbox-filter-container {width: 97%;}
+body .ui-widget-header .ui-inputtext, .ui-widget-content .ui-inputtext {border-radius:0;padding: 5px; }
+.ui-listbox-header .ui-listbox-filter-container .fa {top: 8px}
+body .ui-listbox .ui-listbox-item.ui-state-highlight, 
+body .ui-listbox:not(.ui-state-disabled) .ui-listbox-item:hover
+{background-color: #dbdbdb;}
+body .ui-chkbox .ui-chkbox-box.ui-state-active {border: none;background-color: #1a9456;color: #ffffff;}
+body .ui-listbox .ui-listbox-item.ui-state-highlight {background-color: #1a9456;}
+body .ui-listbox .ui-listbox-item.ui-state-highlight .ui-chkbox {border: 1px solid #d0d0d0;}
+
+
+/***************************  Complexity Password **************************
+****************************************************************************/
+/* Container */
+body .ui-state-highlight {background: #5a5a5a; border-radius: 0; width: 304px;} 
+/* Text Area */
+body .ui-password-info { margin-top: 0; text-align: center; }
+/* BAckground image */
+body .ui-password-panel .ui-password-meter {background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAAoCAIAAADRxbAOAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0QjVGRDMxOUU0ODYxMUU3OTQ2MDkyMTFEQUNFRDk1NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0QjVGRDMxQUU0ODYxMUU3OTQ2MDkyMTFEQUNFRDk1NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjRCNUZEMzE3RTQ4NjExRTc5NDYwOTIxMURBQ0VEOTU2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjRCNUZEMzE4RTQ4NjExRTc5NDYwOTIxMURBQ0VEOTU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+zg5SWwAAANtJREFUeNrs3aENwmAUhVFKGiy4ujpYgEEYCM1A6M6AqQRX91yxKEoKFtUXknLOCDf58qfJS1o0TVNV1QKYWkSUQ111XdsCMixNAAIDgQECA4GBwACBwa+UEWEFyDDE5QWDzBdsvORYbza2GNz73gj4BgOBgcBMAAIDgQECA4HBHHwuOdrWFi9dZwOm4pIDkl+w8ZLjcd7bYk5Wh4sRfIOBwACBgcBAYIDAQGDw1wo/f4AkLjkg1/uS43jb2QImdNpefYNBLoGBwEBggMBAYCAw4DuXHJAlIp4CDABEOCm9YBf0ogAAAABJRU5ErkJggg==')  no-repeat left top}
+
+
+/***************************  Accordion **************************
+******************************************************************/
+/* Container */
+body .ui-accordion.ui-widget {margin-bottom:20px;}
+/* Header */ 
+body .ui-accordion .ui-accordion-header {border: 1px solid #cecece; color: #868686; margin-bottom: -2px; border-radius: 0;padding-right: 20px; }
+body .ui-accordion .ui-accordion-header a {color: #868686;text-decoration: none;font-size: 18px;}
+/* Active */ 
+body .ui-accordion .ui-accordion-header.ui-state-active { background-color: #f6f5f6; color: #1a9456; opacity: 1; border-color: #b0c7bb; border-radius: 0; }
+body .ui-accordion .ui-accordion-header.ui-state-active a {color: #1a9456;}
+/* Arrows if usege Fontawesome 5 JS [SVG] */ 
+body .ui-accordion .ui-accordion-header.ui-state-active .fa-caret-right {transform: rotate(90deg);}
+body .ui-accordion .ui-accordion-header .svg-inline--fa {transition: all 0.3s}
+body .ui-accordion .ui-accordion-header .fa-caret-down , body .ui-accordion .ui-accordion-header .fa-caret-right {position: absolute;top: 19px;right: 10px;}
+
+
+
+/****************************  Dropdown **************************
+******************************************************************/
+body .ui-dropdown {border-radius: 0;height: 40px; padding-top: 2px;}
+body .ui-dropdown:not(.ui-state-disabled):hover {background-color: #ffffff;}
+/* Dropdown arrow if usege Fontawesome 5 JS [SVG] */ 
+body .ui-dropdown-panel .ui-dropdown-filter-container .svg-inline--fa {position: absolute;top: .8em; left: 1em;}
+body .ui-dropdown .svg-inline--fa {position: absolute;top: 10px;color: #868686}
+/* List Items <li> */
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {text-align: right}
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {background-color: #565656;width: 100%;}
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {padding: 5px}
+/* Label */
+body .ui-dropdown label.ui-dropdown-label {padding-right: 30px}
+body .ui-dropdown:hover label {background: #ffffff !important}
+body .ui-dropdown.ui-state-focus .ui-dropdown-label.ui-inputtext {background: #fff}
+
+

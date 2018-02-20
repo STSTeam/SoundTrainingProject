@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="container">
+      <div class="logo">
+        <a routerLink='home'>
+          <img class="pull-left" src="/assets/images/logo.png" />
+          <div class="logo-text pull-left">
+            <h1>خدمة إصدار التراخيص الصحية</h1>
+            <p>إدارة تنمية الاستثمار الصحي </p>
+          </div>
+        </a>
+  
+      </div>
+  
+      <app-topnavbar></app-topnavbar>
+    </div>
+  </header>
+  
+  <app-sidenavbar></app-sidenavbar>
+  
+  <div class="container">
+    <div class="page-header">
+    </div>
+  </div>
+  
+  <div class="container bg"> 
+    <!-- <p-messages [(value)]="messageService.notifications"></p-messages>  -->
+    <router-outlet></router-outlet>
+  </div>
+  <footer class="footer">
+      <div class="container">
+        <img class="moh-footer-logo" src="/assets/images/white-logo.svg" />
+        <p class="copyrights"> جميع الحقوق محفوظة - خدمة إصدار التراخيص الصحية​ - وزارة الصحة - 2018 </p>
+        <p class="contact-details pull-right">
+          <span class="contact-text">مركز اتصال قطاع الأعمال</span>
+          <span class="contact-numb">920018090</span>
+          </p>
+      </div>
+    </footer>
+  

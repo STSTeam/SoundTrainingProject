@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="mobileMenu"> القائمة الرئيسية </span>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav nav-pills">
+          <li>
+            <a routerLink="/patient/home" routerLinkActive="active"> الصفحة الرئيسية </a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  menu 1</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/patient/home">  sub menu 1</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
