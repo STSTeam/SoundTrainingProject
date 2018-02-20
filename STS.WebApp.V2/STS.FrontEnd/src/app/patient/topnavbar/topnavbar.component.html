@@ -17,7 +17,7 @@
         </li>
         <li class="last-item custom-link">
           <div>
-            <a style="cursor: pointer" >
+            <a style="cursor: pointer"  [routerLink]="['/login']" >
               <i class="fa fa-sign-out fa-fw"></i> تسجيل الخروج</a>
           </div>
         </li>
@@ -40,7 +40,7 @@
         </a>
       </div>
       <ul class="list-inline loggedActions">
-        <li data-toggle="tooltip"   title="تسجيل الخروج">
+        <li data-toggle="tooltip"  [routerLink]="['/public/login']"   title="تسجيل الخروج">
           <a href="#">
             <img src="/assets/images/logout.svg" />
           </a>
