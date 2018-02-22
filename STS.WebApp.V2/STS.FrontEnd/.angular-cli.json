@@ -22,18 +22,15 @@
         "./assets/css/bootstrap-rtl.min.css",
         "../node_modules/primeng/resources/themes/bootstrap/theme.css",
         "../node_modules/primeng/resources/primeng.min.css",
-        "./assets/css/jquery.calendars.picker.css",
-        "./assets/css/AR/custom-ar.css", 
-        "./assets/css/AR/custom-primeng.css",
         "./assets/css/fontawesome-pro-light.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css"
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "./assets/css/StsStyle.css"
       ],
       "scripts": [
         "./assets/js/jquery.min.js",
         "./assets/js/bootstrap.min.js",
         "./assets/js/head.min.js",
         "./assets/js/jquery.waypoints.min.js",
-        "./assets/js/custom.js",
         "./assets/js/jquery.bootstrap.wizard.min.js",
         "./assets/js/jquery.slimscroll.min.js",
         "./assets/js/jquery.waypoints.min.js"
