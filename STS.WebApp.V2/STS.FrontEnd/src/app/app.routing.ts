@@ -6,12 +6,12 @@ import { LoginComponent } from "./components/login/index";
 import { RegisterComponent } from "./components/register/index";
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/ },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'home' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

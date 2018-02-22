@@ -4,10 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
 import { AppConfig } from '../app.config';
+import { UserDataStore } from "./_stateServices/userDataStore.service";
 
 @Injectable()
 export class AuthenticationService {
-    constructor(private http: Http, private config: AppConfig) { }
+    constructor(private http: Http
+        , private config: AppConfig
+        ,  private _userDataStore:UserDataStore) { }
 
     login(username: string, password: string) {
         return this.http.post(this.config.apiUrl + '/users/authenticate', { username: username, password: password })
@@ -18,11 +21,14 @@ export class AuthenticationService {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
+
+                this._userDataStore.SetCurrentUser(user);
             });
     }
 
     logout() {
         // remove user from local storage to log user out
+        this._userDataStore.SetCurrentUser(null);
         localStorage.removeItem('currentUser');
     }
 }

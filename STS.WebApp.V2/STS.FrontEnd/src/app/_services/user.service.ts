@@ -27,7 +27,6 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(this.config.apiUrl + '/users/' + id, this.jwt());
     }
-
     // private helper methods
 
     private jwt() {

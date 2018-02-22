@@ -1,0 +1,22 @@
+<div class="container" dir="ltr">
+  <div class="row">
+    <div class="col-md-4">
+      <a [routerLink]="['/']">
+        <img src="./assets/images/logo.png" style="height: 125px; width: 208px" />
+      </a>
+      <label style="font-size: 30px">Aural rehabilitation</label>
+    </div>
+    <div *ngIf="!currentUser" class="col-md-8">
+      <a [routerLink]="['/login']">Login</a> | 
+      <a [routerLink]="['/register']">Register</a>
+    </div>
+    <div *ngIf="currentUser" class="col-md-8">
+         <a [routerLink]="['/login']">Logout</a>  -- Welcom: {{currentUser.firstName}} {{currentUser.lastName}}
+      </div>
+  </div>
+  <div>
+    <div class="row">
+      <img src="./assets/images/header-banner.png" style="height: 150px; width:100%" >
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService, AlertService } from "../../_services/index";
+import { UserDataStore } from "../../_services/_stateServices/userDataStore.service";
 
 @Component({
     moduleId: module.id,
