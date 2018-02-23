@@ -7,13 +7,16 @@ namespace WebApi.Helpers
     // that can be caught and handled within the application
     public class AppException : Exception
     {
-        public AppException() : base() {}
+        public int StatusCode { get; set; }
+
+        //public AppException() : base() {}
 
         public AppException(string message) : base(message) { }
 
-        public AppException(string message, params object[] args) 
-            : base(String.Format(CultureInfo.CurrentCulture, message, args))
+        public AppException(Exception ex) 
+            : base(ex.Message)
         {
+            
         }
     }
 }

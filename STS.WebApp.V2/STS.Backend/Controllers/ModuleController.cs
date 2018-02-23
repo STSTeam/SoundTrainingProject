@@ -36,7 +36,8 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            throw new Exception("my exception message");
+            
+            throw new AppException("my exception message");
             return HlsOk(_mapper.Map<IList<Dtos.ModuleDto>>(_moduleRepo.GetAll()));
         }
 

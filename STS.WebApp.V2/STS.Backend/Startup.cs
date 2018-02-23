@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using WebApi.Repo;
 using WebApi.DA;
 using WebApi.Middleware;
+using WebApi.Filters;
 
 namespace WebApi
 {
@@ -33,7 +34,10 @@ namespace WebApi
         {
             services.AddCors();
           
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new ApiExceptionFilter());
+            });
             services.AddAutoMapper();
 
             // configure strongly typed settings objects
@@ -82,7 +86,7 @@ namespace WebApi
             app.UseAuthentication();
 
             // custom exception handler
-            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+            //app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             app.UseMvc();
         }

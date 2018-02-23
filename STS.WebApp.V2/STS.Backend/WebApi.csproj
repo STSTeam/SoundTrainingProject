@@ -9,6 +9,7 @@
     <None Remove="Migrations\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="Helpers\ApiException.cs" />
     <Compile Remove="Helpers\DataContext.cs" />
   </ItemGroup>
   <ItemGroup>

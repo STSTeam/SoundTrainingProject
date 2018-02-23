@@ -23,8 +23,8 @@ namespace WebApi.Controllers
         IActionResult CreateHLSResponse(HttpStatusCode httpStatusCode, bool isSuccess,
            object resultData = null, string errorMessage = null, string errorCode = null)
         {
-            var response = new HlsResponseData(isSuccess, errorMessage, resultData, errorCode: errorCode);
-            return Content(JsonConvert.SerializeObject(response));
+            var response = new HlsResponseData(resultData);
+            return Json(response);
         }
     }
 }
