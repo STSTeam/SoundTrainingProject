@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this._userDataStore.userModle.subscribe(user =>{
-      debugger
          this.currentUser = user;
     });
   }

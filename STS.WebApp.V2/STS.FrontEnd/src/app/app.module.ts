@@ -10,12 +10,13 @@ import { AppConfig } from './app.config';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
-import { HomeComponent } from "./components/home/home.component";
-import { LoginComponent } from "./components/login/login.component";
-import { RegisterComponent } from "./components/register/register.component";
-import { HeaderComponent } from "./components/header/header.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { UserDataStore } from "./_services/_stateServices/userDataStore.service";
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { UserDataStore } from './_services/_stateServices/userDataStore.service';
+import { HearingComponent } from './components/hearing/hearing.component';
 
 @NgModule({
     imports: [
@@ -31,7 +32,8 @@ import { UserDataStore } from "./_services/_stateServices/userDataStore.service"
         LoginComponent,
         RegisterComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        HearingComponent
     ],
     providers: [
         AppConfig,
