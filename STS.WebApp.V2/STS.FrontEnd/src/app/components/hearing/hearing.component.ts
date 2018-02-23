@@ -22,8 +22,8 @@ export class HearingComponent implements OnInit {
       this.modules = <ModuleModel[]>res.resultData;
       console.log(this.modules);
     }, err=>{
-        //let error :StsErrorData = <StsErrorData>err;
-      //this.alertService.error(error.errorMessage);
+        let error :StsErrorData = <StsErrorData>err;
+      this.alertService.error(error.errorMessage);
     })
   }
 

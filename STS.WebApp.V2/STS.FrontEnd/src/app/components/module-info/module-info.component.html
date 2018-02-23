@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1>{{moduleInfo?.title}} Sessions List</h1>
+</div>
+
+<div class="row">
+  <div *ngFor="let session of sessions" class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <!-- <img src="..." alt="..."> -->
+      <div class="caption">
+        <a [routerLink]="session.id">
+          <h3>{{session.title}}</h3>
+        </a>
+        
+        <!-- <p>
+          <a href="#" class="btn btn-primary" role="button">Button</a>
+          <a href="#" class="btn btn-default" role="button">Button</a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>

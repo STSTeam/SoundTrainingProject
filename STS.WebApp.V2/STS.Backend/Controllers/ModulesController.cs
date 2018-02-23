@@ -36,16 +36,13 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-
-             throw new AppException("my exception message");
-            
             return HlsOk(_mapper.Map<IList<Dtos.ModuleDto>>(_moduleRepo.GetAll()));
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            return Ok(_mapper.Map<ModuleDto>(_moduleRepo.Get(id)));
+            return HlsOk(_mapper.Map<ModuleDto>(_moduleRepo.Get(id)));
         }
     }
 }

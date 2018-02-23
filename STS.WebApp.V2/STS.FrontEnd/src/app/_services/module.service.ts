@@ -17,6 +17,10 @@ export class ModulesService {
         return this.http.get<ResultData>(this.ApiUrl);
     }
 
+    getById(moduleId: number){
+        return this.http.get<ResultData>(`${this.ApiUrl}/${moduleId}`);
+    }
+
     // private jwt() {
     //     // create authorization header with jwt token
     //     let currentUser = JSON.parse(localStorage.getItem('currentUser'));

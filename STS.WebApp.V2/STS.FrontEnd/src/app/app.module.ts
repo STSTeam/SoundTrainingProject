@@ -20,9 +20,14 @@ import { UserDataStore } from './_services/_stateServices/userDataStore.service'
 import { HearingComponent } from './components/hearing/hearing.component';
 import { HlsHttpInterceptor } from "./Interceotor/StsHttpInterceptor";
 import { ModulesService } from "./_services/module.service";
+import { CommonModule } from '@angular/common';
+import { ModuleInfoComponent } from './components/module-info/module-info.component';
+import { SessionsService } from "./_services/session.service";
+import { SessionInfoComponent } from './components/session-info/session-info.component';
 
 @NgModule({
     imports: [
+        CommonModule,
         BrowserModule,
         FormsModule,
         HttpModule,
@@ -37,7 +42,9 @@ import { ModulesService } from "./_services/module.service";
         RegisterComponent,
         HeaderComponent,
         FooterComponent,
-        HearingComponent
+        HearingComponent,
+        ModuleInfoComponent,
+        SessionInfoComponent
     ],
     providers: [
         AuthGuard,
@@ -45,6 +52,7 @@ import { ModulesService } from "./_services/module.service";
         AuthenticationService,
         UserService,
         ModulesService,
+        SessionsService,
         UserDataStore,
         {
             provide: HTTP_INTERCEPTORS,

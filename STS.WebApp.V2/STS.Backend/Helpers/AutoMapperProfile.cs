@@ -1,4 +1,5 @@
 using AutoMapper;
+using System.Collections.Generic;
 using WebApi.Dtos;
 using WebApi.Entities;
 
@@ -15,6 +16,11 @@ namespace WebApi.Helpers
             // module mapping
             CreateMap<Module, ModuleDto>();
             CreateMap<ModuleDto, Module>();
+
+            // session mapping
+            CreateMap<Session, SessionDto>();
+            CreateMap<SessionDto, Session>();
+
         }
     }
 }
