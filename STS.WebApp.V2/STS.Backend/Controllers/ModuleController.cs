@@ -15,7 +15,7 @@ using WebApi.Repo;
 
 namespace WebApi.Controllers
 {
-    [Authorize]
+   [Authorize]
     [Route("[controller]")]
     public class ModulesController : ApiBaseController
     {
@@ -36,8 +36,9 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
+
+             throw new AppException("my exception message");
             
-            throw new AppException("my exception message");
             return HlsOk(_mapper.Map<IList<Dtos.ModuleDto>>(_moduleRepo.GetAll()));
         }
 
