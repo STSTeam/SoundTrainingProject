@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using WebApi.Repo;
 using WebApi.DA;
+using WebApi.Middleware;
 
 namespace WebApi
 {
@@ -31,7 +32,7 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            //services.AddDbContext<DataContext>();
+          
             services.AddMvc();
             services.AddAutoMapper();
 
@@ -79,6 +80,9 @@ namespace WebApi
                 .AllowCredentials());
 
             app.UseAuthentication();
+
+            // custom exception handler
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             app.UseMvc();
         }

@@ -17,7 +17,7 @@ namespace WebApi.Controllers
 {
     [Authorize]
     [Route("[controller]")]
-    public class ModulesController : Controller
+    public class ModulesController : ApiBaseController
     {
         private IModuleRepository _moduleRepo;
         private IMapper _mapper;
@@ -36,7 +36,8 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(_mapper.Map<IList<Dtos.ModuleDto>>(_moduleRepo.GetAll()));
+            throw new Exception("my exception message");
+            return HlsOk(_mapper.Map<IList<Dtos.ModuleDto>>(_moduleRepo.GetAll()));
         }
 
         [HttpGet("{id}")]

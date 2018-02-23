@@ -11,6 +11,10 @@ namespace WebApi.Helpers
             // user mapping
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+
+            // module mapping
+            CreateMap<Module, ModuleDto>();
+            CreateMap<ModuleDto, Module>();
         }
     }
 }
