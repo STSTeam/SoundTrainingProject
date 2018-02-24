@@ -13,6 +13,10 @@ export class SessionsService {
 
     private ApiUrl = 'Sessions';
 
+    getById(sessionId:number) : Observable<ResultData> {
+        return this.http.get<ResultData>(`${this.ApiUrl}/${sessionId}`);
+    }
+
     getByModuleId(moduleId:number) : Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/GetByModuleId/${moduleId}`);
     }

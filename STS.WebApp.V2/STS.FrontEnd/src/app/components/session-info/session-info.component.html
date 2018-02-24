@@ -1,3 +1,16 @@
-<p>
-  session-info works!
-</p>
+<div class="page-header">
+  <h1>Session: {{session?.title}} </h1>
+</div>
+
+<div class="row">
+  <div  class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <a [routerLink]="['training']">
+          <h3>Training</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
