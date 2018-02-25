@@ -25,7 +25,8 @@ import { ModuleInfoComponent } from './components/module-info/module-info.compon
 import { SessionsService } from "./_services/session.service";
 import { SessionInfoComponent } from './components/session-info/session-info.component'; 
 import { TrainingComponent } from './components/training/training.component';
-import { SessionTestComponent } from "./components/session-test/session-test.component";
+import { SessionTestComponent } from "./components/session-test/session-test.component"
+import { TrainingItemViewComponent } from "./_directives/training-item-view/training-item-view.component";
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import { SessionTestComponent } from "./components/session-test/session-test.com
         ModuleInfoComponent,
         SessionInfoComponent,
         TrainingComponent,
-        SessionTestComponent
+        SessionTestComponent,
+        TrainingItemViewComponent
     ],
     providers: [
         AuthGuard,

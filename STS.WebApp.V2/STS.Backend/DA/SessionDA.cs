@@ -15,5 +15,13 @@ namespace WebApi.DA
         {
             return dbConnection.GetList<Session>(new { ModuleId = moduleId }).ToList();
         }
+
+        public List<Sound> GetSessionSounds(int sessionId)
+        {
+            var parms = new DynamicParameters();
+            parms.Add("@sessionId", sessionId);
+            var reader = dbConnection.Query<Sound>("sounds_GetBySessionId", parms, commandType: System.Data.CommandType.StoredProcedure);
+            return reader.AsList<Sound>();
+        }
     }
 }

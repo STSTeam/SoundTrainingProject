@@ -6,4 +6,6 @@
 export const environment = {
   production: false,
   API_URL: 'http://localhost:5000/',
+  SOUNDS_FOLDER_PATH:'./assets/_support_files/MP3/',
+  IMAGES_FOLDER_PATH: './assets/_support_files/pic/'
 };

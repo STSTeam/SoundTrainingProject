@@ -44,5 +44,13 @@ namespace WebApi.Controllers
         {
             return HlsOk(_mapper.Map<List<SessionDto>>(_sessionRepo.GetByModuleId(moduleId)));
         }
+
+        [HttpGet("GetSessionTrainingSounds/{sessionId}")]
+        public IActionResult GetSessionTrainingSounds(int sessionId)
+        {
+            return HlsOk(_mapper.Map<List<SoundDto>>(_sessionRepo.GetSessionSounds(sessionId)));
+        }
+
+
     }
 }

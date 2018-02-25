@@ -23,37 +23,63 @@ GO
 SET IDENTITY_INSERT [dbo].[Sound] ON 
 
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (1, 1, N'1_Car_horn')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (1, N'1_Car_horn')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (2, 1, N'1_Sound_Ambulane')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (2, N'1_Sound_Ambulane')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (3, 1, N'1_Sound_Baby _cry')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (3, N'1_Sound_Baby _cry')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (4, 1, N'1_Sound_Bird')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (4, N'1_Sound_Bird')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (5, 1, N'1_Sound_Cat')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (5, N'1_Sound_Cat')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (6, 1, N'1_Sound_Dog')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (6, N'1_Sound_Dog')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (7, 1, N'1_Sound_Door knocking')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (7, N'1_Sound_Door knocking')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (8, 1, N'1_Sound_Foot steps')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (8, N'1_Sound_Foot steps')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (9, 1, N'1_Sound_Horse')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (9, N'1_Sound_Horse')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (10, 1, N'1_Sound_Piano')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (10, N'1_Sound_Piano')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (11, 1, N'1_Sound_Rain')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (11, N'1_Sound_Rain')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (12, 1, N'1_Sound_Ring')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (12, N'1_Sound_Ring')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (13, 1, N'1_Sound_Sheep bleating')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (13, N'1_Sound_Sheep bleating')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (15, 1, N'1_Sound_Snake')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (15, N'1_Sound_Snake')
 GO
-INSERT [dbo].[Sound] ([Id], [SessionId], [Name]) VALUES (16, 1, N'1_Sound_Tap water')
+INSERT [dbo].[Sound] ([Id], [Name]) VALUES (16, N'1_Sound_Tap water')
 GO
 SET IDENTITY_INSERT [dbo].[Sound] OFF
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 1)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 2)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 3)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 4)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 5)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 6)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 7)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 8)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 9)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 10)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 11)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 12)
+GO
+INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 13)
 GO
 SET IDENTITY_INSERT [dbo].[Image] ON 
 
@@ -99,4 +125,36 @@ GO
 INSERT [dbo].[Image] ([Id], [Name]) VALUES (20, N'1_Pic_water_tap')
 GO
 SET IDENTITY_INSERT [dbo].[Image] OFF
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (2, 1)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (2, 2)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (4, 3)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (16, 4)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (1, 5)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (5, 6)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (6, 7)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (7, 8)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (15, 9)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (8, 10)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (16, 11)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (9, 12)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (12, 13)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (10, 14)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (11, 15)
+GO
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (13, 16)
 GO

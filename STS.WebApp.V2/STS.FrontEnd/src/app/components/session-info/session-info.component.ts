@@ -28,7 +28,6 @@ export class SessionInfoComponent implements OnInit {
     this.sessionId = this.route.snapshot.params['sessionId'];
     
     this.sessionsService.getById(this.sessionId).subscribe(res =>{
-      debugger;
       let result : ResultData = <ResultData>res;
       this.session = <SessionModel>res.resultData;
     }, err=>{

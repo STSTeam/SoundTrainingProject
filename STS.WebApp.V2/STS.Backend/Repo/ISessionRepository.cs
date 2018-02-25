@@ -9,5 +9,7 @@ namespace WebApi.Repo
     public interface ISessionRepository : IBaseRepository<Session, int>
     {
         List<Session> GetByModuleId(int moduleId);
+
+        List<Sound> GetSessionSounds(int sessionId);
     }
 }

@@ -1,3 +1,5 @@
-<p>
-  training works!
-</p>
+
+
+  <app-training-item-view [sound]="currentSound"></app-training-item-view>
+  <button *ngIf="showNext" (click)="moveWizard('forward')">Next</button>
+  <button *ngIf="showPre" (click)="moveWizard('backward')">Pre</button>

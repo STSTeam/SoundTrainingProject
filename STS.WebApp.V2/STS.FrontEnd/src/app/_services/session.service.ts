@@ -20,4 +20,8 @@ export class SessionsService {
     getByModuleId(moduleId:number) : Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/GetByModuleId/${moduleId}`);
     }
+
+    getSessionSounds(soundId:number): Observable<ResultData> {
+        return this.http.get<ResultData>(`${this.ApiUrl}/GetSessionTrainingSounds/${soundId}`);
+    }
 }

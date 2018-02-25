@@ -21,6 +21,10 @@ namespace WebApi.Helpers
             CreateMap<Session, SessionDto>();
             CreateMap<SessionDto, Session>();
 
+            // sounds mapper
+            CreateMap<Sound, SoundDto>();
+            CreateMap<SoundDto, Sound>();
+
         }
     }
 }
