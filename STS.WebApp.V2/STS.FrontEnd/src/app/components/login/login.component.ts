@@ -5,7 +5,8 @@ import { UserDataStore } from "../../_services/_stateServices/userDataStore.serv
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'login.component.html'
+    templateUrl: 'login.component.html',
+    styleUrls :['login.style.css']
 })
 
 export class LoginComponent implements OnInit {

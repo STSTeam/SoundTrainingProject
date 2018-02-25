@@ -31,9 +31,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li >
-          <a [routerLink]="['/hearing']">Hearing</a>
-        </li>
-        <li >
           <a [routerLink]="['/hearing']">اتصل بنا </a>
         </li>
         <li >
@@ -47,11 +44,11 @@
 
       <ul class="nav navbar-nav">
         <li>
-          <div *ngIf="!currentUser" class="col-md-6">
+          <div *ngIf="!currentUser" >
             <a [routerLink]="['/login']">Login</a> |
             <a [routerLink]="['/register']">Register</a>
           </div>
-          <div *ngIf="currentUser" class="col-md-6">
+          <div *ngIf="currentUser" >
             <a [routerLink]="['/login']">Logout</a> -- <i class="glyphicon glyphicon-user"></i> Welcom: {{currentUser.firstName}} {{currentUser.lastName}}
           </div>
         </li>

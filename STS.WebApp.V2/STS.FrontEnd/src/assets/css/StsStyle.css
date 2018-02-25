@@ -21,3 +21,8 @@
     width: 100%;
 }
 
+.mainIcons{
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
