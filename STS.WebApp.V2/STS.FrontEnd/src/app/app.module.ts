@@ -23,7 +23,9 @@ import { ModulesService } from "./_services/module.service";
 import { CommonModule } from '@angular/common';
 import { ModuleInfoComponent } from './components/module-info/module-info.component';
 import { SessionsService } from "./_services/session.service";
-import { SessionInfoComponent } from './components/session-info/session-info.component';
+import { SessionInfoComponent } from './components/session-info/session-info.component'; 
+import { TrainingComponent } from './components/training/training.component';
+import { SessionTestComponent } from "./components/session-test/session-test.component";
 
 @NgModule({
     imports: [
@@ -44,7 +46,9 @@ import { SessionInfoComponent } from './components/session-info/session-info.com
         FooterComponent,
         HearingComponent,
         ModuleInfoComponent,
-        SessionInfoComponent
+        SessionInfoComponent,
+        TrainingComponent,
+        SessionTestComponent
     ],
     providers: [
         AuthGuard,

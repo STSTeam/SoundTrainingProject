@@ -33,6 +33,12 @@ namespace WebApi.Controllers
             _appSettings = appSettings.Value;
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            return HlsOk(_mapper.Map<SessionDto>(_sessionRepo.Get(id)));
+        }
+
         [HttpGet("GetByModuleId/{moduleId}")]
         public IActionResult GetBModuleId(int moduleId)
         {
