@@ -51,6 +51,10 @@ namespace WebApi.Controllers
             return HlsOk(_mapper.Map<List<SoundDto>>(_sessionRepo.GetSessionSounds(sessionId)));
         }
 
-
+        [HttpGet("GetSoundImages/{soundId}")]
+        public IActionResult GetSoundImages(int soundId)
+        {
+            return HlsOk(_mapper.Map<List<ImageDto>>(_sessionRepo.GetSoundImages(soundId)));
+        }
     }
 }

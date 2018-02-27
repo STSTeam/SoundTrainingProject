@@ -11,5 +11,6 @@ namespace WebApi.Repo
         List<Session> GetByModuleId(int moduleId);
 
         List<Sound> GetSessionSounds(int sessionId);
+        List<Image> GetSoundImages(int soundId);
     }
 }

@@ -25,6 +25,10 @@ namespace WebApi.Helpers
             CreateMap<Sound, SoundDto>();
             CreateMap<SoundDto, Sound>();
 
+            // sounds mapper
+            CreateMap<Image, ImageDto>();
+            CreateMap<ImageDto, Image>();
+
         }
     }
 }

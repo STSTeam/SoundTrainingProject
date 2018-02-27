@@ -27,6 +27,9 @@ import { SessionInfoComponent } from './components/session-info/session-info.com
 import { TrainingComponent } from './components/training/training.component';
 import { SessionTestComponent } from "./components/session-test/session-test.component"
 import { TrainingItemViewComponent } from "./_directives/training-item-view/training-item-view.component";
+import {GalleriaModule} from 'primeng/galleria';
+
+ 
 
 @NgModule({
     imports: [
@@ -35,7 +38,9 @@ import { TrainingItemViewComponent } from "./_directives/training-item-view/trai
         FormsModule,
         HttpModule,
         HttpClientModule,
-        routing
+        routing,
+        GalleriaModule
+        
     ],
     declarations: [
         AppComponent,

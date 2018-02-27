@@ -23,5 +23,13 @@ namespace WebApi.DA
             var reader = dbConnection.Query<Sound>("sounds_GetBySessionId", parms, commandType: System.Data.CommandType.StoredProcedure);
             return reader.AsList<Sound>();
         }
+
+        public List<Image> GetSoundImages(int soundId)
+        {
+            var parms = new DynamicParameters();
+            parms.Add("@soundId", soundId);
+            var reader = dbConnection.Query<Image>("images_GetBySoundId", parms, commandType: System.Data.CommandType.StoredProcedure);
+            return reader.AsList<Image>();
+        }
     }
 }

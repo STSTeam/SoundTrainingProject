@@ -24,4 +24,8 @@ export class SessionsService {
     getSessionSounds(soundId:number): Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/GetSessionTrainingSounds/${soundId}`);
     }
+
+    getSoundImages(soundId:number):Observable<ResultData>{
+        return this.http.get<ResultData>(`${this.ApiUrl}/GetSoundImages/${soundId}`);
+    }
 }
