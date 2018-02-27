@@ -1,5 +1,7 @@
 
 
   <app-training-item-view *ngIf="currentSound" [sound]="currentSound"></app-training-item-view>
+  <div class="container">
   <button *ngIf="showNext" (click)="moveWizard('forward')">Next</button>
-  <button *ngIf="showPre" (click)="moveWizard('backward')">Pre</button>
+  <button class="prevBtn" *ngIf="showPre" (click)="moveWizard('backward')">Pre</button>
+</div>

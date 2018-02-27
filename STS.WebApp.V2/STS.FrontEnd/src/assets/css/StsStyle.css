@@ -26,3 +26,14 @@
     width: 100%;
     margin-bottom: 15px;
 }
+div.ui-galleria, ul.ui-galleria-panel-wrapper, li.ui-galleria-panel {
+    width: 100% !important;
+    height: auto !important;
+}
+li.ui-galleria-panel{
+    position: relative;
+    text-align: center;
+}
+div.ui-galleria-filmstrip-wrapper{
+    display:none;
+}
