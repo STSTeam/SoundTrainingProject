@@ -1,18 +1,19 @@
 <div class="page-header">
-  <h1>Hearing Main page</h1>
+  <h1>التدريب السمعي
+  </h1>
 </div>
 
 <div class="jumbotron">
 
-  <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive
-    CSS and HTML, so it also adapts to your viewport and device.</p>
-  <p>To see the difference between static and fixed top navbars, just scroll.</p>
+  <p>شرح قصير عن التدريب السمعي</p>
+
+
 </div>
 
 <div class="row">
-  <div *ngFor="let module of modules" class="col-sm-6 col-md-4">
+  <div *ngFor="let module of modules" class="col-sm-12 col-md-12">
     <div class="thumbnail">
-      <!-- <img src="..." alt="..."> -->
+      <img src="../assets/_support_files/Interface/1_Hearing.jpg" alt="...">
       <div class="caption">
         <a [routerLink]="module.id">
           <h3>{{module.title}}</h3>

@@ -5,7 +5,7 @@
       <a [routerLink]="['/']">
         <img src="./assets/images/logo.png" style="height: 125px; width: 208px" />
       </a>
-      <label class="img-fluid">Aural rehabilitation</label>
+      <label class="img-fluid">تأهيل سمعي ونطقي</label>
     </div>
 
   </div>
@@ -34,9 +34,9 @@
           <a [routerLink]="['/hearing']">اتصل بنا </a>
         </li>
         <li >
-          <a [routerLink]="['/hearing']">Hearing</a>
+          <a [routerLink]="['/hearing']">التدريب السمعي</a>
         </li>
-        <li><a class="" [routerLink]="['/home']">Home</a></li>
+        <li><a class="" [routerLink]="['/home']">الصفحة الرئيسية</a></li>
         <!-- <li>
           <a href="#">Link</a>
         </li> -->
@@ -45,11 +45,11 @@
       <ul class="nav navbar-nav">
         <li>
           <div *ngIf="!currentUser" >
-            <a [routerLink]="['/login']">Login</a> |
-            <a [routerLink]="['/register']">Register</a>
+            <a [routerLink]="['/login']">تسجيل الدخول</a> |
+            <a [routerLink]="['/register']">إنشاء الدخول</a>
           </div>
           <div *ngIf="currentUser" >
-            <a [routerLink]="['/login']">Logout</a> -- <i class="glyphicon glyphicon-user"></i> Welcom: {{currentUser.firstName}} {{currentUser.lastName}}
+            <a [routerLink]="['/login']">تسجيل الخروج</a> -- <i class="glyphicon glyphicon-user"></i> أهلا بك: {{currentUser.firstName}} {{currentUser.lastName}}
           </div>
         </li>
       </ul>

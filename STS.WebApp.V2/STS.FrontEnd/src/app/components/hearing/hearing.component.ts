@@ -7,7 +7,8 @@ import { StsErrorData } from "../../_models/errorData";
 
 @Component({
   selector: 'app-hearing',
-  templateUrl: './hearing.component.html'
+  templateUrl: './hearing.component.html',
+  styleUrls: ['./hearing.component.css']
 })
 export class HearingComponent implements OnInit {
 
