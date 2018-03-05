@@ -17,6 +17,7 @@ using WebApi.Repo;
 using WebApi.DA;
 using WebApi.Middleware;
 using WebApi.Filters;
+using WebApi.Entities;
 
 namespace WebApi
 {
@@ -70,7 +71,7 @@ namespace WebApi
             services.AddScoped<IModuleRepository, ModuleDA>();
             services.AddScoped<ISessionRepository, SessionDA>();
             services.AddScoped<IUserTestRepository, UserTestDA>();
-
+            services.AddScoped<IBaseRepository<Sound, int>, BaseDataAccess<Sound, int>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
