@@ -73,6 +73,8 @@
     <Build Include="dbo\Tables\SessionsSounds.sql" />
     <Build Include="dbo\Stored Procedures\sounds_GetBySessionId.sql" />
     <Build Include="dbo\Stored Procedures\images_GetBySoundId.sql" />
+    <Build Include="dbo\Tables\UserTestSounds.sql" />
+    <Build Include="dbo\Tables\UserTest.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />

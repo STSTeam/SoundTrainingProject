@@ -69,6 +69,8 @@ namespace WebApi
             services.AddScoped<IUserRepository, UserDA>();
             services.AddScoped<IModuleRepository, ModuleDA>();
             services.AddScoped<ISessionRepository, SessionDA>();
+            services.AddScoped<IUserTestRepository, UserTestDA>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
