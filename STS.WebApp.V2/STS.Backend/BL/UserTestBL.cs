@@ -52,7 +52,7 @@ namespace WebApi.BL
                     Id = randomCorrectImage.Id,
                     Name = randomCorrectImage.Name,
                     IsCorrectImage = true
-                });
+                }); 
 
                 // pick a random image from list of all session images
                 var randImage = sessionImages[GetRandomNumber(0, sessionImages.Count - 1)];
