@@ -16,6 +16,8 @@ namespace WebApi.BL
         private IUserTestRepository _userTestDA;
         IBaseRepository<Sound, int> _soundDA;
 
+        private Random rnd = new Random();
+
         public UserTestBL(
             IUserTestRepository _userTestDA,
             IBaseRepository<Entities.Sound, int> _soundDA)
@@ -27,9 +29,8 @@ namespace WebApi.BL
         public TestModel GenerateTest(int sessionId)
         {
             var testModel = new TestModel();
-            testModel.ModuleId = 1;
             testModel.SessionId = sessionId;
-            
+
             // get all sounds for session
             var sessionSoundsEntity = _userTestDA.GetSoundsBySessionId(sessionId);
             var sessionImages = _userTestDA.GetImagesBySessionId(sessionId);
@@ -50,16 +51,18 @@ namespace WebApi.BL
                 testSound.Images.Add(new TestImage()
                 {
                     Id = randomCorrectImage.Id,
-                    Name = randomCorrectImage.Name,
+                    Name = randomCorrectImage.Name, 
                     IsCorrectImage = true
-                }); 
+                });
 
                 // pick a random image from list of all session images
-                var randImage = sessionImages[GetRandomNumber(0, sessionImages.Count - 1)];
+
+                var randImage = sessionImages.Where(i => i.Id != randomCorrectImage.Id)
+                                .ElementAt(GetRandomNumber(0, sessionImages.Count - 1));
                 testSound.Images.Add(new TestImage()
                 {
-                    Id = randomCorrectImage.Id,
-                    Name = randomCorrectImage.Name,
+                    Id = randImage.Id,
+                    Name = randImage.Name,
                     IsCorrectImage = false
                 });
 
@@ -72,7 +75,7 @@ namespace WebApi.BL
 
         private int GetRandomNumber(int min, int max)
         {
-            Random rnd = new Random();
+
             return (rnd.Next(min, max));
         }
     }
