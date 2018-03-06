@@ -23,8 +23,10 @@ export class TestComponent implements OnInit {
   answers: TestAnswerModel[];
   testData: TestModel;
   currentSound: { "index": 0, sound: TestSound };
-  showResultButton: boolean = false;
+  showResult: boolean = false;
   showCorrect: string = null;
+  finalResult: string;
+  finalRsultNumber:number;
 
   @ViewChild('resultPanel') resultPanel: any;
   @ViewChild('soundCtr') soundCtr: any;
@@ -79,14 +81,15 @@ export class TestComponent implements OnInit {
         this.currentSound.index++;
 
         if (this.currentSound.index === this.testData.sounds.length) {
-          this.showResultButton = true;
+          this.showResult = true;
           this.computeResult();
           break;
         }
-        this.currentSound.sound = this.testData.sounds[this.currentSound.index];
-        this.updateSoundCtr();
-        break;
-
+        else {
+          this.currentSound.sound = this.testData.sounds[this.currentSound.index];
+          this.updateSoundCtr();
+          break;
+        }
     }
     console.log(this.currentSound);
   }
@@ -97,8 +100,20 @@ export class TestComponent implements OnInit {
     xx.src = "./assets/_support_files/MP3/" + this.currentSound.sound.name + ".mp3";
   }
 
-  computeResult() { 
-    
+  computeResult() {
+
+    let numberOfCorrectAnswers: number = 0;
+    this.answers.forEach(ans => {
+      if (ans.isCorrectAnswer)
+        numberOfCorrectAnswers++;
+    });
+
+    this.finalRsultNumber = (numberOfCorrectAnswers / this.answers.length) * 100;
+    if (this.finalRsultNumber > 50)
+      this.finalResult = 'pass';
+    else this.finalResult = 'fail';
+
+    console.log(this.answers);
   }
 
   radioClicked(event, overlaypanel: OverlayPanel, radioCtr) {
