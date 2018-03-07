@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -23,24 +23,28 @@ import { ModulesService } from "./_services/module.service";
 import { CommonModule } from '@angular/common';
 import { ModuleInfoComponent } from './components/module-info/module-info.component';
 import { SessionsService } from "./_services/session.service";
-import { SessionInfoComponent } from './components/session-info/session-info.component'; 
+import { SessionInfoComponent } from './components/session-info/session-info.component';
 import { TrainingComponent } from './components/training/training.component';
-import { SessionTestComponent } from "./components/session-test/session-test.component"
 import { TrainingItemViewComponent } from "./_directives/training-item-view/training-item-view.component";
-import {GalleriaModule} from 'primeng/galleria';
+import { GalleriaModule } from 'primeng/galleria';
+import { TestComponent } from './components/test/test.component';
+import { UserTestServices } from './_services/userTest.service';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
- 
 
 @NgModule({
     imports: [
+        BrowserAnimationsModule,
         CommonModule,
         BrowserModule,
         FormsModule,
         HttpModule,
         HttpClientModule,
         routing,
-        GalleriaModule
-        
+        GalleriaModule,
+        OverlayPanelModule
+
     ],
     declarations: [
         AppComponent,
@@ -54,7 +58,7 @@ import {GalleriaModule} from 'primeng/galleria';
         ModuleInfoComponent,
         SessionInfoComponent,
         TrainingComponent,
-        SessionTestComponent,
+        TestComponent,
         TrainingItemViewComponent
     ],
     providers: [
@@ -65,11 +69,12 @@ import {GalleriaModule} from 'primeng/galleria';
         ModulesService,
         SessionsService,
         UserDataStore,
+        UserTestServices,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HlsHttpInterceptor,
             multi: true,
-          },
+        },
     ],
     bootstrap: [AppComponent]
 })

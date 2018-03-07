@@ -1,0 +1,42 @@
+<div class="container" style="margin-bottom:10px;" #mainDiv>
+  <div *ngIf="!showResult">
+    <div class="row">
+      <div class="col-sm-4">
+        <audio *ngIf="currentSound.sound" id="passage-audio" class="passage" controls #soundCtr>
+          <source src="./assets/_support_files/MP3/{{currentSound.sound.name}}.mp3" type="audio/mp3" #soundCtr>
+          <em class="error">
+            <strong>Error:</strong> Your browser doesn't appear to support HTML5 Audio.</em>
+        </audio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let image of currentSound?.sound?.images">
+        <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="height: 300px; width: 300px">
+        <input name="{{image.id}}" ng-control="options" type="radio" [value]="image.isCorrectImage" (click)="radioClicked($event,resultPanel,radioCtr)"
+          #radioCtr>
+        <br/>
+
+      </div>
+    </div>
+    <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
+  </div>
+  <div *ngIf="showResult" class="row">
+    <div class="col-sm-12">
+      <h1> نتيجتك هي: {{finalRsultNumber}} %</h1>
+    </div>
+    <div class="col-sm-12" *ngIf="finalResult === 'pass'">
+      <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>
+      <img src="./assets/_support_files/Interface/1_Speaking.png" style="height: 300px; width: 300px">
+    </div>
+
+    <div class="col-sm-12" *ngIf="finalResult === 'fail'">
+      <h1 style="color: red">أعد المحاولة لاحقا </h1>
+      <img src="./assets/_support_files/Interface/1_Pic_confused_girl.png" style="height: 300px; width: 300px">
+    </div>
+  </div>
+</div>
+
+<p-overlayPanel #resultPanel>
+  <img *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_correct_penguins.png" style="height: 300px; width: 300px">
+  <img *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png" style="height: 300px; width: 300px">
+</p-overlayPanel>

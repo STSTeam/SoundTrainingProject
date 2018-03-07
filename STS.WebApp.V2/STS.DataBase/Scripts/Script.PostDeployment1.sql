@@ -12,6 +12,8 @@ Post-Deployment Script Template
 
 PRINT N'Populating [Users] data...';
 :r .\FillUserScript.sql
+PRINT N'--------- END Populating [Users] data...';
 
 PRINT N'Populating  data...';
 :r .\FillData.sql
+PRINT N'--------- END Populating  data...';

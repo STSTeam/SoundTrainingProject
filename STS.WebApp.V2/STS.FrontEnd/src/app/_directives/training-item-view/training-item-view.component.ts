@@ -48,4 +48,10 @@ export class TrainingItemViewComponent implements OnInit, OnChanges {
 
   }
 
+  //function of play again 
+  playAgain(e){
+    e.preventDefault();
+    this.soundCtr.nativeElement.play();
+  }
+
 }
