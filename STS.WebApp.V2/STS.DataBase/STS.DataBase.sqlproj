@@ -80,5 +80,6 @@
   <ItemGroup>
     <None Include="Scripts\FillUserScript.sql" />
     <None Include="Scripts\FillData.sql" />
+    <None Include="STS.DataBase.publish.xml" />
   </ItemGroup>
 </Project>
