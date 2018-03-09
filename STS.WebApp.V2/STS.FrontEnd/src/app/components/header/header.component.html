@@ -29,22 +29,24 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" style=" font-size: 1.5em; font-weight: bold">
         <li >
-          <a [routerLink]="['/hearing']">اتصل بنا </a>
+          <a [routerLink]="['/hearing']"> Information </a>
         </li>
+
         <li >
-          <a [routerLink]="['/hearing']">التدريب السمعي</a>
+          <a [routerLink]="['/hearing']">  اتصل بنا</a>
         </li>
+        
         <li><a class="" [routerLink]="['/home']">الصفحة الرئيسية</a></li>
         <!-- <li>
           <a href="#">Link</a>
         </li> -->
       </ul>
 
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" style=" font-size: 1.5em; font-weight: normal">
         <li>
-          <div *ngIf="!currentUser" >
+          <div *ngIf="!currentUser"  >
             <a [routerLink]="['/login']">تسجيل الدخول</a> |
             <a [routerLink]="['/register']">إنشاء الدخول</a>
           </div>

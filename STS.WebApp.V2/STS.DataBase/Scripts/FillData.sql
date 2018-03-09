@@ -1,5 +1,4 @@
-﻿
-SET IDENTITY_INSERT [dbo].[Image] ON 
+﻿SET IDENTITY_INSERT [dbo].[Image] ON 
 
 GO
 INSERT [dbo].[Image] ([Id], [Name]) VALUES (1, N'1_Pic_Ambulance')
@@ -135,7 +134,7 @@ INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (2, 2)
 GO
 INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (3, 3)
 GO
-INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (1, 4)
+INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (4, 4)
 GO
 INSERT [dbo].[SoundImages] ([SoundId], [ImageId]) VALUES (5, 5)
 GO
@@ -164,13 +163,13 @@ GO
 SET IDENTITY_INSERT [dbo].[Module] ON 
 
 GO
-INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (1, 1, N'كشف الأصوات', N'هل تسمع الصوت؟', NULL)
+INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (1, 1, N'كشف الأصوات', N'هل تسمع الصوت؟', N'1_Pic_1blue')
 GO
-INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (2, 2, N'تمييز الأصوات', N'ماهذا الصوت؟', NULL)
+INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (2, 2, N'تمييز الأصوات', N'ماهذا الصوت؟', N'1_Pic_2blue')
 GO
-INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (4, 3, N'كلمات', NULL, NULL)
+INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (4, 3, N'كلمات', NULL, N'1_Pic_3blue')
 GO
-INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (1001, 4, N'جمل', NULL, NULL)
+INSERT [dbo].[Module] ([Id], [Order], [Title], [Descreption], [ImageName]) VALUES (1001, 4, N'جمل', NULL, N'1_Pic_4blue')
 GO
 SET IDENTITY_INSERT [dbo].[Module] OFF
 GO
@@ -186,6 +185,7 @@ GO
 INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (1003, 2, N'4', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Session] OFF
+
 GO
 INSERT [dbo].[SessionsSounds] ([SessionId], [SoundId]) VALUES (1, 1)
 GO
