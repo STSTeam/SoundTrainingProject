@@ -56,9 +56,9 @@ namespace WebApi.BL
                 });
 
                 // pick a random image from list of all session images
-
-                var randImage = sessionImages.Where(i => i.Id != randomCorrectImage.Id)
-                                .ElementAt(GetRandomNumber(0, sessionImages.Count - 1));
+                var filterImages = sessionImages.Where(i => i.Id != randomCorrectImage.Id).ToList();
+                var randImage = filterImages
+                                .ElementAt(GetRandomNumber(0, filterImages.Count - 1));
                 testSound.Images.Add(new TestImage()
                 {
                     Id = randImage.Id,
@@ -66,9 +66,12 @@ namespace WebApi.BL
                     IsCorrectImage = false
                 });
 
+                testSound.Images = testSound.Images.OrderBy(m => Guid.NewGuid()).ToList();
                 // add sound to testModel
                 testModel.Sounds.Add(testSound);
             });
+
+            testModel.Sounds = testModel.Sounds.OrderBy(m => Guid.NewGuid()).ToList();
 
             return testModel;
         }

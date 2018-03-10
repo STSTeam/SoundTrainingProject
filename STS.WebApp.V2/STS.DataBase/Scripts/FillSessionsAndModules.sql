@@ -23,3 +23,4 @@ INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (3, 2, 
 GO
 INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (4, 2, N'4', NULL)
 GO
+SET IDENTITY_INSERT [dbo].[Session] OFF

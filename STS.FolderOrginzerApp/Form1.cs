@@ -40,7 +40,6 @@ namespace STS.FolderOrginzerApp
         public Form1()
         {
             InitializeComponent();
-            folderBrowserDialog1.SelectedPath = @"G:\STSResourcesSample";
         }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
@@ -63,6 +62,7 @@ namespace STS.FolderOrginzerApp
             if (string.IsNullOrEmpty(folderBrowserDialog1.SelectedPath))
             {
                 ShowError("Select root folder first...");
+                return;
             }
 
             var modulesDirectories = Directory.GetDirectories(folderBrowserDialog1.SelectedPath);
@@ -76,6 +76,7 @@ namespace STS.FolderOrginzerApp
                     var sessionId = int.Parse(new DirectoryInfo(sessionFolder).Name);
                     soundsDir.ToList().ForEach(soundFolder =>
                     {
+                        RenameFiles(soundFolder);
                         ProcessSoundFolder(moduleId, sessionId, soundFolder);
                     });
                 });
@@ -214,6 +215,26 @@ namespace STS.FolderOrginzerApp
         private void ShowError(string message)
         {
             MessageBox.Show(message);
+        }
+
+        private void btnRename_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(folderBrowserDialog1.SelectedPath))
+            {
+                ShowError("Select folder first....");
+                return;
+            }
+
+            RenameFiles(folderBrowserDialog1.SelectedPath);
+            ShowError("done...");
+        }
+
+        private void RenameFiles(string folderPath)
+        {
+            foreach (var file in Directory.GetFiles(folderPath))
+            {
+                File.Move(file, file.ToLowerInvariant());
+            }
         }
     }
 }

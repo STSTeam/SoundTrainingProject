@@ -13,16 +13,12 @@
 <div class="row">
   <div *ngFor="let module of modules" class="col-sm-12 col-md-12">
     <div class="thumbnail">
-      <img src="../assets/_support_files/Interface/1_Hearing.jpg" alt="...">
+      <img style="height: 50px; width:50px" src="../assets/_support_files/Interface/{{module.imageName}}.png" alt="...">
       <div class="caption">
         <a [routerLink]="module.id">
           <h3>{{module.title}}</h3>
         </a>
         <p>{{module.descreption}}</p>
-        <!-- <p>
-          <a href="#" class="btn btn-primary" role="button">Button</a>
-          <a href="#" class="btn btn-default" role="button">Button</a>
-        </p> -->
       </div>
     </div>
   </div>

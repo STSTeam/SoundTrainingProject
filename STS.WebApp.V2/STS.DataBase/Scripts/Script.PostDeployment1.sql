@@ -14,6 +14,10 @@ PRINT N'Populating [Users] data...';
 :r .\FillUserScript.sql
 PRINT N'--------- END Populating [Users] data...';
 
-PRINT N'Populating  data...';
-:r .\FillData.sql
-PRINT N'--------- END Populating  data...';
+PRINT N'Populating  FillSessionsAndModules.sql...';
+:r .\FillSessionsAndModules.sql
+PRINT N'--------- END Populating  FillSessionsAndModules.sql...';
+
+PRINT N'Populating  FillSound_sessions_Images.sql...';
+:r .\FillSound_sessions_Images.sql
+PRINT N'--------- END Populating  FillSound_sessions_Images.sql...';

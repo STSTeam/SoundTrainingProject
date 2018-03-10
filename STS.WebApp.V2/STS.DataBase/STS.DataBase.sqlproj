@@ -77,13 +77,13 @@
     <Build Include="dbo\Tables\UserTest.sql" />
     <Build Include="dbo\Stored Procedures\images_GetBySessionIdAndSoundId.sql" />
     <Build Include="dbo\Stored Procedures\images_GetBySessionId.sql" />
+    <None Include="Scripts\FillSound_sessions_Images.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\FillUserScript.sql" />
-    <None Include="Scripts\FillData.sql" />
-    <None Include="STS.DataBase.publish.xml" />
+    <None Include="Scripts\FillSessionsAndModules.sql" />
   </ItemGroup>
 </Project>

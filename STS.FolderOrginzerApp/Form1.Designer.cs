@@ -29,39 +29,30 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblSelectedRootFolder = new System.Windows.Forms.Label();
             this.btnSelectRootFolder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnRename = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.btnRename);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lblSelectedRootFolder);
             this.panel1.Controls.Add(this.btnSelectRootFolder);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(239, 252);
+            this.panel1.Size = new System.Drawing.Size(239, 199);
             this.panel1.TabIndex = 0;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Enabled = false;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 87);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(219, 95);
-            this.listBox1.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 58);
+            this.button1.Location = new System.Drawing.Point(6, 93);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 23);
             this.button1.TabIndex = 3;
@@ -100,11 +91,21 @@
             // 
             this.folderBrowserDialog1.HelpRequest += new System.EventHandler(this.folderBrowserDialog1_HelpRequest);
             // 
+            // btnRename
+            // 
+            this.btnRename.Location = new System.Drawing.Point(6, 53);
+            this.btnRename.Name = "btnRename";
+            this.btnRename.Size = new System.Drawing.Size(216, 23);
+            this.btnRename.TabIndex = 4;
+            this.btnRename.Text = "Rename files to lowercase";
+            this.btnRename.UseVisualStyleBackColor = true;
+            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 282);
+            this.ClientSize = new System.Drawing.Size(271, 310);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -122,7 +123,7 @@
         private System.Windows.Forms.Button btnSelectRootFolder;
         private System.Windows.Forms.Label lblSelectedRootFolder;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnRename;
     }
 }
 
