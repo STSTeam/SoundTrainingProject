@@ -18,6 +18,6 @@ PRINT N'Populating  FillSessionsAndModules.sql...';
 :r .\FillSessionsAndModules.sql
 PRINT N'--------- END Populating  FillSessionsAndModules.sql...';
 
-PRINT N'Populating  FillSound_sessions_Images.sql...';
-:r .\FillSound_sessions_Images.sql
-PRINT N'--------- END Populating  FillSound_sessions_Images.sql...';
+--PRINT N'Populating  FillSound_sessions_Images.sql...';
+--:r .\FillSound_sessions_Images.sql
+--PRINT N'--------- END Populating  FillSound_sessions_Images.sql...';
