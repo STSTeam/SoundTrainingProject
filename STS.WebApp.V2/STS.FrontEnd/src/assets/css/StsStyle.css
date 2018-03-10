@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+html,body{
+    font-family: 'Amiri', serif;
+}
 .home-button{
     text-rendering: auto;
     color: initial;
@@ -14,12 +16,7 @@
     font: 400 13.3333px Arial;
 }
 
-.btn-razan{
-    font-size: 3em;
-    padding: 10px 30px;
-    display: block;
-    width: 100%;
-}
+
 
 .mainIcons{
     display: block;
@@ -37,4 +34,16 @@ li.ui-galleria-panel{
 }
 div.ui-galleria-filmstrip-wrapper{
     display:none;
+}
+
+.btn-razan{
+    font-size: 3em;
+    padding: 10px 30px;
+    display: block;
+    width: 100%;
+}
+
+li.ul-header{ 
+    font-size: 5em;
+
 }

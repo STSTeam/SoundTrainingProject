@@ -16,19 +16,22 @@
 </div> -->
 
 <div class="row">
-    <div class="col-sm-4">
-        <a [routerLink]="['/hearing']">
-            <img class="mainIcons" src="../assets/_support_files/Interface/1_Hearing.jpg" alt="">
-            <span class="btn btn btn-primary btn-lg btn-razan" >سمع</span>
-        </a>
 
-    </div>
+        <div class="col-sm-4">
+                <a [routerLink]="['/hearing']">
+                <img class="mainIcons" src="../assets/_support_files/Interface/1_Speaking.jpg" alt="">
+            <span  [routerLink]="['/hearing']" class="btn btn-success btn-razan">نطق </span> 
+            </a>   
+        </div>
+    
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
             <a [routerLink]="['/hearing']">
-            <img class="mainIcons" src="../assets/_support_files/Interface/1_Speaking.jpg" alt="">
-        <span  [routerLink]="['/hearing']" class="btn btn-success btn-razan">نطق </span> 
-        </a>   
-    </div>
+                <img class="mainIcons" src="../assets/_support_files/Interface/1_Hearing.jpg" alt="">
+                <span class="btn btn btn-primary btn-lg btn-razan" >سمع</span>
+            </a>
+    
+        </div>
+    
 </div>
 
