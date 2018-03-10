@@ -2,6 +2,10 @@
 
   <app-training-item-view *ngIf="currentSound" [sound]="currentSound"></app-training-item-view>
   <div class="container">
+      <!-- <img class="mainIcons" src="../assets/_support_files/Interface/1_Pic_Forward.jpg" alt=""> -->
   <button *ngIf="showNext" (click)="moveWizard('forward')">التالي</button>
+
+  <button *ngIf="showPre" (click)="moveWizard('backward')" class="prevBtn">السابق</button>
+  
  
 </div>
