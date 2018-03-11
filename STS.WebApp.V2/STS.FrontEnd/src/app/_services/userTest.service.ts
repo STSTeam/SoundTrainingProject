@@ -6,6 +6,7 @@ import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { ResultData } from "../_models/resultData";
+import { TestModel } from '../_models/test/test.model';
 
 @Injectable()
 export class UserTestServices {
@@ -15,5 +16,10 @@ export class UserTestServices {
 
     generateTest(sessionId:number) : Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/GetTestBySessionId/${sessionId}`);
+    }
+
+    SubmitTest(testModel:TestModel): Observable<ResultData> {
+        debugger
+        return this.http.post<ResultData>(`${this.ApiUrl}/submitTest`, testModel);
     }
 }

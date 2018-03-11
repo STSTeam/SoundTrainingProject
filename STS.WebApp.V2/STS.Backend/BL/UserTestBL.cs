@@ -76,6 +76,11 @@ namespace WebApi.BL
             return testModel;
         }
 
+        internal void SaveTest(TestModel model)
+        {
+           
+        }
+
         private int GetRandomNumber(int min, int max)
         {
 

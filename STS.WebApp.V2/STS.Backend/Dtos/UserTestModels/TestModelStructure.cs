@@ -25,6 +25,7 @@ namespace WebApi.Dtos.UserTestModels
         public int Id { get; set; }
         public string Name { get; set; }
         public List<TestImage> Images { get; set; }
+        public TestImage SelectedAnswer { get; set; }
     }
 
     public class TestImage

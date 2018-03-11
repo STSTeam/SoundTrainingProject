@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.BL;
+using WebApi.Dtos.UserTestModels;
 using WebApi.Entities;
 using WebApi.Repo;
 
@@ -27,13 +28,20 @@ namespace WebApi.Controllers
 
         }
 
-       
+
 
         [HttpGet("GetTestBySessionId/{sessionId}")]
         public IActionResult GetTestBySessionId(int sessionId)
         {
             var test = _userTestBL.GenerateTest(sessionId);
             return HlsOk(test);
+        }
+
+        [HttpPost("submitTest")]
+        public IActionResult SubmitTest([FromBody]TestModel model)
+        {
+            _userTestBL.SaveTest(model);
+            return HlsOk();
         }
     }
 }
