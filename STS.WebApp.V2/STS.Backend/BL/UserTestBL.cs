@@ -78,7 +78,20 @@ namespace WebApi.BL
 
         internal void SaveTest(TestModel model)
         {
-           
+            // 01 - create new test record
+            UserTest test = new UserTest()
+            {
+                UserId = model.userId.Value,
+                SessionId = model.SessionId,
+                Score = CalculateTestScore(model.Sounds),
+                CreatedDate = DateTime.Now
+            };
+        }
+
+        private decimal CalculateTestScore(List<TestSound> sounds)
+        {
+            var correctAnswersCount = sounds.Count(s => s.SelectedAnswer.IsCorrectImage);
+            return correctAnswersCount / sounds.Count;
         }
 
         private int GetRandomNumber(int min, int max)

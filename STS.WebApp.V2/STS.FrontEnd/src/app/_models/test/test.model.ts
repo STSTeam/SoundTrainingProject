@@ -1,4 +1,5 @@
 export class TestModel{
+    userId?:number;
     sessionId:number;
     sounds:TestSound[];
    

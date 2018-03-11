@@ -18,6 +18,7 @@ using WebApi.DA;
 using WebApi.Middleware;
 using WebApi.Filters;
 using WebApi.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApi
 {
@@ -65,6 +66,7 @@ namespace WebApi
                     ValidateAudience = false
                 };
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // configure DI for application services
             services.AddScoped<IUserRepository, UserDA>();
