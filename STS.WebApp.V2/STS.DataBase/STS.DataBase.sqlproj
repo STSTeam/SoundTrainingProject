@@ -77,7 +77,6 @@
     <Build Include="dbo\Tables\UserTest.sql" />
     <Build Include="dbo\Stored Procedures\images_GetBySessionIdAndSoundId.sql" />
     <Build Include="dbo\Stored Procedures\images_GetBySessionId.sql" />
-    <None Include="Scripts\FillSound_sessions_Images.sql" />
     <Build Include="dbo\Tables\UserCompletedSessions.sql" />
     <Build Include="dbo\Tables\UserCompletedModules.sql" />
   </ItemGroup>

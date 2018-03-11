@@ -23,4 +23,16 @@ INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (3, 2, 
 GO
 INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (4, 2, N'4', NULL)
 GO
+
+GO
+INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (5, 3, N'1', NULL)
+GO
+INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (6, 3, N'2', NULL)
+GO
+INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (7, 3, N'3', NULL)
+GO
+INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (8, 3, N'4', NULL)
+GO
+INSERT [dbo].[Session] ([Id], [ModuleId], [Title], [Descreption]) VALUES (9, 3, N'4', NULL)
+GO
 SET IDENTITY_INSERT [dbo].[Session] OFF
