@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,5 +16,9 @@ namespace WebApi.Entities
         public string ImageName { get; set; }
         public int? PrerequisiteSessionId { get; set; }
         public bool IsLastSession { get; set; }
+        [IgnoreSelect]
+        [IgnoreInsert]
+        [IgnoreUpdate]
+        public bool Enabled { get; set; }
     }
 }

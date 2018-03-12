@@ -15,5 +15,7 @@ namespace WebApi.Dtos
         public string ImageName { get; set; }
         public int? PrerequisiteSessionId { get; set; }
         public bool IsLastSession { get; set; }
+        public bool Enabled { get; set; }
+
     }
 }

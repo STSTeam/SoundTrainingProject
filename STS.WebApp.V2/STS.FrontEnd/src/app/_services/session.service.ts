@@ -6,26 +6,33 @@ import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { ResultData } from "../_models/resultData";
+import { UserDataStore } from './_stateServices/userDataStore.service';
 
 @Injectable()
 export class SessionsService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+        private _userDataStore: UserDataStore) {
+        this._userDataStore.userModle.subscribe(user => {
+            this.currentUser = user;
+        });
+    }
 
+    private currentUser: User;
     private ApiUrl = 'Sessions';
 
-    getById(sessionId:number) : Observable<ResultData> {
+    getById(sessionId: number): Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/${sessionId}`);
     }
 
-    getByModuleId(moduleId:number) : Observable<ResultData> {
-        return this.http.get<ResultData>(`${this.ApiUrl}/GetByModuleId/${moduleId}`);
+    getByModuleId(moduleId: number): Observable<ResultData> {
+        return this.http.get<ResultData>(`${this.ApiUrl}/GetByModuleId/${this.currentUser.id}/${moduleId}`);
     }
 
-    getSessionSounds(soundId:number): Observable<ResultData> {
-        return this.http.get<ResultData>(`${this.ApiUrl}/GetSessionTrainingSounds/${soundId}`);
+    getSessionSounds(soundId: number): Observable<ResultData> {
+        return this.http.get<ResultData>(`${this.ApiUrl}/GetSessionTrainingSounds/${soundId}`); 
     }
 
-    getSoundImages(soundId:number):Observable<ResultData>{
+    getSoundImages(soundId: number): Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/GetSoundImages/${soundId}`);
     }
 }

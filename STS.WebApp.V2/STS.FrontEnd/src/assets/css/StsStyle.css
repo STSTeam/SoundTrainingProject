@@ -47,3 +47,8 @@ li.ul-header{
     font-size: 5em;
 
 }
+
+.is-active {
+    cursor: default;
+    text-decoration: none;
+}

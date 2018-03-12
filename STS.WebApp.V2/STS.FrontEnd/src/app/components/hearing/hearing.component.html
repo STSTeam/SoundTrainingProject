@@ -15,7 +15,7 @@
     <div class="thumbnail">
       <img style="height: 50px; width:50px" src="../assets/_support_files/Interface/{{module.imageName}}.png" alt="...">
       <div class="caption">
-        <a [routerLink]="module.id">
+          <a [routerLink]="module.enabled ? module.id : null" routerLinkActive="is-active">
           <h3>{{module.title}}</h3>
         </a>
         <p>{{module.descreption}}</p>

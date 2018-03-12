@@ -3,4 +3,5 @@ export class SessionModel{
     moduleId:number;
     title:string;
     imageName:string;
+    enabled:boolean;
 }
