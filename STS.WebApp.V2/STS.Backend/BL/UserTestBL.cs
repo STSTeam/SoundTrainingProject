@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Transactions;
 using WebApi.Dtos.UserTestModels;
 using WebApi.Entities;
 using WebApi.Helpers;
@@ -15,15 +16,30 @@ namespace WebApi.BL
     {
         private IUserTestRepository _userTestDA;
         IBaseRepository<Sound, int> _soundDA;
+        IBaseRepository<UserTestSounds, int> _userTestSoundsDA;
+        IBaseRepository<Session, int> _sessionDA;
+        IModuleRepository _moduleBL;
+        IBaseRepository<UserCompletedModules, int> _userCompletedModulesDA;
+        IBaseRepository<UserCompletedSessions, int> _userCompletedSessionsDA;
 
         private Random rnd = new Random();
 
         public UserTestBL(
             IUserTestRepository _userTestDA,
-            IBaseRepository<Entities.Sound, int> _soundDA)
+            IBaseRepository<Entities.Sound, int> _soundDA,
+            IBaseRepository<UserTestSounds, int> _userTestSoundsDA,
+            IBaseRepository<Session, int> _sessionDA,
+            IBaseRepository<UserCompletedModules, int> _userCompletedModulesDA,
+            IBaseRepository<UserCompletedSessions, int> _userCompletedSessionsDA,
+            IModuleRepository _moduleBL)
         {
             this._userTestDA = _userTestDA;
             this._soundDA = _soundDA;
+            this._userTestSoundsDA = _userTestSoundsDA;
+            this._sessionDA = _sessionDA;
+            this._userCompletedModulesDA = _userCompletedModulesDA;
+            this._userCompletedSessionsDA = _userCompletedSessionsDA;
+            this._moduleBL = _moduleBL;
         }
 
         public TestModel GenerateTest(int sessionId)
@@ -51,7 +67,7 @@ namespace WebApi.BL
                 testSound.Images.Add(new TestImage()
                 {
                     Id = randomCorrectImage.Id,
-                    Name = randomCorrectImage.Name, 
+                    Name = randomCorrectImage.Name,
                     IsCorrectImage = true
                 });
 
@@ -78,20 +94,89 @@ namespace WebApi.BL
 
         internal void SaveTest(TestModel model)
         {
+            model.Score = CalculateTestScore(model.Sounds);
+
             // 01 - create new test record
-            UserTest test = new UserTest()
+            var testId = InsertTest(model);
+
+            // 02 - Fill test details (sounds and Selected images)
+            SaveTestSounds(model, testId);
+
+            if (IsTestPass(model.Score))
+            {
+                // Update Module Progress
+                UpdateUserProgressProgress(model, testId);
+
+
+            }
+        }
+
+        private void UpdateUserProgressProgress(TestModel model, int testId)
+        {
+            var currentDateTime = DateTime.Now;
+
+            var session = _sessionDA.Get(model.SessionId);
+
+            // check if session marked as final step in module
+            if (session.IsLastSession)
+            {
+                // update session progress by inserting new record in UserCompletedSessions table
+                _userCompletedSessionsDA.Add(new UserCompletedSessions
+                {
+                    SessionId = model.SessionId,
+                    UserId = model.userId.Value,
+                    UserTestId = testId,
+                    CreatedDate = currentDateTime
+                });
+
+                // update module progress
+                _userCompletedModulesDA.Add(new UserCompletedModules()
+                {
+                    ModuleId = session.ModuleId,
+                    UserId = model.userId.Value,
+                    CreatedDate = currentDateTime
+                });
+            }
+        }
+
+        private bool IsTestPass(double? score)
+        {
+            if (score > 50.0)
+                return true;
+            else return false;
+        }
+
+        private void SaveTestSounds(TestModel model, int testId)
+        {
+            model.Sounds.ForEach(sound =>
+            {
+                _userTestSoundsDA.Add(new UserTestSounds()
+                {
+                    UserTestId = testId,
+                    SoundId = sound.Id,
+                    SelectedImageId = sound.SelectedAnswer.Id,
+                    IsCorrect = sound.SelectedAnswer.IsCorrectImage
+                });
+            });
+        }
+
+        private int InsertTest(TestModel model)
+        {
+            var testModel = new UserTest()
             {
                 UserId = model.userId.Value,
                 SessionId = model.SessionId,
-                Score = CalculateTestScore(model.Sounds),
+                Score = model.Score.Value,
                 CreatedDate = DateTime.Now
             };
+
+            return _userTestDA.Add(testModel);
         }
 
-        private decimal CalculateTestScore(List<TestSound> sounds)
+        private double CalculateTestScore(List<TestSound> sounds)
         {
             var correctAnswersCount = sounds.Count(s => s.SelectedAnswer.IsCorrectImage);
-            return correctAnswersCount / sounds.Count;
+            return ((double)correctAnswersCount / sounds.Count) * 100;
         }
 
         private int GetRandomNumber(int min, int max)

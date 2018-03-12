@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace WebApi.Entities
 {
-    public class UserTest
+    public class UserCompletedModules
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
-        public int SessionId { get; set; }
-        public double Score { get; set; }
+        public int ModuleId { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }
