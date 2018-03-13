@@ -30,11 +30,16 @@ export class ModuleInfoComponent implements OnInit {
     this.modulesService.getById(this.moduleId).subscribe(res =>{
       let result : ResultData = <ResultData>res;
       this.moduleInfo = <ModuleModel>result.resultData;
+      for (let i=0; i<this.sessions.length; i++){
+        this.sessions[i].imagesArr = this.sessions[i].imageName.split(','); //ARRAY OF IMGS
+      }
+      
     })
 
     this.sessionsService.getByModuleId(this.moduleId).subscribe(res =>{
       let result : ResultData = <ResultData>res;
       this.sessions = <SessionModel[]>res.resultData;
+
     }, err=>{
       let error :StsErrorData = <StsErrorData>err;
       this.alertService.error(error.errorMessage)});

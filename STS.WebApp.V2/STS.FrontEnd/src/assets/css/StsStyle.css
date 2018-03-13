@@ -47,3 +47,6 @@ li.ul-header{
     font-size: 5em;
 
 }
+li.ui-galleria-panel img{ /*   fixed the height og imgs */ 
+    height : 450px;
+}
