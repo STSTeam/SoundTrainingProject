@@ -12,7 +12,7 @@ namespace WebApi.Dtos.UserTestModels
         public int TotalSounds { get; set; }
         public int TotalCorrect { get; set; }
         public int TotalWrong { get; set; }
-        public int NextSessionId { get; set; }
-        public int NextModuleId { get; set; }
+        public int? NextSessionId { get; set; }
+        public int? NextModuleId { get; set; }
     }
 }

@@ -92,7 +92,7 @@ namespace WebApi.BL
             return testModel;
         }
 
-        internal void SaveTest(TestModel model)
+        internal ResultModel SaveTest(TestModel model)
         {
             double score = 0.0;
 
@@ -113,6 +113,8 @@ namespace WebApi.BL
             }
 
             resultModel  =  PrepareResult(model);
+
+            return resultModel;
         }
 
         private ResultModel PrepareResult(TestModel model)
