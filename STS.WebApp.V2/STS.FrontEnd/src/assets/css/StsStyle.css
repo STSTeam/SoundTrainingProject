@@ -50,7 +50,6 @@ li.ul-header{
 
 li.ui-galleria-panel img{ /*   fixed the height og imgs */ 
     height : 450px;
-
 }
 .is-active {
     cursor: default;
