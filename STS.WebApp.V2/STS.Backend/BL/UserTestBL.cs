@@ -206,7 +206,9 @@ namespace WebApi.BL
         private double CalculateTestScore(List<TestSound> sounds)
         {
             var correctAnswersCount = sounds.Count(s => s.SelectedAnswer.IsCorrectImage);
-            return ((double)correctAnswersCount / sounds.Count) * 100;
+            var result = ((double)correctAnswersCount / sounds.Count) * 100;
+            var tst = Math.Round(result, 2);
+            return tst;
         }
 
         private int GetRandomNumber(int min, int max)

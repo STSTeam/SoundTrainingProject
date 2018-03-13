@@ -22,7 +22,7 @@
     <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
   </div>
   <div *ngIf="showResult" class="row">
-      <!-- <p-chart type="pie" [data]="data"></p-chart> -->
+      <p-chart type="pie" [data]="data"></p-chart>
     <div class="col-sm-12">
       <h1> نتيجتك هي: {{finalRsultNumber}} %</h1>
     </div>
@@ -34,6 +34,10 @@
     <div class="col-sm-12" *ngIf="finalResult === 'fail'">
       <h1 style="color: red">أعد المحاولة لاحقا </h1>
       <img src="./assets/_support_files/Interface/1_Pic_confused_girl.png" style="height: 300px; width: 300px">
+    </div>
+    <div>
+      <a [routerLink]="['../../']" >back</a>
+
     </div>
   </div>
 </div>

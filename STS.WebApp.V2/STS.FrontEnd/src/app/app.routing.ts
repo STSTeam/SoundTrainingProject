@@ -9,11 +9,15 @@ import { ModuleInfoComponent } from "./components/module-info/module-info.compon
 import { SessionInfoComponent } from "./components/session-info/session-info.component";
 import { TrainingComponent } from "./components/training/training.component";
 import { TestComponent } from './components/test/test.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { InformationComponent } from './components/information/information.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/ },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'contactus', component: ContactUsComponent },
+    { path: 'information', component: InformationComponent },
     {
         path: 'hearing', canActivate: [AuthGuard],
         children: [

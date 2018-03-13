@@ -95,6 +95,7 @@ export class TestComponent implements OnInit {
           this.userTestServices.SubmitTest(this.testData).subscribe(res => {
             let result: ResultData = <ResultData>res;
             this.testResult = <TestResultModel>result.resultData;
+            console.log("test result: ", this.testResult);
             this.showResultArea();
           }, err =>{});
           
@@ -121,7 +122,7 @@ export class TestComponent implements OnInit {
       labels: ['صحيحة','خاطئة'],
       datasets: [
           {
-              data: [this.testResult.TotalCorrect, this.testResult.TotalWrong],
+              data: [this.testResult.totalCorrect, this.testResult.totalWrong],
               backgroundColor: [
                   "#24a544",
                   "#d6614f"
@@ -139,7 +140,7 @@ export class TestComponent implements OnInit {
         numberOfCorrectAnswers++;
     });
 
-    this.finalRsultNumber = (numberOfCorrectAnswers / this.testData.sounds.length) * 100;
+    this.finalRsultNumber = this.testResult.score;
     if (this.finalRsultNumber > 50)
       this.finalResult = 'pass';
     else this.finalResult = 'fail';

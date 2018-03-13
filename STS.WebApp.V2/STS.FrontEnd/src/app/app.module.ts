@@ -31,7 +31,9 @@ import { TestComponent } from './components/test/test.component';
 import { UserTestServices } from './_services/userTest.service';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ChartModule} from 'primeng/chart';
+import {ChartModule} from 'primeng/chart'
+import { ContactUsComponent } from './components/contact-us/contact-us.component'
+import { InformationComponent } from './components/information/information.component'
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import {ChartModule} from 'primeng/chart';
         SessionInfoComponent,
         TrainingComponent,
         TestComponent,
-        TrainingItemViewComponent
+        TrainingItemViewComponent,
+        ContactUsComponent,
+        InformationComponent
     ],
     providers: [
         AuthGuard,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionsService } from "../../_services/session.service";
 import { AlertService } from "../../_services/index";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { SoundModel } from "../../_models/sound.model";
 import { ResultData } from "../../_models/resultData";
 import { StsErrorData } from "../../_models/errorData";
@@ -16,16 +16,21 @@ export class TrainingComponent implements OnInit {
 
   constructor(private sessionsService: SessionsService,
     private alertService: AlertService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router:Router) { }
 
   sessionId: number;
+  moduleId:number;
   sessionSounds: SoundModel[];
   currentSound: SoundModel;
   currentSoundIndex: number = 0;
   showNext: boolean = true;
   showPre: boolean = false;
+  showTestBtn:boolean = false;
   ngOnInit() {
     this.sessionId = this.route.snapshot.params['sessionId'];
+    this.moduleId = this.route.snapshot.params['moduleId'];
+
 
     this.sessionsService.getSessionSounds(this.sessionId).subscribe(res => {
       let result: ResultData = <ResultData>res;
@@ -35,6 +40,10 @@ export class TrainingComponent implements OnInit {
       let error: StsErrorData = <StsErrorData>err;
       this.alertService.error(error.errorMessage)
     });
+  }
+
+  startSessionTest(){
+    this.router.navigate([`/hearing/${this.moduleId}/${this.sessionId}/test`]);
   }
 
   moveWizard(dir:string){
@@ -52,13 +61,23 @@ export class TrainingComponent implements OnInit {
       
     }
     if(this.currentSoundIndex == (this.sessionSounds.length -1))
-      this.showNext = false;
-      else this.showNext = true;
+      {
+        this.showNext = false;
+        this.showTestBtn = true;
+      }
+      else {
+        this.showNext = true;
+        this.showTestBtn = false;
+      }
     
 
     if(this.currentSoundIndex > 0 )
-      this.showPre = true;
-      else this.showPre = false;
+      {
+        this.showPre = true;
+      }
+      else
+        this.showPre = false;
+      
   }
 
 }
