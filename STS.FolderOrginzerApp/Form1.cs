@@ -29,7 +29,6 @@ namespace STS.FolderOrginzerApp
 
         private void Init()
         {
-            folderBrowserDialog1.SelectedPath = @"C:\STS\SoundTrainingProject\STS.WebApp.V2\STS.FrontEnd\src\assets\_support_files\ordered";
             soundIdCounter = 1;
             imageIdCounter = 1;
             soundsList = new List<Sound>();
@@ -41,7 +40,6 @@ namespace STS.FolderOrginzerApp
         public Form1()
         {
             InitializeComponent();
-            Init();
         }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)

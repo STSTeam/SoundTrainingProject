@@ -9,8 +9,7 @@ import { OverlayPanel } from 'primeng/components/overlaypanel/overlaypanel';
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  templateUrl: './test.component.html'
 })
 export class TestComponent implements OnInit {
 
