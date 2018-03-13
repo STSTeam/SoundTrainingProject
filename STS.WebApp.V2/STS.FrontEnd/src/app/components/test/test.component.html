@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<p-overlayPanel #resultPanel>
-  <img *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_correct_penguins.png" style="height: 300px; width: 300px">
-  <img *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png" style="height: 300px; width: 300px">
-</p-overlayPanel>
+<div id="resaultContainer" #resultPanel>
+  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_Thumbs_up.png" >
+  <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png" >
+</div>
