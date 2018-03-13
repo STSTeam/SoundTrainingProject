@@ -22,7 +22,7 @@
     <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
   </div>
   <div *ngIf="showResult" class="row">
-      <p-chart type="pie" [data]="data"></p-chart>
+      <!-- <p-chart type="pie" [data]="data"></p-chart> -->
     <div class="col-sm-12">
       <h1> نتيجتك هي: {{finalRsultNumber}} %</h1>
     </div>
@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div id="resaultContainer" #resultPanel>
+<p-overlayPanel #resultPanel dismissable="false">
   <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_Thumbs_up.png" >
   <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png" >
-</div>
+</p-overlayPanel>

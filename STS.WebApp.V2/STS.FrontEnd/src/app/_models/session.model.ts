@@ -4,4 +4,5 @@ export class SessionModel{
     title:string;
     imageName:string;
     enabled:boolean;
+    imagesArr: string[];
 }

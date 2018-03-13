@@ -63,8 +63,8 @@ namespace WebApi.Controllers
         [HttpPost("submitTest")]
         public IActionResult SubmitTest([FromBody]TestModel model)
         {
-            _userTestBL.SaveTest(model);
-            return HlsOk();
+           
+            return HlsOk( _userTestBL.SaveTest(model));
         }
     }
 }

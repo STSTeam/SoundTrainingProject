@@ -5,6 +5,7 @@ import { ResultData } from '../../_models/resultData';
 import { TestModel, TestSound, TestImage } from '../../_models/test/test.model';
 import { SoundModel } from '../../_models/sound.model';
 import { OverlayPanel } from 'primeng/components/overlaypanel/overlaypanel';
+import { TestResultModel } from '../../_models/test/testResult.model';
 
 @Component({
   selector: 'app-test',
@@ -22,6 +23,7 @@ export class TestComponent implements OnInit {
   moduleId: number;
   sessionId: number;
   testData: TestModel;
+  testResult:TestResultModel;
   currentSound: { "index": 0, sound: TestSound }; 
   showResult: boolean = false;
   showCorrect: string = null;
@@ -91,7 +93,9 @@ export class TestComponent implements OnInit {
         if (this.currentSound.index === this.testData.sounds.length) {
           this.showResult = true;
           this.userTestServices.SubmitTest(this.testData).subscribe(res => {
-            this.computeResult();
+            let result: ResultData = <ResultData>res;
+            this.testResult = <TestResultModel>result.resultData;
+            this.showResultArea();
           }, err =>{});
           
           break;
@@ -111,13 +115,13 @@ export class TestComponent implements OnInit {
     xx.src = "./assets/_support_files/MP3/" + this.currentSound.sound.name + ".mp3";
   }
 
-  computeResult() {
+  showResultArea() {
 
     this.data = {
       labels: ['صحيحة','خاطئة'],
       datasets: [
           {
-              data: [300, 50],
+              data: [this.testResult.TotalCorrect, this.testResult.TotalWrong],
               backgroundColor: [
                   "#24a544",
                   "#d6614f"
@@ -149,7 +153,7 @@ export class TestComponent implements OnInit {
     this.showCorrect = radioCtr.value;
 
     // show result panel
-    overlaypanel.toggle(event);
+    overlaypanel.show(event); 
   }
 
 
