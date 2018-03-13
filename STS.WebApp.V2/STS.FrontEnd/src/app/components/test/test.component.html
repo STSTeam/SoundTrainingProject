@@ -1,4 +1,5 @@
 <div class="container" style="margin-bottom:10px;" #mainDiv>
+   
   <div *ngIf="!showResult">
     <div class="row">
       <div class="col-sm-4">
@@ -21,6 +22,7 @@
     <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
   </div>
   <div *ngIf="showResult" class="row">
+      <p-chart type="pie" [data]="data"></p-chart>
     <div class="col-sm-12">
       <h1> نتيجتك هي: {{finalRsultNumber}} %</h1>
     </div>

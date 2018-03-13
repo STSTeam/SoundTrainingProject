@@ -11,6 +11,6 @@ namespace WebApi.Entities
         public int UserTestId { get; set; }
         public int SoundId { get; set; }
         public int SelectedImageId { get; set; }
-        public int IsCorrect { get; set; }
+        public bool IsCorrect { get; set; }
     }
 }

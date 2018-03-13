@@ -325,3 +325,5 @@ ASALocalRun/
 # MSBuild Binary and Structured Log
 *.binlog
 STS.WebApp.V2/_support_files/Interface/Thumbs.db
+STS.WebApp.V2/STS.Backend/DA/BaseConnection.cs
+STS.WebApp.V2/STS.Backend/DA/BaseConnection.cs

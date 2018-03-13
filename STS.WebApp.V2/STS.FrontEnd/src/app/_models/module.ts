@@ -5,4 +5,5 @@ export class ModuleModel
     title:string;
     descreption:string;
     imageName:string;
+    enabled:boolean;
 }

@@ -8,5 +8,8 @@ namespace WebApi.Repo
         List<Sound> GetSoundsBySessionId(int sessionId);
         List<Image> GetImagesBySessionId(int sessionId);
         List<Image> GetSoundImages(int sessionId, int soundId);
+        void InsertUserSessionProgress(UserCompletedSessions model);
+        void InsertUserModuleProgress(UserCompletedModules model);
+
     }
 }

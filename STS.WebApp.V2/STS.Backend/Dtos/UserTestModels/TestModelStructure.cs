@@ -11,6 +11,7 @@ namespace WebApi.Dtos.UserTestModels
         {
             this.Sounds = new List<TestSound>();
         }
+        public int? userId { get; set; }
         public int SessionId { get; set; }
         public string Title { get; set; }
         public List<TestSound> Sounds { get; set; }
@@ -25,6 +26,7 @@ namespace WebApi.Dtos.UserTestModels
         public int Id { get; set; }
         public string Name { get; set; }
         public List<TestImage> Images { get; set; }
+        public TestImage SelectedAnswer { get; set; }
     }
 
     public class TestImage

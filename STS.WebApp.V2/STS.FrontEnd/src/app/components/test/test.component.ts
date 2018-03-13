@@ -2,9 +2,8 @@ import { Component, OnInit, ViewChild, ChangeDetectorRef, ViewChildren, QueryLis
 import { UserTestServices } from '../../_services/userTest.service';
 import { ActivatedRoute } from '@angular/router';
 import { ResultData } from '../../_models/resultData';
-import { TestModel, TestSound } from '../../_models/test/test.model';
+import { TestModel, TestSound, TestImage } from '../../_models/test/test.model';
 import { SoundModel } from '../../_models/sound.model';
-import { TestAnswerModel } from '../../_models/test/testAnswer.model';
 import { OverlayPanel } from 'primeng/components/overlaypanel/overlaypanel';
 
 @Component({
@@ -16,18 +15,21 @@ export class TestComponent implements OnInit {
 
   constructor(private userTestServices: UserTestServices
     , private route: ActivatedRoute
-    , private cdr: ChangeDetectorRef) { }
+    , private cdr: ChangeDetectorRef) { 
+     
+    }
 
   moduleId: number;
   sessionId: number;
-
-  answers: TestAnswerModel[];
   testData: TestModel;
-  currentSound: { "index": 0, sound: TestSound };
+  currentSound: { "index": 0, sound: TestSound }; 
   showResult: boolean = false;
   showCorrect: string = null;
   finalResult: string;
   finalRsultNumber:number;
+
+  data: any;
+
 
   @ViewChild('resultPanel') resultPanel: any;
   @ViewChild('soundCtr') soundCtr: any;
@@ -36,8 +38,6 @@ export class TestComponent implements OnInit {
   @ViewChildren('radioCtr') radioCtrs: QueryList<any>;
 
   ngOnInit() {
-    this.answers = [];
-
     // init
     this.currentSound = { "index": 0, sound: null };
 
@@ -74,16 +74,26 @@ export class TestComponent implements OnInit {
     if (!isAnyAnswerSelected)
       return;
 
-    let answer: TestAnswerModel = { soundId: this.currentSound.sound.id, selectedImageId: selectedImageId, isCorrectAnswer: isSelectionCorrect };
-    this.answers.push(answer);
+      // get refrence to selected answer (image) in images of current sound
+      let selectedImgRef : TestImage ;
+      this.testData.sounds[this.currentSound.index].images.forEach(image =>{
+        if(image.id == selectedImageId)
+          selectedImgRef = image;
+      });
 
+       this.testData.sounds[this.currentSound.index].selectedAnswer = selectedImgRef;
+       console.log("updated with answer: ",  this.testData);
+   
     switch (dir) {
       case "forward":
         this.currentSound.index++;
 
         if (this.currentSound.index === this.testData.sounds.length) {
           this.showResult = true;
-          this.computeResult();
+          this.userTestServices.SubmitTest(this.testData).subscribe(res => {
+            this.computeResult();
+          }, err =>{});
+          
           break;
         }
         else {
@@ -103,18 +113,32 @@ export class TestComponent implements OnInit {
 
   computeResult() {
 
+    this.data = {
+      labels: ['صحيحة','خاطئة'],
+      datasets: [
+          {
+              data: [300, 50],
+              backgroundColor: [
+                  "#24a544",
+                  "#d6614f"
+              ],
+              hoverBackgroundColor: [
+                  "#24a544",
+                  "#d6614f",
+              ]
+          }]    
+      };
+      
     let numberOfCorrectAnswers: number = 0;
-    this.answers.forEach(ans => {
-      if (ans.isCorrectAnswer)
+    this.testData.sounds.forEach(sound => {
+      if (sound.selectedAnswer.isCorrectImage)
         numberOfCorrectAnswers++;
     });
 
-    this.finalRsultNumber = (numberOfCorrectAnswers / this.answers.length) * 100;
+    this.finalRsultNumber = (numberOfCorrectAnswers / this.testData.sounds.length) * 100;
     if (this.finalRsultNumber > 50)
       this.finalResult = 'pass';
     else this.finalResult = 'fail';
-
-    console.log(this.answers);
   }
 
   radioClicked(event, overlaypanel: OverlayPanel, radioCtr) {

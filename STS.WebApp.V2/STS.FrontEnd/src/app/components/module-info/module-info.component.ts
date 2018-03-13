@@ -39,6 +39,7 @@ export class ModuleInfoComponent implements OnInit {
     this.sessionsService.getByModuleId(this.moduleId).subscribe(res =>{
       let result : ResultData = <ResultData>res;
       this.sessions = <SessionModel[]>res.resultData;
+      console.log("sessions: =>", this.sessions);
 
     }, err=>{
       let error :StsErrorData = <StsErrorData>err;

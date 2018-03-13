@@ -9,9 +9,8 @@ namespace WebApi.Entities
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int ModuleId { get; set; }
         public int SessionId { get; set; }
-        public decimal Score { get; set; }
+        public double Score { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace WebApi.Dtos
         public string Title { get; set; }
         public string Descreption { get; set; }
         public string ImageName { get; set; }
+        public bool Enabled { get; set; }
+
     }
 }

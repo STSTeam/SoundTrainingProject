@@ -34,5 +34,24 @@ namespace WebApi.DA
             var reader = dbConnection.Query<Image>("images_GetBySessionIdAndSoundId", parms, commandType: System.Data.CommandType.StoredProcedure);
             return reader.AsList<Image>();
         }
+
+        public void InsertUserSessionProgress(UserCompletedSessions model)
+        {
+            var parms = new DynamicParameters();
+            parms.Add("@userId", model.UserId);
+            parms.Add("@sessionId", model.SessionId);
+            parms.Add("@userTestId", model.UserTestId);
+            var reader = dbConnection.Execute("UserCompletedSessions_insert", parms, commandType: System.Data.CommandType.StoredProcedure);
+           
+        }
+
+        public void InsertUserModuleProgress(UserCompletedModules model)
+        {
+            var parms = new DynamicParameters();
+            parms.Add("@userId", model.UserId);
+            parms.Add("@moduleId", model.ModuleId);
+            var reader = dbConnection.Execute("UserCompletedModules_insert", parms, commandType: System.Data.CommandType.StoredProcedure);
+
+        }
     }
 }
