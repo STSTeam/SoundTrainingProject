@@ -5,7 +5,13 @@
 <div class="row">
   <div *ngFor="let session of sessions" class="col-sm-12 col-md-12">
     <div class="thumbnail">
-      <img style="height: 50px; width:50px" src="../assets/_support_files/Interface/{{session.imageName}}.png" alt="...">
+      <!-- src="../assets/_support_files/Interface/{{session.imageName}}.png" --> <!-- WHEN WE NEED TO PLACE 1 IMG ONLY -->
+
+      <!-- (imagesArr) DEFINED BY MAS  -->
+      <img *ngFor="let img of session.imagesArr" 
+      style="height: 50px; width:50px; display: inline; margin: 15px;" 
+      src="../assets/_support_files/Interface/{{img}}.png" 
+      alt="{{img}}">
       <div class="caption">
           <a [routerLink]="session.enabled ? session.id : null" routerLinkActive="is-active">
           <h3>{{session.title}}</h3>
