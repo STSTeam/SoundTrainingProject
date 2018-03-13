@@ -12,6 +12,7 @@ using System.Security.Claims;
 using WebApi.Entities;
 using Microsoft.AspNetCore.Authorization;
 using WebApi.Repo;
+using WebApi.BL;
 
 namespace WebApi.Controllers
 {
@@ -20,23 +21,30 @@ namespace WebApi.Controllers
     public class ModulesController : ApiBaseController
     {
         private IModuleRepository _moduleRepo;
+        IBaseRepository<UserCompletedModules, int> _userCompletedModulesDA;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
+        private ModuleBL _moduleBL;
 
         public ModulesController(
             IModuleRepository moduleRepo,
             IMapper mapper,
-            IOptions<AppSettings> appSettings)
+            IOptions<AppSettings> appSettings,
+            IBaseRepository<UserCompletedModules, int> _userCompletedModulesDA)
         {
             _moduleRepo = moduleRepo;
             _mapper = mapper;
             _appSettings = appSettings.Value;
+            this._userCompletedModulesDA = _userCompletedModulesDA;
+
+            _moduleBL = new ModuleBL(_moduleRepo, _userCompletedModulesDA);
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        [Route("GetAll/{userId}")]
+        public IActionResult GetAll(int userId)
         {
-            return HlsOk(_mapper.Map<IList<Dtos.ModuleDto>>(_moduleRepo.GetAll()));
+            return HlsOk(_mapper.Map<IList<ModuleDto>>(_moduleBL.GetAll(userId)));  
         }
 
         [HttpGet("{id}")]

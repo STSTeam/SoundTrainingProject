@@ -18,6 +18,7 @@ using WebApi.DA;
 using WebApi.Middleware;
 using WebApi.Filters;
 using WebApi.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApi
 {
@@ -65,13 +66,19 @@ namespace WebApi
                     ValidateAudience = false
                 };
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // configure DI for application services
             services.AddScoped<IUserRepository, UserDA>();
             services.AddScoped<IModuleRepository, ModuleDA>();
             services.AddScoped<ISessionRepository, SessionDA>();
-            services.AddScoped<IUserTestRepository, UserTestDA>();
             services.AddScoped<IBaseRepository<Sound, int>, BaseDataAccess<Sound, int>>();
+            services.AddScoped<IUserTestRepository, UserTestDA>();
+            services.AddScoped<IBaseRepository<UserTestSounds, int>, BaseDataAccess<UserTestSounds, int>>();
+            services.AddScoped<IBaseRepository<Session, int>, BaseDataAccess<Session, int>>();
+            services.AddScoped<IBaseRepository<UserCompletedModules, int>, BaseDataAccess<UserCompletedModules, int>>();
+            services.AddScoped<IBaseRepository<UserCompletedSessions, int>, BaseDataAccess<UserCompletedSessions, int>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
