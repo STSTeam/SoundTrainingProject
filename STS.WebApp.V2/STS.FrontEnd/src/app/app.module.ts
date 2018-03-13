@@ -31,6 +31,7 @@ import { TestComponent } from './components/test/test.component';
 import { UserTestServices } from './_services/userTest.service';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ChartModule} from 'primeng/chart';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpClientModule,
         routing,
         GalleriaModule,
-        OverlayPanelModule
+        OverlayPanelModule,
+        ChartModule
 
     ],
     declarations: [

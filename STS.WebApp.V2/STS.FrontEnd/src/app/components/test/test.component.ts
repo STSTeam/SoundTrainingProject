@@ -14,7 +14,9 @@ export class TestComponent implements OnInit {
 
   constructor(private userTestServices: UserTestServices
     , private route: ActivatedRoute
-    , private cdr: ChangeDetectorRef) { }
+    , private cdr: ChangeDetectorRef) { 
+     
+    }
 
   moduleId: number;
   sessionId: number;
@@ -24,6 +26,9 @@ export class TestComponent implements OnInit {
   showCorrect: string = null;
   finalResult: string;
   finalRsultNumber:number;
+
+  data: any;
+
 
   @ViewChild('resultPanel') resultPanel: any;
   @ViewChild('soundCtr') soundCtr: any;
@@ -107,6 +112,22 @@ export class TestComponent implements OnInit {
 
   computeResult() {
 
+    this.data = {
+      labels: ['صحيحة','خاطئة'],
+      datasets: [
+          {
+              data: [300, 50],
+              backgroundColor: [
+                  "#24a544",
+                  "#d6614f"
+              ],
+              hoverBackgroundColor: [
+                  "#24a544",
+                  "#d6614f",
+              ]
+          }]    
+      };
+      
     let numberOfCorrectAnswers: number = 0;
     this.testData.sounds.forEach(sound => {
       if (sound.selectedAnswer.isCorrectImage)

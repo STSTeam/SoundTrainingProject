@@ -34,7 +34,8 @@
         "./assets/js/jquery.waypoints.min.js",
         "./assets/js/jquery.bootstrap.wizard.min.js",
         "./assets/js/jquery.slimscroll.min.js",
-        "./assets/js/jquery.waypoints.min.js"
+        "./assets/js/jquery.waypoints.min.js",
+        "../node_modules/chart.js/dist/Chart.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

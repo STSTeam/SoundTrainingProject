@@ -94,7 +94,11 @@ namespace WebApi.BL
 
         internal void SaveTest(TestModel model)
         {
-            model.Score = CalculateTestScore(model.Sounds);
+            double score = 0.0;
+
+            var resultModel = new ResultModel();
+
+            score = CalculateTestScore(model.Sounds);
 
             // 01 - create new test record
             var testId = InsertTest(model);
@@ -102,13 +106,37 @@ namespace WebApi.BL
             // 02 - Fill test details (sounds and Selected images)
             SaveTestSounds(model, testId);
 
-            if (IsTestPass(model.Score))
+            if (IsTestPass(score))
             {
                 // Update Module Progress
                 UpdateUserProgressProgress(model, testId);
-
-
             }
+
+            resultModel  =  PrepareResult(model);
+        }
+
+        private ResultModel PrepareResult(TestModel model)
+        {
+            var result = new ResultModel();
+            result.Score = CalculateTestScore(model.Sounds);
+            result.IsPassed = IsTestPass(result.Score);
+            result.TotalSounds = model.Sounds.Count;
+            result.TotalCorrect = model.Sounds.Count(s => s.SelectedAnswer.IsCorrectImage);
+            result.TotalWrong = model.Sounds.Count(s => s.SelectedAnswer.IsCorrectImage == false);
+            result.NextModuleId = GetNextModuleId(model);
+            result.NextSessionId = GetNextSessionId(model);
+
+            return result;
+        }
+
+        private int GetNextSessionId(TestModel model)
+        {
+            return 0;
+        }
+
+        private int GetNextModuleId(TestModel model)
+        {
+            return 0;
         }
 
         private void UpdateUserProgressProgress(TestModel model, int testId)
@@ -117,20 +145,20 @@ namespace WebApi.BL
 
             var session = _sessionDA.Get(model.SessionId);
 
+            // update session progress by inserting new record in UserCompletedSessions table
+            _userTestDA.InsertUserSessionProgress(new UserCompletedSessions
+            {
+                SessionId = model.SessionId,
+                UserId = model.userId.Value,
+                UserTestId = testId,
+                CreatedDate = currentDateTime
+            });
+
             // check if session marked as final step in module
             if (session.IsLastSession)
             {
-                // update session progress by inserting new record in UserCompletedSessions table
-                _userCompletedSessionsDA.Add(new UserCompletedSessions
-                {
-                    SessionId = model.SessionId,
-                    UserId = model.userId.Value,
-                    UserTestId = testId,
-                    CreatedDate = currentDateTime
-                });
-
                 // update module progress
-                _userCompletedModulesDA.Add(new UserCompletedModules()
+                _userTestDA.InsertUserModuleProgress(new UserCompletedModules()
                 {
                     ModuleId = session.ModuleId,
                     UserId = model.userId.Value,
@@ -166,7 +194,7 @@ namespace WebApi.BL
             {
                 UserId = model.userId.Value,
                 SessionId = model.SessionId,
-                Score = model.Score.Value,
+                Score = CalculateTestScore(model.Sounds),
                 CreatedDate = DateTime.Now
             };
 

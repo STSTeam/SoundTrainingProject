@@ -79,6 +79,8 @@
     <Build Include="dbo\Stored Procedures\images_GetBySessionId.sql" />
     <Build Include="dbo\Tables\UserCompletedSessions.sql" />
     <Build Include="dbo\Tables\UserCompletedModules.sql" />
+    <Build Include="dbo\Stored Procedures\UserCompletedSessions_insert.sql" />
+    <Build Include="dbo\Stored Procedures\UserCompletedModules_insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />

@@ -14,7 +14,6 @@ namespace WebApi.Dtos.UserTestModels
         public int? userId { get; set; }
         public int SessionId { get; set; }
         public string Title { get; set; }
-        public double? Score { get; set; }
         public List<TestSound> Sounds { get; set; }
     }
 
