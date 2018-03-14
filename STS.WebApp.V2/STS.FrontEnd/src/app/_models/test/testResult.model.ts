@@ -1,9 +1,9 @@
 export class TestResultModel{
-    IsPassed : boolean;
-    Score: number;
-    TotalSounds:number;
-    TotalCorrect:number;
-    TotalWrong:number;
-    NextSessionId?:number;
-    NextModuleId?:number;
+    isPassed : boolean;
+    score: number;
+    totalSounds:number;
+    totalCorrect:number;
+    totalWrong:number;
+    nextSessionId?:number;
+    nextModuleId?:number;
 }

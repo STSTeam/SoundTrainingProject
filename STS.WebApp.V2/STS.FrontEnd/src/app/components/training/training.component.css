@@ -13,7 +13,7 @@ button:before{
     height: 150px;
     top: -150px;
     left: 0;
-    background-image: url("/assets/_support_files/Interface/1_Pic_Forward.jpg");
+    background-image: url("/assets/_support_files/Interface/1_Pic_Forward.png");
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -22,7 +22,7 @@ button.prevBtn{
     float: left;
 }
 button.prevBtn:before{
-    /* background-image: url("/assets/_support_files/Interface/1_Pic_Backward.jpg"); */
+    /* background-image: url("/assets/_support_files/Interface/1_Pic_Backward.png"); */
     transform-origin: center center;
     transform: rotate(180deg);
 }
