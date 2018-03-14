@@ -1,0 +1,10 @@
+h3 img {
+    height: 100px;
+    vertical-align: bottom;
+    margin-left: 15px;
+}
+h3 div {
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+}

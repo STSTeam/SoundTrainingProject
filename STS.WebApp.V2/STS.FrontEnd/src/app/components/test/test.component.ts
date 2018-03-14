@@ -90,7 +90,6 @@ export class TestComponent implements OnInit {
     switch (dir) {
       case "forward":
         this.currentSound.index++;
-
         if (this.currentSound.index === this.testData.sounds.length) {
           this.showResult = true;
           this.userTestServices.SubmitTest(this.testData).subscribe(res => {

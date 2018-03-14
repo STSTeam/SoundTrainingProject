@@ -13,7 +13,7 @@
 <div class="row">
   <div *ngFor="let module of modules" class="col-sm-12 col-md-12">
     <div class="thumbnail">
-      <img style="height: 50px; width:50px" src="../assets/_support_files/Interface/{{module.imageName}}.png" alt="...">
+      <img src="../assets/_support_files/Interface/{{module.imageName}}.png" alt="...">
       <div class="caption">
           <a [routerLink]="module.enabled ? module.id : null" routerLinkActive="is-active">
           <h3>{{module.title}}</h3>
