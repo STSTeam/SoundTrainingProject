@@ -1,7 +1,8 @@
 <div class="container" style="margin-bottom:10px;" #mainDiv>
-   
+
   <div *ngIf="!showResult">
     <div class="row">
+      <div class="col-sm-8"></div>
       <div class="col-sm-4">
         <audio *ngIf="currentSound.sound" id="passage-audio" class="passage" controls #soundCtr>
           <source src="./assets/_support_files/MP3/{{currentSound.sound.name}}.mp3" type="audio/mp3" #soundCtr>
@@ -10,7 +11,7 @@
         </audio>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="show">
       <div class="col-sm-4" *ngFor="let image of currentSound?.sound?.images">
         <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="height: 300px; width: 300px">
         <input name="{{image.id}}" ng-control="options" type="radio" [value]="image.isCorrectImage" (click)="radioClicked($event,resultPanel,radioCtr)"
@@ -19,10 +20,22 @@
 
       </div>
     </div>
-    <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
+    
+    <div class="row" style="margin-top: 50px">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-3" *ngFor="let image of currentSound?.sound?.images; let index = index">
+        <div >
+          <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" [class.imageBoarder]="image === selectedImage" style="height: 300px; width: 200px" (click)="imageClicked(index, image.id, image)">
+        </div>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
+    </div>
+
   </div>
   <div *ngIf="showResult" class="row">
-      <p-chart type="pie" [data]="data"></p-chart>
+    <p-chart type="pie" [data]="data"></p-chart>
     <div class="col-sm-12">
       <h1> نتيجتك هي: {{finalRsultNumber}} %</h1>
     </div>
@@ -36,13 +49,13 @@
       <img src="./assets/_support_files/Interface/1_Pic_confused_girl.png" style="height: 300px; width: 300px">
     </div>
     <div>
-      <a [routerLink]="['../../']" >back</a>
+      <a [routerLink]="['../../']">back</a>
 
     </div>
   </div>
 </div>
 
 <p-overlayPanel #resultPanel dismissable="false">
-  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_Thumbs_up.png" >
-  <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png" >
+  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_Thumbs_up.png">
+  <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png">
 </p-overlayPanel>

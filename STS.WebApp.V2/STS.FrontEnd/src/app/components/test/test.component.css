@@ -25,3 +25,16 @@
     left: 0;
     pointer-events: none;
 }
+
+.imageBoarder {
+    padding:1px;
+    border:3px solid #1b6331;
+    background-color:#ff0;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}

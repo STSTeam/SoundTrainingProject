@@ -29,6 +29,7 @@ export class TestComponent implements OnInit {
   showCorrect: string = null;
   finalResult: string;
   finalRsultNumber:number;
+  selectedImage:TestImage;
 
   data: any;
 
@@ -155,6 +156,12 @@ export class TestComponent implements OnInit {
 
     // show result panel
     overlaypanel.show(event); 
+  }
+
+  imageClicked(index:number, imageId:number, image:TestImage){
+    this.selectedImage = image;
+    console.log(`image clicked... Index = ${index}, Id: ${imageId}, image obj: ${image}`);
+    console.log(image);
   }
 
 
