@@ -55,3 +55,9 @@ li.ui-galleria-panel img{ /*   fixed the height og imgs */
     cursor: default;
     text-decoration: none;
 }
+
+.thumbnail {
+    box-shadow: 0 0px 0px 4px #eb8c16;
+    border: 5px solid #ddd;
+    border-radius: 8px;
+}
