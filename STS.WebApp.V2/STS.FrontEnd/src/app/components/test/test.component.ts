@@ -15,7 +15,7 @@ import { TestResultModel } from '../../_models/test/testResult.model';
 export class TestComponent implements OnInit {
 
   constructor(private userTestServices: UserTestServices
-    , private route: ActivatedRoute
+    , private route: ActivatedRoute 
     , private cdr: ChangeDetectorRef) {
 
   }
