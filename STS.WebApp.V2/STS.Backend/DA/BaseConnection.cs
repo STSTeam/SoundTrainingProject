@@ -12,7 +12,7 @@ namespace WebApi.DA
         public BaseConnection()   
         { 
             var connectionString =
-                @"Data Source=.;Initial Catalog=STSDb;User ID=sa;Password=P@ssw0rd;";
+                @"Data Source=.\sqlexpress;Initial Catalog=STSDb;User ID=sa;Password=P@ssw0rd;";
             dbConnection = new System.Data.SqlClient.SqlConnection(connectionString);
         }
     }
