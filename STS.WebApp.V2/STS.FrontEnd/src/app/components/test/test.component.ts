@@ -16,32 +16,30 @@ export class TestComponent implements OnInit {
 
   constructor(private userTestServices: UserTestServices
     , private route: ActivatedRoute
-    , private cdr: ChangeDetectorRef) { 
-     
-    }
+    , private cdr: ChangeDetectorRef) {
+
+  }
 
   moduleId: number;
   sessionId: number;
   testData: TestModel;
-  testResult:TestResultModel;
-  currentSound: { "index": 0, sound: TestSound }; 
+  testResult: TestResultModel;
+  currentSound: { "index": 0, sound: TestSound };
   showResult: boolean = false;
   showCorrect: string = null;
   finalResult: string;
-  finalRsultNumber:number;
-  selectedImage:TestImage;
+  selectedImage: TestImage;
+
 
   data: any;
-
 
   @ViewChild('resultPanel') resultPanel: any;
   @ViewChild('soundCtr') soundCtr: any;
   @ViewChild('mainDiv') mainDiv: any;
 
-  @ViewChildren('radioCtr') radioCtrs: QueryList<any>;
-
   ngOnInit() {
     // init
+    this.selectedImage = null;
     this.currentSound = { "index": 0, sound: null };
 
     this.moduleId = this.route.snapshot.params['moduleId'];
@@ -59,37 +57,16 @@ export class TestComponent implements OnInit {
   }
 
   moveWizard(dir: string) {
-    let isAnyAnswerSelected: Boolean = false;
-    let selectedImageId: number;
-    let isSelectionCorrect: boolean;
-
-    this.radioCtrs.forEach(ctr => {
-      if (ctr.nativeElement.checked) {
-        isAnyAnswerSelected = true;
-        selectedImageId = Number(ctr.nativeElement.name);
-        if (ctr.nativeElement.value == 'true')
-          isSelectionCorrect = true;
-        else isSelectionCorrect = false;
-      }
-    });
-
-    console.log(isAnyAnswerSelected);
-    if (!isAnyAnswerSelected)
+    debugger;
+    if (!this.selectedImage)
       return;
+    this.testData.sounds[this.currentSound.index].selectedAnswer = this.selectedImage;
+    console.log("updated with answer: ", this.testData);
 
-      // get refrence to selected answer (image) in images of current sound
-      let selectedImgRef : TestImage ;
-      this.testData.sounds[this.currentSound.index].images.forEach(image =>{
-        if(image.id == selectedImageId)
-          selectedImgRef = image;
-      });
-
-       this.testData.sounds[this.currentSound.index].selectedAnswer = selectedImgRef;
-       console.log("updated with answer: ",  this.testData);
-   
     switch (dir) {
       case "forward":
         this.currentSound.index++;
+        this.selectedImage = null;
 
         if (this.currentSound.index === this.testData.sounds.length) {
           this.showResult = true;
@@ -98,8 +75,8 @@ export class TestComponent implements OnInit {
             this.testResult = <TestResultModel>result.resultData;
             console.log("test result: ", this.testResult);
             this.showResultArea();
-          }, err =>{});
-          
+          }, err => { });
+
           break;
         }
         else {
@@ -120,48 +97,43 @@ export class TestComponent implements OnInit {
   showResultArea() {
 
     this.data = {
-      labels: ['صحيحة','خاطئة'],
+      labels: ['صحيحة', 'خاطئة'],
       datasets: [
-          {
-              data: [this.testResult.totalCorrect, this.testResult.totalWrong],
-              backgroundColor: [
-                  "#24a544",
-                  "#d6614f"
-              ],
-              hoverBackgroundColor: [
-                  "#24a544",
-                  "#d6614f",
-              ]
-          }]    
-      };
-      
+        {
+          data: [this.testResult.totalCorrect, this.testResult.totalWrong],
+          backgroundColor: [
+            "#24a544",
+            "#d6614f"
+          ],
+          hoverBackgroundColor: [
+            "#24a544",
+            "#d6614f",
+          ]
+        }]
+    };
+
     let numberOfCorrectAnswers: number = 0;
     this.testData.sounds.forEach(sound => {
       if (sound.selectedAnswer.isCorrectImage)
         numberOfCorrectAnswers++;
     });
 
-    this.finalRsultNumber = this.testResult.score;
-    if (this.finalRsultNumber > 50)
+    if (this.testResult.score > 50)
       this.finalResult = 'pass';
     else this.finalResult = 'fail';
   }
 
-  radioClicked(event, overlaypanel: OverlayPanel, radioCtr) {
-    // disable all radio controls to prevent user change his selection
-    this.radioCtrs.forEach(ctr => ctr.nativeElement.disabled = true);
+  imageClicked(event, overlaypanel: OverlayPanel, image: TestImage) {
+    if (this.selectedImage)
+      return;
+
+    this.selectedImage = image;
 
     // check if the user selected correct answer
-    this.showCorrect = radioCtr.value;
+    this.showCorrect = '' + this.selectedImage.isCorrectImage;
 
     // show result panel
-    overlaypanel.show(event); 
-  }
-
-  imageClicked(index:number, imageId:number, image:TestImage){
-    this.selectedImage = image;
-    console.log(`image clicked... Index = ${index}, Id: ${imageId}, image obj: ${image}`);
-    console.log(image);
+    overlaypanel.show(event);
   }
 
 

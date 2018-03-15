@@ -11,21 +11,14 @@
         </audio>
       </div>
     </div>
-    <div class="row" *ngIf="show">
-      <div class="col-sm-4" *ngFor="let image of currentSound?.sound?.images">
-        <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="height: 300px; width: 300px">
-        <input name="{{image.id}}" ng-control="options" type="radio" [value]="image.isCorrectImage" (click)="radioClicked($event,resultPanel,radioCtr)"
-          #radioCtr>
-        <br/>
-
-      </div>
-    </div>
     
     <div class="row" style="margin-top: 50px">
       <div class="col-sm-6"></div>
       <div class="col-sm-3" *ngFor="let image of currentSound?.sound?.images; let index = index">
         <div >
-          <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" [class.imageBoarder]="image === selectedImage" style="height: 300px; width: 200px" (click)="imageClicked(index, image.id, image)">
+          <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" 
+          [class.imageBoarder]="image === selectedImage" style="height: 300px; width: 200px" 
+          (click)="imageClicked($event,resultPanel, image)">
         </div>
       </div>
     </div>
@@ -37,7 +30,7 @@
   <div *ngIf="showResult" class="row">
     <p-chart type="pie" [data]="data"></p-chart>
     <div class="col-sm-12">
-      <h1> نتيجتك هي: {{finalRsultNumber}} %</h1>
+      <h1> نتيجتك هي: {{testResult.score}} %</h1>
     </div>
     <div class="col-sm-12" *ngIf="finalResult === 'pass'">
       <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>
