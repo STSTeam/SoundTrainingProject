@@ -12,10 +12,22 @@
 
 <div class="row">
   <div *ngFor="let module of modules" class="col-sm-12 col-md-12">
+      
+      
+  
     <div class="thumbnail">
+        
+
       <img src="../assets/_support_files/Interface/{{module.imageName}}.png" alt="...">
       <div class="caption">
           <a [routerLink]="module.enabled ? module.id : null" routerLinkActive="is-active">
+      
+              <img style="height: 100px; width:100px; float:right;" 
+              src="../assets/_support_files/Interface/1_Pic_Number2.png" alt="Img" > 
+              
+              <img style="height: 100px; width:100px; float:right; display:inline;" 
+              src="../assets/_support_files/Interface/1_Pic_Sound.png" alt="Img" >
+
           <h3>{{module.title}}</h3>
         </a>
         <p>{{module.descreption}}</p>

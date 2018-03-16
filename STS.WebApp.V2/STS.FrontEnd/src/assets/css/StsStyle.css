@@ -36,19 +36,14 @@ div.ui-galleria-filmstrip-wrapper{
     display:none;
 }
 
-.btn-razan{
-    font-size: 3em;
-    padding: 10px 30px;
-    display: block;
-    width: 100%;
-}
+
 
 li.ul-header{ 
     font-size: 5em;
 
 }
 
-li.ui-galleria-panel img{ /*   fixed the height og imgs */ 
+li.ui-galleria-panel img{ /*   fixed the height of training imgs */ 
     height : 450px;
 }
 .is-active {
