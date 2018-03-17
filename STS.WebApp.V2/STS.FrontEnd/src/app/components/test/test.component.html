@@ -12,8 +12,9 @@
       </div>
     </div>
     
-    <div class="row" style="margin-top: 50px">
-      <div class="col-sm-6"></div>
+    <div class="row" style="position:relative;margin-top: 50px">
+      <a class="playAgainBtn" href="#" (click)="playAgain($event)"><img src="./assets/_support_files/Interface/1_Pic_speaker_02.png" alt="play again"></a>
+      <div class="col-sm-3"></div>
       <div class="col-sm-3" *ngFor="let image of currentSound?.sound?.images; let index = index">
         <div >
           <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" 
@@ -23,21 +24,23 @@
       </div>
     </div>
     <div class="btn-group">
-      <button *ngIf="!showResult" (click)="moveWizard('forward')">التالي</button>
+      <button *ngIf="!showResult" (click)="moveWizard('forward')" class="bigBtn">التالي</button>
     </div>
 
   </div>
   <div *ngIf="showResult" class="row">
-    <p-chart type="pie" [data]="data"></p-chart>
-    <div class="col-sm-12">
+    <div class="col-sm-6">
+      <p-chart type="pie" [data]="data"></p-chart>
+    </div>
+    <div class="col-sm-3">
       <h1> نتيجتك هي: {{testResult.score}} %</h1> 
     </div>
-    <div class="col-sm-12" *ngIf="finalResult === 'pass'">
+    <div class="col-sm-3" *ngIf="finalResult === 'pass'">
       <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>
       <img src="./assets/_support_files/Interface/1_Speaking.png" style="height: 300px; width: 300px">
     </div>
 
-    <div class="col-sm-12" *ngIf="finalResult === 'fail'">
+    <div class="col-sm-3" *ngIf="finalResult === 'fail'">
       <h1 style="color: red">أعد المحاولة لاحقا </h1>
       <img src="./assets/_support_files/Interface/1_Pic_confused_girl.png" style="height: 300px; width: 300px">
     </div>
@@ -49,6 +52,6 @@
 </div>
 
 <p-overlayPanel #resultPanel dismissable="false">
-  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_Thumbs_up.png">
+  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_correct_penguins.png">
   <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_Pic_wrong_panda.png">
 </p-overlayPanel>

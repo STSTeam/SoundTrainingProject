@@ -36,14 +36,19 @@ div.ui-galleria-filmstrip-wrapper{
     display:none;
 }
 
-
+.btn-razan{ /* hearing and speaking buttons in h.p*/
+    font-size: 3em;
+    padding: 10px 30px;
+    display: block;
+    width: 100%;
+}
 
 li.ul-header{ 
     font-size: 5em;
 
 }
 
-li.ui-galleria-panel img{ /*   fixed the height of training imgs */ 
+li.ui-galleria-panel img{ /*   fixed the height og imgs */ 
     height : 450px;
 }
 .is-active {
@@ -55,4 +60,55 @@ li.ui-galleria-panel img{ /*   fixed the height of training imgs */
     box-shadow: 0 0px 0px 4px #eb8c16;
     border: 5px solid #ddd;
     border-radius: 8px;
+}
+.thumbnail:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+button.bigBtn{
+    width: 150px;
+    height: 50px;
+    font-size: 2rem;
+    position: relative;
+    margin-top: 150px;
+}
+button.bigBtn:before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 150px; 
+    height: 150px;
+    top: -150px;
+    left: 0;
+    background-image: url("/assets/_support_files/Interface/1_Pic_Forward.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+button.bigBtn.prevBtn{
+    float: left;
+}
+button.bigBtn.prevBtn:before{
+    /* background-image: url("/assets/_support_files/Interface/1_Pic_Backward.png"); */
+    transform-origin: center center;
+    transform: rotate(180deg);
+}
+button.bigBtn.testBtn:before{
+    background-image: url("/assets/_support_files/Interface/1_Pic_strong_character.png");
+}
+
+.playAgainBtn{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 999;
+    width: 80px;
+    height: 80px;
+}
+
+.playAgainBtn img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
 }

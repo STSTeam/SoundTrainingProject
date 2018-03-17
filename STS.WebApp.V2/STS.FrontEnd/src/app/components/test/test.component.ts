@@ -136,6 +136,10 @@ export class TestComponent implements OnInit {
     overlaypanel.show(event);
   }
 
-
+  //function of play again 
+  playAgain(e){
+    e.preventDefault();
+    this.soundCtr.nativeElement.play();
+  }
 
 }

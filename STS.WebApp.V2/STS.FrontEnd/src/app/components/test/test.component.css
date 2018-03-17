@@ -4,8 +4,8 @@
     display: block;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     z-index: 999999;
     animation: show 5000ms both;
 }
