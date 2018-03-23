@@ -87,6 +87,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\FillUserScript.sql" />
-    <None Include="Scripts\FillSessionsAndModules.sql" />
   </ItemGroup>
 </Project>
