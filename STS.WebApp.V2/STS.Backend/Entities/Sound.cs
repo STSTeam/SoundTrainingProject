@@ -1,8 +1,4 @@
-﻿using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
 namespace WebApi.Entities
 {
@@ -10,5 +6,6 @@ namespace WebApi.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string DisplayName { get; set; }
     }
 }

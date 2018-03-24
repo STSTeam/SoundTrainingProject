@@ -13,6 +13,8 @@ namespace WebApi.Entities
         public string Title { get; set; }
         public string Descreption { get; set; }
         public string ImageName { get; set; }
+        public string ImageName2 { get; set; }
+
         public int? PrerequisiteModuleId { get; set; }
         [IgnoreSelect]
         [IgnoreInsert]
