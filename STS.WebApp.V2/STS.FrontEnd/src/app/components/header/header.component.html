@@ -35,7 +35,7 @@
         </li>
 
         <li >
-          <a [routerLink]="['/contactus']">  اتصل بنا</a>
+          <a [routerLink]="['/contactus']">  معلومات عن البرنامج</a>
         </li>
         
         <li><a class="" [routerLink]="['/home']">الصفحة الرئيسية</a></li>
@@ -48,7 +48,7 @@
         <li>
           <div *ngIf="!currentUser"  >
             <a [routerLink]="['/login']">تسجيل الدخول</a> |
-            <a [routerLink]="['/register']">إنشاء الدخول</a>
+            <a [routerLink]="['/register']">إنشاء حساب</a>
           </div>
           <div *ngIf="currentUser" >
             <a [routerLink]="['/login']">تسجيل الخروج</a> -- <i class="glyphicon glyphicon-user"></i> أهلا بك: {{currentUser.firstName}} {{currentUser.lastName}}
