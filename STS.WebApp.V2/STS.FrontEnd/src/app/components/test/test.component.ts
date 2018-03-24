@@ -60,6 +60,7 @@ export class TestComponent implements OnInit {
     debugger;
     if (!this.selectedImage)
       return;
+    this.showCorrect = null;
     this.testData.sounds[this.currentSound.index].selectedAnswer = this.selectedImage;
     console.log("updated with answer: ", this.testData);
 
@@ -133,7 +134,8 @@ export class TestComponent implements OnInit {
     this.showCorrect = '' + this.selectedImage.isCorrectImage;
 
     // show result panel
-    overlaypanel.show(event);
+    // overlaypanel.show(event);
+    setTimeout(()=>{this.moveWizard('forward')}, 5000);
   }
 
   //function of play again 

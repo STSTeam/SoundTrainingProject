@@ -71,18 +71,18 @@ button.bigBtn{
     height: 50px;
     font-size: 2rem;
     position: relative;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 button.bigBtn:before{
     content: '';
     display: block;
     position: absolute;
     width: 150px; 
-    height: 150px;
-    top: -150px;
+    height: 100px;
+    top: -100px;
     left: 0;
     background-image: url("/assets/_support_files/Interface/1_Pic_Forward.png");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 
 }
@@ -90,9 +90,9 @@ button.bigBtn.prevBtn{
     float: left;
 }
 button.bigBtn.prevBtn:before{
-    /* background-image: url("/assets/_support_files/Interface/1_Pic_Backward.png"); */
+    background-image: url("/assets/_support_files/Interface/1_Pic_Backward.png");
     transform-origin: center center;
-    transform: rotate(180deg);
+   
 }
 button.bigBtn.testBtn:before{
     background-image: url("/assets/_support_files/Interface/1_Pic_strong_character.png");
