@@ -33,7 +33,10 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ChartModule} from 'primeng/chart'
 import { ContactUsComponent } from './components/contact-us/contact-us.component'
-import { InformationComponent } from './components/information/information.component'
+import { InformationComponent } from './components/information/information.component';
+import { SoundIndexComponent } from './components/sound-index/sound-index.component';
+import { SoundService } from './_services/sound.service';
+import {TreeModule} from 'primeng/tree';
 
 
 @NgModule({
@@ -47,8 +50,8 @@ import { InformationComponent } from './components/information/information.compo
         routing,
         GalleriaModule,
         OverlayPanelModule,
-        ChartModule
-
+        ChartModule,
+        TreeModule
     ],
     declarations: [
         AppComponent,
@@ -65,7 +68,8 @@ import { InformationComponent } from './components/information/information.compo
         TestComponent,
         TrainingItemViewComponent,
         ContactUsComponent,
-        InformationComponent
+        InformationComponent,
+        SoundIndexComponent
     ],
     providers: [
         AuthGuard,
@@ -74,6 +78,7 @@ import { InformationComponent } from './components/information/information.compo
         UserService,
         ModulesService,
         SessionsService,
+        SoundService,
         UserDataStore,
         UserTestServices,
         {

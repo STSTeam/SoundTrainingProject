@@ -11,9 +11,11 @@ import { TrainingComponent } from "./components/training/training.component";
 import { TestComponent } from './components/test/test.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { InformationComponent } from './components/information/information.component';
+import { SoundIndexComponent } from './components/sound-index/sound-index.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/ },
+    { path: 'soundsIndex', component: SoundIndexComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'contactus', component: ContactUsComponent },
