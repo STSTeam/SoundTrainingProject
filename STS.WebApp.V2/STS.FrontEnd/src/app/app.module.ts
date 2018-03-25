@@ -36,6 +36,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { InformationComponent } from './components/information/information.component';
 import { SoundIndexComponent } from './components/sound-index/sound-index.component';
 import { SoundService } from './_services/sound.service';
+import {TreeModule} from 'primeng/tree';
 
 
 @NgModule({
@@ -49,8 +50,8 @@ import { SoundService } from './_services/sound.service';
         routing,
         GalleriaModule,
         OverlayPanelModule,
-        ChartModule
-
+        ChartModule,
+        TreeModule
     ],
     declarations: [
         AppComponent,
