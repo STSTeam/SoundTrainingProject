@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE sounds_GetBySessionId
+CREATE PROCEDURE [dbo].[sounds_GetBySessionId]
 	-- Add the parameters for the stored procedure here
 	@sessionId int
 AS
@@ -16,6 +16,7 @@ BEGIN
 	  select 
 	 Sound.Id 
 	, Sound.Name 
+	, Sound.DisplayName
    from SessionsSounds
   inner join Sound on SessionsSounds.SoundId = Sound.Id
 where SessionsSounds.SessionId = @sessionId
