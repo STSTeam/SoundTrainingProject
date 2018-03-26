@@ -1,3 +1,27 @@
-<p-tree [value]="nodes" selectionMode="single" [(selection)]="selectedFile"
-    (onNodeSelect)="onNodeSelect($event)" ></p-tree>
-<div style="margin-top:8px">Selected Node: {{selectedFile ? selectedFile.label : 'none'}}</div> 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" [style.visibility]="!selectedFile ? 'hidden' : 'visible'">
+      <div class="row">
+        <h1>{{selectedSound?.displayName}}</h1>
+      </div>
+      <div class="row">
+        <audio id="passage-audio" class="passage" controls #soundCtr>
+          <source src="./assets/_support_files/MP3/{{selectedSound?.name}}.mp3" type="audio/mp3">
+          <em class="error">
+            <strong>Error:</strong> Your browser doesn't appear to support HTML5 Audio.</em>
+        </audio>
+      </div>
+      <div class="row">
+        <p-galleria *ngIf="selectedSound?.images" [images]="ctrImages" [autoPlay]="false"
+         [showFilmstrip]="false" [showCaption]="false" panelWidth="0" panelHeight="0"
+          [showCaption]="false"></p-galleria> 
+      </div>
+    </div>
+    <div class="col-sm-4">
+        <h3>اصوات الحيوانات</h3>
+      <p-tree [value]="alphaNodes" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="onNodeSelect($event)"></p-tree>
+      <h3>اصوات الطبيعة</h3>
+      <p-tree [value]="envNodes" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="onNodeSelect($event)"></p-tree>
+    </div>
+  </div>
+</div>

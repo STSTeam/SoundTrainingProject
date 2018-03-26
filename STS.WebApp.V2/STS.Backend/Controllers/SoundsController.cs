@@ -21,6 +21,8 @@ namespace WebApi.Controllers
     public class SoundsController : ApiBaseController
     {
         IBaseRepository<Sound, int> _soundsDA;
+        IBaseRepository<Image, int> _imagesDA;
+        IBaseRepository<SoundImages, int> _soundImagesDA;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
@@ -28,17 +30,24 @@ namespace WebApi.Controllers
 
             IMapper mapper,
             IOptions<AppSettings> appSettings,
-             IBaseRepository<Sound, int> _soundsDA)
+             IBaseRepository<Sound, int> _soundsDA,
+              IBaseRepository<SoundImages, int> _soundImagesDA,
+              IBaseRepository<Image, int> _imagesDA)
         {
             _mapper = mapper;
             _appSettings = appSettings.Value;
             this._soundsDA = _soundsDA;
+            this._soundImagesDA = _soundImagesDA;
+            this._imagesDA = _imagesDA;
         }
 
         [HttpGet("GetAllSoundsIndexed")]
         public IActionResult GetAllSoundsIndexed()
         {
-            var allSounds = _soundsDA.GetAll();
+            var allSounds = _mapper.Map<List<SoundDto>>(_soundsDA.GetAll());
+            var allImages = _mapper.Map<List<ImageDto>>(_imagesDA.GetAll());
+            var allSoundImages = _soundImagesDA.GetAll().ToList();
+
             var alphapaticSounds = allSounds
                                     .Where(s => s.IsAlphabeticIndexed)
                                     .OrderBy(s => s.DisplayName)
@@ -51,6 +60,9 @@ namespace WebApi.Controllers
 
             var indexedSoundDto = new SoundsByCategory()
             {
+                AllSounds = allSounds,
+                AllImages = allImages,
+                SoundImages = allSoundImages,
                 AlphapaticSounds = OrganizeGroupsToDtos(alphapaticSounds),
                 EnvSounds = OrganizeGroupsToDtos(envSounds)
             };
@@ -58,7 +70,7 @@ namespace WebApi.Controllers
             return HlsOk(indexedSoundDto);
         }
 
-        private List<SoundsByLetter> OrganizeGroupsToDtos(List<IGrouping<char, Sound>> sounds)
+        private List<SoundsByLetter> OrganizeGroupsToDtos(List<IGrouping<char, SoundDto>> sounds)
         {
             List<SoundsByLetter> soundsIndexDtos = new List<SoundsByLetter>();
 
@@ -74,6 +86,8 @@ namespace WebApi.Controllers
 
             return soundsIndexDtos;
         }
+
+
 
 
     }

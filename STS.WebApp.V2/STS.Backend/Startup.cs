@@ -72,13 +72,15 @@ namespace WebApi
             services.AddScoped<IUserRepository, UserDA>();
             services.AddScoped<IModuleRepository, ModuleDA>();
             services.AddScoped<ISessionRepository, SessionDA>();
-            services.AddScoped<IBaseRepository<Sound, int>, BaseDataAccess<Sound, int>>();
             services.AddScoped<IUserTestRepository, UserTestDA>();
+            services.AddScoped<IBaseRepository<Sound, int>, BaseDataAccess<Sound, int>>();
+            services.AddScoped<IBaseRepository<Image, int>, BaseDataAccess<Image, int>>();
             services.AddScoped<IBaseRepository<UserTestSounds, int>, BaseDataAccess<UserTestSounds, int>>();
             services.AddScoped<IBaseRepository<Session, int>, BaseDataAccess<Session, int>>();
             services.AddScoped<IBaseRepository<UserCompletedModules, int>, BaseDataAccess<UserCompletedModules, int>>();
             services.AddScoped<IBaseRepository<UserCompletedSessions, int>, BaseDataAccess<UserCompletedSessions, int>>();
-
+            services.AddScoped<IBaseRepository<SoundImages, int>, BaseDataAccess<SoundImages, int>>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
