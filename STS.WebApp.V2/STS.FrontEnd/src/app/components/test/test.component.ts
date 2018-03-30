@@ -15,7 +15,7 @@ import { TestResultModel } from '../../_models/test/testResult.model';
 export class TestComponent implements OnInit {
 
   constructor(private userTestServices: UserTestServices
-    , private route: ActivatedRoute 
+    , private route: ActivatedRoute
     , private cdr: ChangeDetectorRef) {
 
   }
@@ -29,7 +29,8 @@ export class TestComponent implements OnInit {
   showCorrect: string = null;
   finalResult: string;
   selectedImage: TestImage;
-
+  progressBarValue: number = 0;
+  moveWizardTimer: any;
 
   data: any;
 
@@ -37,8 +38,15 @@ export class TestComponent implements OnInit {
   @ViewChild('soundCtr') soundCtr: any;
   @ViewChild('mainDiv') mainDiv: any;
 
+  SetProgressBar(n: number) {
+    var total = this.testData.sounds.length;
+    // var test : number =  Math.floor(n/total);
+    this.progressBarValue = (n / total) * 100;
+  }
   ngOnInit() {
     // init
+    //this.SetProgressBar(0);
+
     this.selectedImage = null;
     this.currentSound = { "index": 0, sound: null };
 
@@ -57,9 +65,11 @@ export class TestComponent implements OnInit {
   }
 
   moveWizard(dir: string) {
-    debugger;
+    clearTimeout(this.moveWizardTimer);
+
     if (!this.selectedImage)
       return;
+    this.SetProgressBar(this.currentSound.index + 1);
     this.showCorrect = null;
     this.testData.sounds[this.currentSound.index].selectedAnswer = this.selectedImage;
     console.log("updated with answer: ", this.testData);
@@ -90,9 +100,8 @@ export class TestComponent implements OnInit {
   }
 
   updateSoundCtr() {
-
-    let xx = this.soundCtr.nativeElement;
-    xx.src = "./assets/_support_files/MP3/" + this.currentSound.sound.name + ".mp3";
+    this.soundCtr.nativeElement.src = "./assets/_support_files/MP3/" + this.currentSound.sound.name + ".mp3";
+    this.soundCtr.nativeElement.autoplay = true;
   }
 
   showResultArea() {
@@ -128,6 +137,9 @@ export class TestComponent implements OnInit {
     if (this.selectedImage)
       return;
 
+    this.soundCtr.nativeElement.pause();
+    this.soundCtr.nativeElement.currentTime = 0;
+
     this.selectedImage = image;
 
     // check if the user selected correct answer
@@ -135,11 +147,11 @@ export class TestComponent implements OnInit {
 
     // show result panel
     // overlaypanel.show(event);
-    setTimeout(()=>{this.moveWizard('forward')}, 5000);
+    this.moveWizardTimer = setTimeout(() => this.moveWizard('forward'), 5000);
   }
 
   //function of play again 
-  playAgain(e){
+  playAgain(e) {
     e.preventDefault();
     this.soundCtr.nativeElement.play();
   }
