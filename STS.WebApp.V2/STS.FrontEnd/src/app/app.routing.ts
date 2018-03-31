@@ -12,6 +12,7 @@ import { TestComponent } from './components/test/test.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { InformationComponent } from './components/information/information.component';
 import { SoundIndexComponent } from './components/sound-index/sound-index.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/ },
@@ -20,6 +21,8 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'contactus', component: ContactUsComponent },
     { path: 'information', component: InformationComponent },
+    { path: 'timer', component: TimerComponent },
+
     {
         path: 'hearing', canActivate: [AuthGuard],
         children: [
