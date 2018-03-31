@@ -1,31 +1,38 @@
 <div class="container" style="margin-bottom:10px;" #mainDiv>
 
+  <h1>
+    <app-timer #timer></app-timer>
+  </h1>
+
   <div *ngIf="!showResult">
+    <div class="row">
+      <div class="col-sm-2">
+        <h3> {{currentSound?.index + 1}}/{{testData?.sounds?.length}}</h3>
+      </div>
+      <div class="col-sm-10">
+        <p-progressBar [value]="progressBarValue"></p-progressBar>
+      </div>
+    </div>
+    <div class="row"></div>
     <div class="row">
       <div class="col-sm-8"></div>
       <div class="col-sm-4">
-        <audio *ngIf="currentSound.sound" id="passage-audio" class="passage" controls #soundCtr>
+        <audio *ngIf="currentSound.sound" id="passage-audio" class="passage" autoplay controls #soundCtr>
           <source src="./assets/_support_files/MP3/{{currentSound.sound.name}}.mp3" type="audio/mp3" #soundCtr>
           <em class="error">
             <strong>Error:</strong> Your browser doesn't appear to support HTML5 Audio.</em>
         </audio>
       </div>
     </div>
-    
-    <div class="row" [class.imgSelected]="selectedImage!=null" 
-         style="position:relative;margin-top: 50px">
-      <a class="playAgainBtn" href="#" (click)="playAgain($event)"><img src="./assets/_support_files/Interface/1_Pic_speaker_02.png" alt="play again"></a>
+
+    <div class="row" [class.imgSelected]="selectedImage!=null" style="position:relative;margin-top: 50px">
+      <a class="playAgainBtn" href="#" (click)="playAgain($event)">
+        <img src="./assets/_support_files/Interface/1_Pic_speaker_02.png" alt="play again">
+      </a>
       <div class="col-md-2"></div>
-      <div *ngFor="let image of currentSound?.sound?.images; let index = index"
-          class="col-md-3 img_Con"
-          [class.col-md-offset-2]="index%2!=0"
-          [class.imageBoarder]="image === selectedImage"
-          [class.imgIsCorrect]="image.isCorrectImage == true"
-          [class.imgIsNotCorrect]="image.isCorrectImage == false"
-          >
-          <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" 
-           style="height: 300px; width: 200px" 
-          (click)="imageClicked($event,resultPanel, image)">
+      <div *ngFor="let image of currentSound?.sound?.images; let index = index" class="col-md-3 img_Con" [class.col-md-offset-2]="index%2!=0"
+        [class.imageBoarder]="image === selectedImage" [class.imgIsCorrect]="image.isCorrectImage == true" [class.imgIsNotCorrect]="image.isCorrectImage == false">
+        <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="height: 300px; width: 200px" (click)="imageClicked($event,resultPanel, image)">
       </div>
     </div>
     <div class="btn-group">
@@ -33,12 +40,13 @@
     </div>
 
   </div>
+  <br/>
   <div *ngIf="showResult" class="row">
     <div class="col-sm-6">
       <p-chart type="pie" [data]="data"></p-chart>
     </div>
     <div class="col-sm-3">
-      <h1> نتيجتك هي: {{testResult.score}} %</h1> 
+      <h1> نتيجتك هي: {{testResult?.score}} %</h1>
     </div>
     <div class="col-sm-3" *ngIf="finalResult === 'pass'">
       <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>

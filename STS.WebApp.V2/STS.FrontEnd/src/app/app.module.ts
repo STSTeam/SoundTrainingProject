@@ -37,6 +37,8 @@ import { InformationComponent } from './components/information/information.compo
 import { SoundIndexComponent } from './components/sound-index/sound-index.component';
 import { SoundService } from './_services/sound.service';
 import {TreeModule} from 'primeng/tree';
+import {ProgressBarModule} from 'primeng/progressbar'
+import { TimerComponent } from './components/timer/timer.component'
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import {TreeModule} from 'primeng/tree';
         GalleriaModule,
         OverlayPanelModule,
         ChartModule,
-        TreeModule
+        TreeModule,
+        ProgressBarModule
     ],
     declarations: [
         AppComponent,
@@ -69,7 +72,8 @@ import {TreeModule} from 'primeng/tree';
         TrainingItemViewComponent,
         ContactUsComponent,
         InformationComponent,
-        SoundIndexComponent
+        SoundIndexComponent,
+        TimerComponent
     ],
     providers: [
         AuthGuard,
