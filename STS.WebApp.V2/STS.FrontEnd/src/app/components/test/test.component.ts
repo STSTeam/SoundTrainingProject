@@ -6,6 +6,7 @@ import { TestModel, TestSound, TestImage } from '../../_models/test/test.model';
 import { SoundModel } from '../../_models/sound.model';
 import { OverlayPanel } from 'primeng/components/overlaypanel/overlaypanel';
 import { TestResultModel } from '../../_models/test/testResult.model';
+import { TimerComponent } from '../timer/timer.component';
 
 @Component({
   selector: 'app-test',
@@ -37,6 +38,7 @@ export class TestComponent implements OnInit {
   @ViewChild('resultPanel') resultPanel: any;
   @ViewChild('soundCtr') soundCtr: any;
   @ViewChild('mainDiv') mainDiv: any;
+  @ViewChild('timer') timer:TimerComponent;
 
   SetProgressBar(n: number) {
     var total = this.testData.sounds.length;
@@ -57,6 +59,8 @@ export class TestComponent implements OnInit {
       let result: ResultData = <ResultData>res;
       this.testData = <TestModel>result.resultData;
       this.currentSound.sound = this.testData.sounds[0];
+    
+      this.timer.startTimer();
 
       console.log(this.testData.sounds);
     }, err => {
@@ -80,6 +84,8 @@ export class TestComponent implements OnInit {
         this.selectedImage = null;
 
         if (this.currentSound.index === this.testData.sounds.length) {
+          this.timer.stopTimer();
+          console.log(this.timer.elapsedTime);
           this.showResult = true;
           this.userTestServices.SubmitTest(this.testData).subscribe(res => {
             let result: ResultData = <ResultData>res;

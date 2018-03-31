@@ -1,1 +1,4 @@
-{{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} <br/>
+{{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} :  {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}}
+<!-- <br/>
+<button (click)="startTimer()">Start timer</button>
+<button (click)="stopTimer()">Stop timer</button> -->
