@@ -75,6 +75,7 @@ namespace WebApi.BL
                 var filterImages = sessionImages.Where(i => i.Id != randomCorrectImage.Id).ToList();
                 var randImage = filterImages
                                 .ElementAt(GetRandomNumber(0, filterImages.Count - 1));
+
                 testSound.Images.Add(new TestImage()
                 {
                     Id = randImage.Id,
