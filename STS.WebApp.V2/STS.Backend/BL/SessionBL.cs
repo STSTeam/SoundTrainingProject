@@ -26,27 +26,58 @@ namespace WebApi.BL
             this._userCompletedSessionsDA = _userCompletedSessionsDA;
         }
 
-        public List<Session> GetAllByModuleId(int userId, int moduleId)
+        public List<LevelDto> GetAllLevelsByModuleId(int userId, int moduleId)
         {
             var sessions = _sessionDA.GetByModuleId(moduleId).ToList();
+            var levels = from s in sessions
+                         group s by s.LevelId into g
+                         select new
+                         {
+                             LevelId = g.Key,
+                             value = g.ToList()
+                         };
 
-            // for each module, check if it prerequist,
-            // if yes, check if current user completed the prerequsit
-            var userCompletedSessions = _userCompletedSessionsDA.GetAll().Where(cs => cs.UserId == userId).ToList();
-
-            sessions.ForEach(m =>
+            var levelsToReturn = new List<LevelDto>();
+            if (levels != null)
             {
-                bool enabled = true;
-                if (m.PrerequisiteSessionId.HasValue)
+                levels.ToList().ForEach(level =>
                 {
-                    // check that prerequsit module id exist in user complted modules list
-                    enabled = userCompletedSessions.Exists(c => c.SessionId == m.PrerequisiteSessionId.Value);
+                    var l = level.value[0];
+                    levelsToReturn.Add(new LevelDto()
+                    {
+                        levelId = l.LevelId,
+                        levelName = l.LevelName,
+                        levelDescreption = l.LevelDescreption,
+                        levelImageName = l.LevelImageName
+                    });
+                });
+            }
 
-                }
-                m.Enabled = enabled;
-            });
+            return levelsToReturn;
+        }
 
-            return sessions;
+        public List<Session> GetAllSessionsByLevelId(int userId, int levelId)
+        {
+            throw new NotImplementedException();
+            //var sessions = _sessionDA.GetByModuleId(moduleId).ToList();
+
+            //// for each module, check if it prerequist,
+            //// if yes, check if current user completed the prerequsit
+            //var userCompletedSessions = _userCompletedSessionsDA.GetAll().Where(cs => cs.UserId == userId).ToList();
+
+            //sessions.ForEach(m =>
+            //{
+            //    bool enabled = true;
+            //    if (m.PrerequisiteSessionId.HasValue)
+            //    {
+            //        // check that prerequsit module id exist in user complted modules list
+            //        enabled = userCompletedSessions.Exists(c => c.SessionId == m.PrerequisiteSessionId.Value);
+
+            //    }
+            //    m.Enabled = enabled;
+            //});
+
+            //return sessions;
         }
     }
 }

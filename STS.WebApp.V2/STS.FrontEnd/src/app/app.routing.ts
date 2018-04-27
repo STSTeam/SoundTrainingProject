@@ -13,6 +13,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { InformationComponent } from './components/information/information.component';
 import { SoundIndexComponent } from './components/sound-index/sound-index.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { ModuleLevelsComponent } from './components/module-levels/module-levels.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/ },
@@ -28,9 +29,10 @@ const appRoutes: Routes = [
         children: [
             { path: '', component: HearingComponent, canActivate: [AuthGuard] },
             { path: ':moduleId', component: ModuleInfoComponent, canActivate: [AuthGuard] },
-            { path: ':moduleId/:sessionId', component: SessionInfoComponent, canActivate: [AuthGuard] },
-            { path: ':moduleId/:sessionId/training', component: TrainingComponent, canActivate: [AuthGuard] },
-            { path: ':moduleId/:sessionId/test', component: TestComponent, canActivate: [AuthGuard] }
+            { path: ':moduleId/:levelId', component: ModuleLevelsComponent, canActivate: [AuthGuard] },
+            { path: ':moduleId/:levelId/:sessionId', component: SessionInfoComponent, canActivate: [AuthGuard] },
+            { path: ':moduleId/:levelId/:sessionId/training', component: TrainingComponent, canActivate: [AuthGuard] },
+            { path: ':moduleId/:levelId/:sessionId/test', component: TestComponent, canActivate: [AuthGuard] }
         ]
     },
 

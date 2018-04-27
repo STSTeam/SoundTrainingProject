@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { SessionModel } from "../../_models/session.model";
+import { SessionModel, LevelModel } from "../../_models/session.model";
 import { SessionsService } from "../../_services/session.service";
 import { ResultData } from "../../_models/resultData";
 import { AlertService } from "../../_services/index";
@@ -22,7 +22,7 @@ export class ModuleInfoComponent implements OnInit {
 
   moduleId:number;
   moduleInfo:ModuleModel;
-  sessions:SessionModel[];
+  levels: LevelModel[];
   ngOnInit() {
     this.moduleId = this.route.snapshot.params['moduleId'];
     
@@ -30,17 +30,13 @@ export class ModuleInfoComponent implements OnInit {
     this.modulesService.getById(this.moduleId).subscribe(res =>{
       let result : ResultData = <ResultData>res;
       this.moduleInfo = <ModuleModel>result.resultData;
-      // for (let i=0; i<this.sessions.length; i++){
-      //   this.sessions[i].imagesArr = this.sessions[i].imageName.split(','); //ARRAY OF IMGS
-      // }
-      
     })
 
-    this.sessionsService.getByModuleId(this.moduleId).subscribe(res =>{
+    // query level insted of sessions
+    this.sessionsService.getAllLevelsByModuleId(this.moduleId).subscribe(res =>{
       let result : ResultData = <ResultData>res;
-      this.sessions = <SessionModel[]>res.resultData;
-      console.log("sessions: =>", this.sessions);
-
+      this.levels = <LevelModel[]>res.resultData;
+      console.log("levels =>", this.levels);
     }, err=>{
       let error :StsErrorData = <StsErrorData>err;
       this.alertService.error(error.errorMessage)});
