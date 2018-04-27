@@ -24,6 +24,14 @@ export class SessionsService {
         return this.http.get<ResultData>(`${this.ApiUrl}/${sessionId}`);
     }
 
+    getAllLevelsByModuleId(moduleId: number): Observable<ResultData> {
+        return this.http.get<ResultData>(`${this.ApiUrl}/GetAllLevelsByModuleId/${this.currentUser.id}/${moduleId}`);
+    }
+
+    getLevelSessionsByLevelId(levelId: number): Observable<ResultData>{
+        return this.http.get<ResultData>(`${this.ApiUrl}/getLevelSessionsByLevelId/${levelId}`);
+    }
+
     getByModuleId(moduleId: number): Observable<ResultData> {
         return this.http.get<ResultData>(`${this.ApiUrl}/GetByModuleId/${this.currentUser.id}/${moduleId}`);
     }

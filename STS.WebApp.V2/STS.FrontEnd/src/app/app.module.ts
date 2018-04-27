@@ -39,6 +39,7 @@ import { SoundService } from './_services/sound.service';
 import {TreeModule} from 'primeng/tree';
 import {ProgressBarModule} from 'primeng/progressbar'
 import { TimerComponent } from './components/timer/timer.component'
+import { ModuleLevelsComponent } from './components/module-levels/module-levels.component'
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { TimerComponent } from './components/timer/timer.component'
         ContactUsComponent,
         InformationComponent,
         SoundIndexComponent,
-        TimerComponent
+        TimerComponent,
+        ModuleLevelsComponent
     ],
     providers: [
         AuthGuard,

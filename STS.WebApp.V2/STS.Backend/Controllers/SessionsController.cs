@@ -13,6 +13,7 @@ using WebApi.Entities;
 using Microsoft.AspNetCore.Authorization;
 using WebApi.Repo;
 using WebApi.BL;
+using System.Linq;
 
 namespace WebApi.Controllers
 {
@@ -46,10 +47,17 @@ namespace WebApi.Controllers
             return HlsOk(_mapper.Map<SessionDto>(_sessionRepo.Get(id)));
         }
 
-        [HttpGet("GetByModuleId/{userId}/{moduleId}")]
+        [HttpGet("getLevelSessionsByLevelId/{levelId}")]
+        public IActionResult GetLevelSessionsByLevelId(int levelId)
+        {
+            var ls = _sessionRepo.GetList(new { LevelId = levelId }).ToList();
+            return HlsOk(_mapper.Map<List<Session>>(ls));
+        }
+
+        [HttpGet("GetAllLevelsByModuleId/{userId}/{moduleId}")]
         public IActionResult GetBModuleId(int userId, int moduleId)
         {
-            return HlsOk(_mapper.Map<List<SessionDto>>(_sessionBL.GetAllByModuleId(userId, moduleId)));
+            return HlsOk(_sessionBL.GetAllLevelsByModuleId(userId, moduleId));
         }
 
         [HttpGet("GetSessionTrainingSounds/{sessionId}")]

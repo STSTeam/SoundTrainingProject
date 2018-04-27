@@ -20,5 +20,11 @@ namespace WebApi.Entities
         [IgnoreInsert]
         [IgnoreUpdate]
         public bool Enabled { get; set; }
+
+        // levels columsn
+        public int LevelId { get; set; }
+        public string LevelName { get; set; }
+        public string LevelDescreption { get; set; }
+        public string LevelImageName { get; set; }
     }
 }
