@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE images_GetBySessionId
+CREATE PROCEDURE [dbo].[images_GetBySessionId]
 	@sessionId int
 AS
 BEGIN
@@ -11,7 +11,7 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	select
+	select DISTINCT 
 		Image.*
 	from SoundImages
 		inner join SessionsSounds on SoundImages.SoundId = SessionsSounds.SoundId

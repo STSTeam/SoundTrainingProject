@@ -17,7 +17,9 @@ BEGIN
 	 Sound.Id 
 	, Sound.Name 
 	, Sound.DisplayName
+	, Sound.GroupId
    from SessionsSounds
   inner join Sound on SessionsSounds.SoundId = Sound.Id
 where SessionsSounds.SessionId = @sessionId
+order by GroupId, Sound.Id ASC
 END
