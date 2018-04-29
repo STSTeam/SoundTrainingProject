@@ -29,7 +29,7 @@ namespace STS.FolderOrginzerApp
 
         private void Init()
         {
-            folderBrowserDialog1.SelectedPath = @"C:\STS\SoundTrainingProject\STS.WebApp.V2\STS.FrontEnd\src\assets\_support_files\ordered";
+            folderBrowserDialog1.SelectedPath = @"C:\Users\Adeeb\Source\Repos\SoundTrainingProject\STS.WebApp.V2\STS.FrontEnd\src\assets\_support_files\ordered";
             soundIdCounter = 1;
             imageIdCounter = 1;
             soundsList = new List<Sound>();
