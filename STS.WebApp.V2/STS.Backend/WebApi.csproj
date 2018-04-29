@@ -3,9 +3,13 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Middleware\**" />
     <Compile Remove="Migrations\**" />
+    <Content Remove="Middleware\**" />
     <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="Middleware\**" />
     <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Middleware\**" />
     <None Remove="Migrations\**" />
   </ItemGroup>
   <ItemGroup>
