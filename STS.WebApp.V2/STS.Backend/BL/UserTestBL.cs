@@ -44,6 +44,10 @@ namespace WebApi.BL
 
         public TestModel GenerateTest(int sessionId)
         {
+            // get session info
+            var sessionInfo = _sessionDA.Get(sessionId);
+
+            // init new test model to be retuned
             var testModel = new TestModel();
             testModel.SessionId = sessionId;
 
@@ -91,27 +95,52 @@ namespace WebApi.BL
                 // -------
 
                 // pick a random image from list of all session images
-                var filterImages = sessionImages.Where(i => i.Id != randomCorrectImage.Id).ToList();
-                var randImage = filterImages
-                                .ElementAt(GetRandomNumber(0, filterImages.Count - 1));
+                List<TestImage> randomWrongChoices = GetRandomWrongImages(sessionImages, randomCorrectImage.Id, sessionInfo.NumberOfChoices);
+                
+                // add wrong images list to images 
+                testSound.Images.AddRange(randomWrongChoices);
 
-                testSound.Images.Add(new TestImage()
-                {
-                    Id = randImage.Id,
-                    Name = randImage.Name,
-                    IsCorrectImage = false
-                });
-
+                // randomize options
                 testSound.Images = testSound.Images.OrderBy(m => Guid.NewGuid()).ToList();
+
                 // add sound to testModel
                 testModel.Sounds.Add(testSound);
             }
-
-
-
+            
             testModel.Sounds = testModel.Sounds.OrderBy(m => Guid.NewGuid()).ToList();
 
             return testModel;
+        }
+
+        private List<TestImage> GetRandomWrongImages(List<Image> sessionImages, int correctImageIdToExclude, int numberOfChoices)
+        {
+            var imagesNameToExclude = new List<string>();
+            var correctImageRef = sessionImages.FirstOrDefault(x => x.Id == correctImageIdToExclude);
+            imagesNameToExclude.Add(correctImageRef.Name);
+            
+            var wrongImagesList = new List<TestImage>();
+
+            for (int choicesCounter = 0; choicesCounter < numberOfChoices - 1; choicesCounter++)
+            {
+                // select image from sessionImages which name does not already exist in imagesNameToExclude
+                var image = (from i in sessionImages
+                            where !imagesNameToExclude.Exists(x => x.ToLower() == i.Name.ToLower())
+                            select i).FirstOrDefault();
+
+                if(image != null)
+                {
+                    wrongImagesList.Add(new TestImage()
+                    {
+                        Id = image.Id,
+                        Name = image.Name,
+                        IsCorrectImage = false
+                    });
+
+                    imagesNameToExclude.Add(image.Name);
+                }
+            }
+
+            return wrongImagesList;
         }
 
         internal ResultModel SaveTest(TestModel model)

@@ -47,10 +47,10 @@ namespace WebApi.Controllers
             return HlsOk(_mapper.Map<SessionDto>(_sessionRepo.Get(id)));
         }
 
-        [HttpGet("getLevelSessionsByLevelId/{levelId}")]
-        public IActionResult GetLevelSessionsByLevelId(int levelId)
+        [HttpGet("getLevelSessionsByLevelId/{moduleId}/{levelId}")]
+        public IActionResult GetLevelSessionsByLevelId(int moduleId, int levelId)
         {
-            var ls = _sessionRepo.GetList(new { LevelId = levelId }).ToList();
+            var ls = _sessionRepo.GetList(new { ModuleId = moduleId, LevelId = levelId }).ToList();
             return HlsOk(_mapper.Map<List<Session>>(ls));
         }
 

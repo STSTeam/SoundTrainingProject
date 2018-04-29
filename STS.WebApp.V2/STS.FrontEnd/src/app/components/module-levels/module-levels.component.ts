@@ -29,9 +29,8 @@ export class ModuleLevelsComponent implements OnInit {
   ngOnInit() {
     this.moduleId = this.route.snapshot.params['moduleId'];
     this.levelId = this.route.snapshot.params['levelId'];
-
     // get current module info
-    this.sessionsService.getLevelSessionsByLevelId(this.levelId).subscribe(res => {
+    this.sessionsService.getLevelSessionsByLevelId(this.moduleId, this.levelId).subscribe(res => {
       let result: ResultData = <ResultData>res;
       this.sessions = <SessionModel[]>result.resultData;
       let firstSession = this.sessions[0];
