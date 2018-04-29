@@ -16,6 +16,6 @@ namespace WebApi.Dtos
         public int? PrerequisiteSessionId { get; set; }
         public bool IsLastSession { get; set; }
         public bool Enabled { get; set; }
-
+        public int NumberOfChoices { get; set; }
     }
 }

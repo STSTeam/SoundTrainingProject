@@ -47,20 +47,37 @@ namespace WebApi.BL
             var testModel = new TestModel();
             testModel.SessionId = sessionId;
 
-            // get all sounds for session
+            // get all session's sounds
             var sessionSoundsEntity = _userTestDA.GetSoundsBySessionId(sessionId);
+
+            // get all session's images
             var sessionImages = _userTestDA.GetImagesBySessionId(sessionId);
 
-            sessionSoundsEntity.ForEach(soundEntity =>
+            // sounds grouped by groupId
+            var groupedSounds = from s in sessionSoundsEntity
+                                group s by s.GroupId into g
+                                select new
+                                {
+                                    GroupId = g.Key,
+                                    Value = g.ToList()
+                                };
+
+            groupedSounds = groupedSounds.ToList();
+
+            // from each sound group, take only one 1 sound and add it list of questions
+            foreach (var s in groupedSounds)
             {
+                // pick a random sound from this group
+                var randomSoundInGroup = s.Value[GetRandomNumber(0, s.Value.Count - 1)];
+
                 var testSound = new TestSound()
                 {
-                    Id = soundEntity.Id,
-                    Name = soundEntity.Name
+                    Id = randomSoundInGroup.Id,
+                    Name = randomSoundInGroup.Name
                 };
 
                 // get [correct] images for this sound
-                var correctSoundImages = _userTestDA.GetSoundImages(sessionId, soundEntity.Id);
+                var correctSoundImages = _userTestDA.GetSoundImages(sessionId, randomSoundInGroup.Id);
                 var randomCorrectImage = correctSoundImages[GetRandomNumber(0, correctSoundImages.Count - 1)];
 
                 // add correct image to sound option
@@ -70,6 +87,8 @@ namespace WebApi.BL
                     Name = randomCorrectImage.Name,
                     IsCorrectImage = true
                 });
+
+                // -------
 
                 // pick a random image from list of all session images
                 var filterImages = sessionImages.Where(i => i.Id != randomCorrectImage.Id).ToList();
@@ -86,7 +105,9 @@ namespace WebApi.BL
                 testSound.Images = testSound.Images.OrderBy(m => Guid.NewGuid()).ToList();
                 // add sound to testModel
                 testModel.Sounds.Add(testSound);
-            });
+            }
+
+
 
             testModel.Sounds = testModel.Sounds.OrderBy(m => Guid.NewGuid()).ToList();
 
@@ -113,7 +134,7 @@ namespace WebApi.BL
                 UpdateUserProgressProgress(model, testId);
             }
 
-            resultModel  =  PrepareResult(model);
+            resultModel = PrepareResult(model);
 
             return resultModel;
         }

@@ -21,6 +21,8 @@ namespace WebApi.Entities
         [IgnoreUpdate]
         public bool Enabled { get; set; }
 
+        public int NumberOfChoices { get; set; }
+
         // levels columsn
         public int LevelId { get; set; }
         public string LevelName { get; set; }
