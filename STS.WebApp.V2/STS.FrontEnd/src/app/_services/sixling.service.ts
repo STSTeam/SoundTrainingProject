@@ -20,6 +20,10 @@ export class SixlingService {
         return this.http.get<ResultData>(`${this.ApiUrl}/gettraining`);
     }
 
+    getTest(): Observable<ResultData> {
+        return this.http.get<ResultData>(`${this.ApiUrl}/gettest`);
+    }
+
     // getById(moduleId: number) {
     //     return this.http.get<ResultData>(`${this.ApiUrl}/${moduleId}`);
     // }

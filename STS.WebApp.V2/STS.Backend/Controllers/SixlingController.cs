@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using WebApi.Repo;
 using WebApi.BL;
 using System.Linq;
+using WebApi.Dtos.UserTestModels;
 
 namespace WebApi.Controllers
 {
@@ -49,10 +50,52 @@ namespace WebApi.Controllers
             return HlsOk(_mapper.Map<IList<SixlingDto>>(_sixlingDA.GetAll()));
         }
 
-        //[HttpGet("{id}")]
-        //public IActionResult GetById(int id)
-        //{
-        //    return HlsOk(_mapper.Map<ModuleDto>(_moduleRepo.Get(id)));
-        //}
+        [HttpGet("gettest")]
+        public IActionResult GetById()
+        {
+            var testModel = new TestModel();
+            testModel.SessionId = 0;
+
+            // get all sixlig items 
+            var sixligItems = _sixlingDA.GetAll().ToList();
+
+            sixligItems.ForEach(item =>
+            {
+                var testSound = new TestSound()
+                {
+                    Id = 0,
+                    Name = item.SoundName
+                };
+
+                // add correct image name to current sound
+                testSound.Images.Add(new TestImage()
+                {
+                    Id = 0,
+                    IsCorrectImage = true,
+                    Name = item.ImageName
+                });
+
+                // get a random image other than current item
+                var randWrongImage = sixligItems.FirstOrDefault(i => i.Id != item.Id);
+
+                // add rand. image
+                testSound.Images.Add(new TestImage()
+                {
+                    Id = 0,
+                    IsCorrectImage = false,
+                    Name = randWrongImage.ImageName
+                });
+
+                testSound.Images = testSound.Images.OrderBy(m => Guid.NewGuid()).ToList();
+
+                // add sound to testModel
+                testModel.Sounds.Add(testSound);
+            });
+
+            testModel.Sounds = testModel.Sounds.OrderBy(m => Guid.NewGuid()).ToList();
+
+            // randmoize order and return result
+            return HlsOk(testModel);
+        }
     }
 }
