@@ -10,8 +10,10 @@ import { ResultData } from "../../_models/resultData";
   styleUrls: ['./training-item-view.component.css']
 })
 export class TrainingItemViewComponent implements OnInit, OnChanges {
-
   @ViewChild('soundCtr') soundCtr: any;
+  @Input() sound: SoundModel;
+  images: ImageModel[];
+  ctrImages: any[];
 
   ngOnChanges(changes: SimpleChanges): void {
     let xx = this.soundCtr.nativeElement;
@@ -21,35 +23,38 @@ export class TrainingItemViewComponent implements OnInit, OnChanges {
     this.sound.name = t.name;
     this.sound.id = t.id;
 
-    // get sound images
-    this.sessionsService.getSoundImages(this.sound.id).subscribe(res =>{
-      let result :ResultData = <ResultData>res;
-      this.images= <ImageModel[]>res.resultData;
-      
-      if(this.images){
-        this.ctrImages = [];
-        for(var i = 0; i < this.images.length; i++){
-          this.ctrImages.push({source:'./assets/_support_files/pic/' + this.images[i].name+".png", alt:'Description for Image 1', title:'Title 1'});
-        }
-      }
-      else 
-      this.ctrImages = null;
-    
-    });
 
+    if (!this.sound.imageName) {
+      // get sound images
+      this.sessionsService.getSoundImages(this.sound.id).subscribe(res => {
+        let result: ResultData = <ResultData>res;
+        this.images = <ImageModel[]>res.resultData;
+
+        if (this.images) {
+          this.ctrImages = [];
+          for (var i = 0; i < this.images.length; i++) {
+            // tslint:disable-next-line:max-line-length
+            this.ctrImages.push({ source: './assets/_support_files/pic/' + this.images[i].name + '.png', alt: 'Description for Image 1', title: this.images[i].name });
+          }
+        }
+        else {
+          this.ctrImages = null;
+        }
+      }); 
+    } else {
+      this.ctrImages = [];
+      this.ctrImages.push({ source: './assets/_support_files/pic/' + this.sound.imageName + '.png', alt: 'Description for Image 1', title: '' });
+    }
   }
 
   constructor(private sessionsService: SessionsService) { }
 
-  @Input() sound: SoundModel;
-  images: ImageModel[];
-  ctrImages: any[];
   ngOnInit() {
 
   }
 
   //function of play again 
-  playAgain(e){
+  playAgain(e) {
     e.preventDefault();
     this.soundCtr.nativeElement.play();
   }

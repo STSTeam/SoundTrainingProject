@@ -15,31 +15,32 @@ import { ModulesService } from "../../_services/module.service";
 })
 export class ModuleInfoComponent implements OnInit {
 
-  constructor( private modulesService:ModulesService,
-    private sessionsService:SessionsService,
+  constructor(private modulesService: ModulesService,
+    private sessionsService: SessionsService,
     private alertService: AlertService,
     private route: ActivatedRoute) { }
 
-  moduleId:number;
-  moduleInfo:ModuleModel;
+  moduleId: number;
+  moduleInfo: ModuleModel;
   levels: LevelModel[];
   ngOnInit() {
     this.moduleId = this.route.snapshot.params['moduleId'];
-    
+
     // get current module info
-    this.modulesService.getById(this.moduleId).subscribe(res =>{
-      let result : ResultData = <ResultData>res;
+    this.modulesService.getById(this.moduleId).subscribe(res => {
+      let result: ResultData = <ResultData>res;
       this.moduleInfo = <ModuleModel>result.resultData;
     })
 
     // query level insted of sessions
-    this.sessionsService.getAllLevelsByModuleId(this.moduleId).subscribe(res =>{
-      let result : ResultData = <ResultData>res;
+    this.sessionsService.getAllLevelsByModuleId(this.moduleId).subscribe(res => {
+      let result: ResultData = <ResultData>res;
       this.levels = <LevelModel[]>res.resultData;
       console.log("levels =>", this.levels);
-    }, err=>{
-      let error :StsErrorData = <StsErrorData>err;
-      this.alertService.error(error.errorMessage)});
+    }, err => {
+      let error: StsErrorData = <StsErrorData>err;
+      this.alertService.error(error.errorMessage)
+    });
   }
 
 }

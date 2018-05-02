@@ -33,6 +33,7 @@ export class ModuleLevelsComponent implements OnInit {
     this.sessionsService.getLevelSessionsByLevelId(this.moduleId, this.levelId).subscribe(res => {
       let result: ResultData = <ResultData>res;
       this.sessions = <SessionModel[]>result.resultData;
+      console.log("sessions => ", this.sessions);
       let firstSession = this.sessions[0];
       this.levelInfo = {
         levelId: firstSession.levelId,
@@ -41,7 +42,7 @@ export class ModuleLevelsComponent implements OnInit {
         levelImageName: firstSession.levelImageName
       };
 
-    })
+    });
   }
 
 }

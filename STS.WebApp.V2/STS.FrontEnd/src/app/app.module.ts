@@ -18,28 +18,32 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserDataStore } from './_services/_stateServices/userDataStore.service';
 import { HearingComponent } from './components/hearing/hearing.component';
-import { HlsHttpInterceptor } from "./Interceotor/StsHttpInterceptor";
-import { ModulesService } from "./_services/module.service";
+import { HlsHttpInterceptor } from './Interceotor/StsHttpInterceptor';
+import { ModulesService } from './_services/module.service';
 import { CommonModule } from '@angular/common';
 import { ModuleInfoComponent } from './components/module-info/module-info.component';
-import { SessionsService } from "./_services/session.service";
+import { SessionsService } from './_services/session.service';
 import { SessionInfoComponent } from './components/session-info/session-info.component';
 import { TrainingComponent } from './components/training/training.component';
-import { TrainingItemViewComponent } from "./_directives/training-item-view/training-item-view.component";
+import { TrainingItemViewComponent } from './_directives/training-item-view/training-item-view.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { TestComponent } from './components/test/test.component';
 import { UserTestServices } from './_services/userTest.service';
-import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ChartModule} from 'primeng/chart'
-import { ContactUsComponent } from './components/contact-us/contact-us.component'
+import { ChartModule } from 'primeng/chart';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { InformationComponent } from './components/information/information.component';
 import { SoundIndexComponent } from './components/sound-index/sound-index.component';
 import { SoundService } from './_services/sound.service';
-import {TreeModule} from 'primeng/tree';
-import {ProgressBarModule} from 'primeng/progressbar'
-import { TimerComponent } from './components/timer/timer.component'
-import { ModuleLevelsComponent } from './components/module-levels/module-levels.component'
+import { TreeModule } from 'primeng/tree';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { TimerComponent } from './components/timer/timer.component';
+import { ModuleLevelsComponent } from './components/module-levels/module-levels.component';
+import { SixLingTestComponent } from './components/sixLingTest/six-ling-test/six-ling-test.component';
+import { SixLingTrainingComponent } from './components/sixLingTest/six-ling-training/six-ling-training.component';
+import { SixLingMainComponent } from './components/sixLingTest/six-ling-main/six-ling-main.component';
+import { SixlingService } from './_services/sixling.service';
 
 
 @NgModule({
@@ -75,7 +79,10 @@ import { ModuleLevelsComponent } from './components/module-levels/module-levels.
         InformationComponent,
         SoundIndexComponent,
         TimerComponent,
-        ModuleLevelsComponent
+        ModuleLevelsComponent,
+        SixLingTrainingComponent,
+        SixLingTestComponent,
+        SixLingMainComponent
     ],
     providers: [
         AuthGuard,
@@ -86,6 +93,7 @@ import { ModuleLevelsComponent } from './components/module-levels/module-levels.
         SessionsService,
         SoundService,
         UserDataStore,
+        SixlingService,
         UserTestServices,
         {
             provide: HTTP_INTERCEPTORS,
