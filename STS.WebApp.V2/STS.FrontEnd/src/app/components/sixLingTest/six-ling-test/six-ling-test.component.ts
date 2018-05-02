@@ -36,7 +36,7 @@ export class SixLingTestComponent implements OnInit {
   @ViewChild('resultPanel') resultPanel: any;
   @ViewChild('soundCtr') soundCtr: any;
   @ViewChild('mainDiv') mainDiv: any;
-  @ViewChild('timer') timer: TimerComponent;
+  // @ViewChild('timer') timer: TimerComponent;
 
   SetProgressBar(n: number) {
     const total = this.testData.sounds.length;
@@ -53,7 +53,7 @@ export class SixLingTestComponent implements OnInit {
       this.testData = <TestModel>result.resultData;
       this.currentSound.sound = this.testData.sounds[0];
 
-      this.timer.startTimer();
+      // this.timer.startTimer();
 
       console.log(this.testData.sounds);
     }, err => {
@@ -77,8 +77,8 @@ export class SixLingTestComponent implements OnInit {
         this.selectedImage = null;
 
         if (this.currentSound.index === this.testData.sounds.length) {
-          this.timer.stopTimer();
-          console.log(this.timer.elapsedTime);
+          // this.timer.stopTimer();
+          // console.log(this.timer.elapsedTime);
           this.showResult = true;
 
           // init testResult model

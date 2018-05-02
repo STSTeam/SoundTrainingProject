@@ -1,16 +1,17 @@
 <div class="container" style="margin-bottom:10px;" #mainDiv>
 
   <h1>
-    <app-timer #timer></app-timer>
+    <span *ngIf="showResult">الوقت المستغرق : </span><app-timer #timer></app-timer><br>
+    <span *ngIf="showResult">نتيجتك هي: {{testResult?.score}} %</span>
   </h1>
 
   <div *ngIf="!showResult">
     <div class="row">
-      <div class="col-sm-2">
-        <h3> {{currentSound?.index + 1}}/{{testData?.sounds?.length}}</h3>
-      </div>
-      <div class="col-sm-10">
-        <p-progressBar [value]="progressBarValue"></p-progressBar>
+      <div class="col-sm-12">
+        <h3 class="indecator"> {{currentSound?.index + 1}}/{{testData?.sounds?.length}}</h3>
+      <!-- </div> -->
+      <!-- <div class="col-sm-10"> -->
+        <p-progressBar [showValue]="false" [value]="progressBarValue"></p-progressBar>
       </div>
     </div>
     <div class="row"></div>
@@ -25,12 +26,12 @@
       </div>
     </div>
 
-    <div class="row" [class.imgSelected]="selectedImage!=null" style="position:relative;margin-top: 50px">
+    <div class="row" [class.imgSelected]="selectedImage!=null" style="position:relative;margin-top: 50px; display: flex; justify-content: space-around;">
       <a class="playAgainBtn" href="#" (click)="playAgain($event)">
         <img src="./assets/_support_files/Interface/1_Pic_speaker_02.png" alt="play again">
       </a>
-      <div class="col-md-2"></div>
-      <div *ngFor="let image of currentSound?.sound?.images; let index = index" class="col-md-3 img_Con" [class.col-md-offset-2]="index%2!=0"
+      <!-- <div class="col-md-2"></div> -->
+      <div *ngFor="let image of currentSound?.sound?.images; let index = index" class="img_Con"
         [class.imageBoarder]="image === selectedImage" [class.imgIsCorrect]="image.isCorrectImage == true" [class.imgIsNotCorrect]="image.isCorrectImage == false">
         <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="height: 300px; width: 200px" (click)="imageClicked($event,resultPanel, image)">
       </div>
@@ -43,11 +44,10 @@
   <br/>
   <div *ngIf="showResult" class="row">
     <div class="col-sm-6">
+      <h1>&nbsp;</h1>
       <p-chart type="pie" [data]="data"></p-chart>
     </div>
-    <div class="col-sm-3">
-      <h1> نتيجتك هي: {{testResult?.score}} %</h1>
-    </div>
+    
     <div class="col-sm-3" *ngIf="finalResult === 'pass'">
       <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>
       <img src="./assets/_support_files/Interface/1_Speaking.png" style="height: 300px; width: 300px">
@@ -57,12 +57,12 @@
       <h1 style="color: red">أعد المحاولة لاحقا </h1>
       <img src="./assets/_support_files/Interface/1_Pic_confused_girl.png" style="height: 300px; width: 300px">
     </div>
-    <div>
-      <a [routerLink]="['../../']">back</a>
-
-    </div>
   </div>
 </div>
+  <div *ngIf="showResult" class="btn btn-default">
+    <a [routerLink]="['../../']">back</a>
+
+  </div>
 
 <!-- <p-overlayPanel #resultPanel dismissable="false" id="resaultContainer">
   <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_correct_penguins.png">

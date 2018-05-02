@@ -54,3 +54,15 @@
     transform: scale(0.8);
     opacity: .3;
 }
+.indecator{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    z-index: 99999;
+}
+
+.ui-progressbar {
+    height: 30px;
+}

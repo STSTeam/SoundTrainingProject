@@ -1,8 +1,8 @@
 <div class="container" style="margin-bottom:10px;" #mainDiv>
 
-  <h1>
+  <!-- <h1>
     <app-timer #timer></app-timer>
-  </h1>
+  </h1> -->
 
   <div *ngIf="!showResult">
     <div class="row">
@@ -48,13 +48,13 @@
     <!-- <div class="col-sm-3">
       <h1> نتيجتك هي: {{testResult?.score}} %</h1>
     </div> -->
-    <div class="col-sm-3" *ngIf="finalResult === 'pass'">
+    <div class="six-ling-test-container col-md-8 col-md-offset-2" *ngIf="finalResult === 'pass'">
       <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>
       <img src="./assets/_support_files/Interface/1_Speaking.png" style="height: 300px; width: 300px">
       <button (click)="contToModules()" class="bigBtn">cont. to modules</button>
     </div>
 
-    <div class="col-sm-3" *ngIf="finalResult === 'fail'">
+    <div class="six-ling-test-container col-md-8 col-md-offset-2" *ngIf="finalResult === 'fail'">
       <h1 style="color: red">أعد المحاولة  </h1>
       <img src="./assets/_support_files/Interface/1_Pic_confused_girl.png" style="height: 300px; width: 300px">
       <button (click)="retakeTest()" class="bigBtn">cont. to modules</button>

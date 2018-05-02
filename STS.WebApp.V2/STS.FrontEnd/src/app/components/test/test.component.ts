@@ -32,6 +32,7 @@ export class TestComponent implements OnInit {
   selectedImage: TestImage;
   progressBarValue: number = 0;
   moveWizardTimer: any;
+  totalImages: number;
 
   data: any;
 
@@ -48,6 +49,7 @@ export class TestComponent implements OnInit {
   ngOnInit() {
     // init
     //this.SetProgressBar(0);
+    
 
     this.selectedImage = null;
     this.currentSound = { "index": 0, sound: null };
@@ -59,7 +61,7 @@ export class TestComponent implements OnInit {
       let result: ResultData = <ResultData>res;
       this.testData = <TestModel>result.resultData;
       this.currentSound.sound = this.testData.sounds[0];
-    
+      
       this.timer.startTimer();
 
       console.log(this.testData.sounds);

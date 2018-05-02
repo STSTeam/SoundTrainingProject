@@ -54,3 +54,12 @@
     transform: scale(0.8);
     opacity: .3;
 }
+
+.six-ling-test-container {
+    text-align: center;
+}
+.six-ling-test-container img {
+    display: block;
+    margin: auto;
+    width: auto !important;
+}
