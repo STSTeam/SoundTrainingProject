@@ -28,5 +28,6 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         this._userDataStore.SetCurrentUser(null);
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('isSixLingTestCompleted')
     }
 }

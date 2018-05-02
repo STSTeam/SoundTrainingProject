@@ -1,14 +1,9 @@
 <div class="page-header">
   <h1>{{moduleInfo?.title}}</h1>
 </div>
-
 <div class="row">
   <div *ngFor="let level of levels" class="col-sm-12 col-md-12">
     <div class="thumbnail">
-      <!-- src="../assets/_support_files/Interface/{{session.imageName}}.png" -->
-      <!-- WHEN WE NEED TO PLACE 1 IMG ONLY -->
-
-      <!-- (imagesArr) DEFINED BY MAS  -->
       <a [routerLink]="level.levelId" routerLinkActive="is-active">
         <img style="height: 100px; width:100px; float:right" 
         src="../assets/_support_files/Interface/{{level.levelImageName}}.png"
@@ -17,6 +12,7 @@
       <div class="caption">
         <a [routerLink]="level.levelId" routerLinkActive="is-active">
           <h3>{{level.levelName}}</h3>
+          <p>{{level.levelDescreption}}</p>
         </a>
       </div>
     </div>

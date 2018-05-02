@@ -29,6 +29,9 @@ namespace WebApi.Helpers
             CreateMap<Image, ImageDto>();
             CreateMap<ImageDto, Image>();
 
+            // sixling mapper
+            CreateMap<Sixling, SixlingDto>();
+            CreateMap<SixlingDto, Sixling>();
         }
     }
 }

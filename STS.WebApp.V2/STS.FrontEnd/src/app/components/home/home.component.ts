@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { UserService } from "../../_services/index";
-import { User } from "../../_models/index";
+import { UserService } from '../../_services/index';
+import { User } from '../../_models/index';
 
 
 @Component({
@@ -9,22 +9,16 @@ import { User } from "../../_models/index";
 })
 
 export class HomeComponent implements OnInit {
-    currentUser: User;
-    users: User[] = [];
 
     constructor(private userService: UserService) {
-        
+
     }
 
+    redirectUrl = '/hearing';
     ngOnInit() {
-        this.loadAllUsers();
-    }
-
-    deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        const isSixLingTestCompleted: any = localStorage.getItem('isSixLingTestCompleted');
+        if (!isSixLingTestCompleted) {
+            this.redirectUrl = '/sixling';
+        }
     }
 }
