@@ -3,6 +3,7 @@
 </div>
 
 <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
   <div *ngFor="let session of sessions" class="col-sm-12 col-md-12">
     <div class="thumbnail">
       <!-- src="../assets/_support_files/Interface/{{session.imageName}}.png" -->
@@ -10,9 +11,11 @@
 
       <!-- (imagesArr) DEFINED BY MAS  -->
       <a [routerLink]="session.id" routerLinkActive="is-active">
-        <img style="height: 100px; width:100px; float:right" 
-        src="../assets/_support_files/Interface/{{session.imageName}}.png"
-          alt="{{img}}">
+        <div  style="height: 100px; width:100px; float:right; text-align:center; display: flex; align-items: center; justify-content: center;">
+          <img style="max-height: 100%; max-width:100%;" 
+          src="../assets/_support_files/Interface/{{session.imageName}}.png"
+            alt="{{img}}">
+        </div>
       </a>
       <div class="caption">
         <a [routerLink]="session.id" routerLinkActive="is-active">
@@ -22,4 +25,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

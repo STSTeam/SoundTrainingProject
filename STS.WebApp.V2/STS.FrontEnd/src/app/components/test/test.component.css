@@ -35,9 +35,15 @@
 }
 
 .img_Con {
-    border: 7px solid #000000;
+    border: 3px solid #FFD79C;
+    height: 300px;
+    width: 250px;
     padding: 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .imageBoarder {
@@ -45,7 +51,7 @@
 }
 
 .imgSelected .imgIsCorrect {
-    border:3px solid #1b6331;
+    border:3px solid #2fac54;
     transform: scale(1.2);
 }
 
@@ -63,6 +69,3 @@
     z-index: 99999;
 }
 
-.ui-progressbar {
-    height: 30px;
-}

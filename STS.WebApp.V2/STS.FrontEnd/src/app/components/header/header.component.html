@@ -1,13 +1,15 @@
 
 <div class="container" dir="ltr">
-  <div class="row">
-    <div class="col-md-4">
-      <a [routerLink]="['/']">
-        <img src="./assets/images/logo.png" style="height: 125px; width: 208px" />
-      </a>
-      <label class="img-fluid">تأهيل سمعي ونطقي</label>
+  <div class="row" style="position:relative;">
+    <div class="col-md-12" style=" padding: 0; margin-bottom: 10px;">
+      <img src="./assets/images/header-banner.png" style=" height: 150px; width:100%">
     </div>
-
+    <div class="" style="position:absolute; top: 5px; right:10px;">
+      <a [routerLink]="['/']">
+        <label class="img-fluid" style=" font-size: 25px">تأهيل سمعي ونطقي</label>
+        <img src="./assets/images/1_pic_logo.png" style="height: 125px; width: 208px" />
+      </a>
+    </div>
   </div>
   
 </div>
@@ -46,7 +48,7 @@
         </li> -->
       </ul>
 
-      <ul class="nav navbar-nav" style=" font-size: 1.5em; font-weight: normal">
+      <ul class="nav navbar-nav" style="padding-top:9px; font-size: 1.5em; font-weight: normal">
         <li>
           <div *ngIf="!currentUser"  >
             <a [routerLink]="['/login']">تسجيل الدخول</a> |
@@ -63,8 +65,8 @@
   <!-- /.container-fluid -->
 </nav>
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
       <img src="./assets/images/header-banner.png" style="height: 150px; width:100%">
     </div>
-  </div>
+  </div> -->

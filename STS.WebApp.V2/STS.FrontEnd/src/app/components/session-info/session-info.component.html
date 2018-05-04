@@ -2,15 +2,32 @@
   <h1> {{session?.title}} </h1>
 </div>
 
+
+
 <div class="row">
-  <div  class="col-sm-12 col-md-12">
+
+<div  class="col-sm-12 col-md-6">
+    <div class="thumbnail">
+      <div class="caption">
+        <a [routerLink]="['test']">
+          <div><img src="../assets/_support_files/Interface/1_Pic_Test1.jpg" alt="Test">
+          <h3>الإختبار</h3>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div  class="col-sm-12 col-md-6">
     <div class="thumbnail">
       <div class="caption">
         <a [routerLink]="['training']">
-          <h3>
-            <div><img src="../assets/_support_files/Interface/1_Pic_Training.png" alt="Training"></div>
-            التدريب 
-          </h3>
+          <div><img src="../assets/_support_files/Interface/1_Pic_Training.png" alt="Training">
+            <h3>
+              التدريب 
+            </h3>
+          </div>
           
         </a>
       </div>
@@ -18,18 +35,5 @@
   </div>
 
  
-      <div  class="col-sm-12 col-md-12">
-        <div class="thumbnail">
-          <div class="caption">
-            <a [routerLink]="['test']">
-              <h3>
-                  <div><img src="../assets/_support_files/Interface/1_Pic_Test1.jpg" alt="Test"></div>
-                الإختبار
-              </h3>
-            </a>
-          </div>
-        </div>
-      </div>
-    
 
 </div>

@@ -49,9 +49,9 @@
       <h1> نتيجتك هي: {{testResult?.score}} %</h1>
     </div> -->
     <div class="six-ling-test-container col-md-8 col-md-offset-2" *ngIf="finalResult === 'pass'">
-      <h1 style="color: green">مبروووك.. نجحت في تخطي الاختبار</h1>
+      <h1 style="color: green">تم التحقق... لنلعب ونتعلم</h1>
       <img src="./assets/_support_files/Interface/1_Speaking.png" style="height: 300px; width: 300px">
-      <button (click)="contToModules()" class="bigBtn">cont. to modules</button>
+      <button (click)="contToModules()" class="bigBtn">التالي</button>
     </div>
 
     <div class="six-ling-test-container col-md-8 col-md-offset-2" *ngIf="finalResult === 'fail'">
@@ -72,6 +72,6 @@
 </p-overlayPanel> -->
 
 <div #resultPanel id="resaultContainer">
-  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_Pic_correct_penguins.png">
-  <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/Picture1.png">
+  <img class="resaultImg" *ngIf="showCorrect === 'true'" src="./assets/_support_files/Interface/1_pic_correct.png">
+  <img class="resaultImg" *ngIf="showCorrect === 'false'" src="./assets/_support_files/Interface/1_pic_wrong.png">
 </div>
