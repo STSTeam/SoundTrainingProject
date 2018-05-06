@@ -44,6 +44,7 @@ import { SixLingTestComponent } from './components/sixLingTest/six-ling-test/six
 import { SixLingTrainingComponent } from './components/sixLingTest/six-ling-training/six-ling-training.component';
 import { SixLingMainComponent } from './components/sixLingTest/six-ling-main/six-ling-main.component';
 import { SixlingService } from './_services/sixling.service';
+import { TestPlaylistComponent } from './components/test-playlist/test-playlist.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { SixlingService } from './_services/sixling.service';
         ModuleLevelsComponent,
         SixLingTrainingComponent,
         SixLingTestComponent,
-        SixLingMainComponent
+        SixLingMainComponent,
+        TestPlaylistComponent
     ],
     providers: [
         AuthGuard,

@@ -17,6 +17,7 @@ import { ModuleLevelsComponent } from './components/module-levels/module-levels.
 import { SixLingMainComponent } from './components/sixLingTest/six-ling-main/six-ling-main.component';
 import { SixLingTestComponent } from './components/sixLingTest/six-ling-test/six-ling-test.component';
 import { SixLingTrainingComponent } from './components/sixLingTest/six-ling-training/six-ling-training.component';
+import { TestPlaylistComponent } from './components/test-playlist/test-playlist.component';
 
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent/*, canActivate: [AuthGuard]*/ },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     { path: 'sixling', component: SixLingMainComponent },
     { path: 'sixling/training', component: SixLingTrainingComponent, canActivate: [AuthGuard] },
     { path: 'sixling/test', component: SixLingTestComponent, canActivate: [AuthGuard] },
+    { path: 'playlist', component: TestPlaylistComponent, canActivate: [AuthGuard] },
 
     {
         path: 'hearing', canActivate: [AuthGuard],
