@@ -1,5 +1,5 @@
 
-<div class="container" dir="ltr">
+<div class="container" dir="ltr" style="position:relative;">
   <div class="row" style="position:relative;">
     <div class="col-md-12" style=" padding: 0; margin-bottom: 10px;">
       <img src="./assets/images/header-banner.png" style=" height: 150px; width:100%">
@@ -11,59 +11,59 @@
       </a>
     </div>
   </div>
-  
+  <nav class="container navbar navbar-default" style="position:absolute; top:0;">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right navMenu" style=" font-size: 1.5em; font-weight: bold; color: black">
+            <li >
+              <a [routerLink]="['/information']"> Information </a>
+            </li>
+            <li >
+                <a [routerLink]="['/soundsIndex']"> الفهرس </a>
+              </li>
+            <li >
+              <a [routerLink]="['/contactus']">  معلومات عن البرنامج</a>
+            </li>
+            
+            <li><a class="" [routerLink]="['/home']">الصفحة الرئيسية</a></li>
+            <!-- <li>
+              <a href="#">Link</a>
+            </li> -->
+          </ul>
+    
+          <ul class="nav navbar-nav navReg" style="padding-top:9px; font-size: 1.5em; font-weight: normal">
+            <li>
+              <div *ngIf="!currentUser" dir="rtl" >
+                <a [routerLink]="['/login']">تسجيل الدخول</a> |
+                <a [routerLink]="['/register']">إنشاء حساب</a>
+              </div>
+              <div *ngIf="currentUser"  dir="rtl">
+                <a [routerLink]="['/login']">تسجيل الخروج</a> -- <i class="glyphicon glyphicon-user"></i> أهلا بك: {{currentUser.firstName}} {{currentUser.lastName}}
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
 </div>
 
 
-  <nav class="container navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-        aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right" style=" font-size: 1.5em; font-weight: bold; color: black">
-        <li >
-          <a [routerLink]="['/information']"> Information </a>
-        </li>
-        <li >
-            <a [routerLink]="['/soundsIndex']"> الفهرس </a>
-          </li>
-        <li >
-          <a [routerLink]="['/contactus']">  معلومات عن البرنامج</a>
-        </li>
-        
-        <li><a class="" [routerLink]="['/home']">الصفحة الرئيسية</a></li>
-        <!-- <li>
-          <a href="#">Link</a>
-        </li> -->
-      </ul>
-
-      <ul class="nav navbar-nav" style="padding-top:9px; font-size: 1.5em; font-weight: normal">
-        <li>
-          <div *ngIf="!currentUser"  >
-            <a [routerLink]="['/login']">تسجيل الدخول</a> |
-            <a [routerLink]="['/register']">إنشاء حساب</a>
-          </div>
-          <div *ngIf="currentUser" >
-            <a [routerLink]="['/login']">تسجيل الخروج</a> -- <i class="glyphicon glyphicon-user"></i> أهلا بك: {{currentUser.firstName}} {{currentUser.lastName}}
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-</nav>
+  
 
 <!-- <div class="container">
     <div class="row">

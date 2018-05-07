@@ -1,6 +1,29 @@
-img {
-    height: 313px; 
-    width: 313px;
-    padding:1px;
+.imgCon {
     border:1px solid #021a40;
+}
+.playBtn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    background: none;
+    border: none;
+}
+.playBtn img {
+    width: 100%;
+}
+img.mainImg {
+    display: block;
+    margin: auto;
+    height: 50vh; 
+    width: auto;
+    padding:1px;
+ }
+ ul {
+     text-align: center;
+ }
+ .soundCon li {
+     display: inline;
+     margin: 0 20px;
  }

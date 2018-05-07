@@ -1,3 +1,33 @@
-.navbar-collapse .navbar-nav.navbar-right > li > a {
-    color: #000 !important;
+nav  li  a {
+    color: #fff !important;
+    padding: 10px 15px;
+}
+nav li, label {
+    color: #fff !important;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+.navReg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    float: none !important;
+}
+.navReg li {
+    padding: 10px 15px;
+}
+
+.navMenu {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+
 }

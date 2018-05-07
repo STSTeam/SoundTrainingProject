@@ -7,7 +7,7 @@ import { UserDataStore } from "../../_services/_stateServices/userDataStore.serv
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: ['header.component.css']
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 

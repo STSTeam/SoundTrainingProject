@@ -95,4 +95,8 @@ export class TrainingComponent implements OnInit {
 
   }
 
+  playSound(){
+    this.soundCtr.nativeElement.play();
+  }
+
 }
