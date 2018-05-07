@@ -63,7 +63,23 @@ namespace WebApi.Controllers
         [HttpGet("GetSessionTrainingSounds/{sessionId}")]
         public IActionResult GetSessionTrainingSounds(int sessionId)
         {
-            return HlsOk(_mapper.Map<List<SoundDto>>(_sessionRepo.GetSessionSounds(sessionId)));
+            var sounds = _mapper.Map<List<SoundDto>>(_sessionRepo.GetSessionSounds(sessionId));
+            sounds.ForEach(s =>
+            {
+                s.Images = _mapper.Map<List<ImageDto>>(_sessionRepo.GetSoundImages(s.Id));
+            });
+
+
+            // sounds grouped by groupId
+            var groupedSounds = (from s in sounds
+                                group s by s.GroupId into g
+                                select new GroupedSound
+                                {
+                                    GroupId = g.Key.Value,
+                                    Sounds = g.ToList()
+                                }).ToList();
+
+            return HlsOk(_mapper.Map<List<GroupedSound>>(groupedSounds));
         }
 
         [HttpGet("GetSoundImages/{soundId}")]

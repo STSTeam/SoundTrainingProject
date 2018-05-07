@@ -32,6 +32,8 @@ namespace WebApi.Helpers
             // sixling mapper
             CreateMap<Sixling, SixlingDto>();
             CreateMap<SixlingDto, Sixling>();
+
+            CreateMap<GroupedSound, GroupedSound>();
         }
     }
 }
