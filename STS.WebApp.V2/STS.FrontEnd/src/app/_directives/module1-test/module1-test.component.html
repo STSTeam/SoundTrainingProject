@@ -1,0 +1,24 @@
+
+  {{allChecked}}
+  <div *ngFor="let sound of soundsList" class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
+      <div class="thumbnail">
+        <div class="col-sm-6 col-md-6">
+          <audio id="passage-audio" class="passage" controls controlsList="nodownload" #soundCtr>
+            <source src="{{sound.soundUrl}}" type="audio/mp3">
+            <em class="error">
+              <strong>Error:</strong> Your browser doesn't appear to support HTML5 Audio.</em>
+          </audio>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="col-sm-2 col-md-2">
+            <p-inputSwitch onLabel="نعم" offLabel="لا" [(ngModel)]="sound.isChecked" (onChange)="onCheckedChange(sound)"></p-inputSwitch>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <label>هل هناك صوت؟</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" *ngIf="allChecked" class="btn btn-secondary" (click)="onNextModuleClicked()">انتقل للمرحلة التالية</button>

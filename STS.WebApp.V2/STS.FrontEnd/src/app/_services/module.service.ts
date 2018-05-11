@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import { ResultData } from "../_models/resultData";
 import { UserDataStore } from './_stateServices/userDataStore.service';
+import { MarkModuleAsCompletedInputModel } from '../_models/markModuleAsCompletedInput.model';
 
 @Injectable()
 export class ModulesService {
@@ -29,12 +30,8 @@ export class ModulesService {
         return this.http.get<ResultData>(`${this.ApiUrl}/${moduleId}`);
     }
 
-    // private jwt() {
-    //     // create authorization header with jwt token
-    //     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    //     if (currentUser && currentUser.token) {
-    //         let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-    //         return new RequestOptions({ headers: headers });
-    //     }
-    // }
+    markModuleAsCompleted(input: MarkModuleAsCompletedInputModel): Observable<ResultData> {
+        input.UserId = this.currentUser.id;
+        return this.http.post<ResultData>(`${this.ApiUrl}/markModuleAsCompleted`, input);
+    }
 }

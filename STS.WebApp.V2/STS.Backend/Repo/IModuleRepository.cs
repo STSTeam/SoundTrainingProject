@@ -8,6 +8,6 @@ namespace WebApi.Repo
 {
     public interface IModuleRepository : IBaseRepository<Module, int>
     {
-
+        void InsertUserModuleProgress(UserCompletedModules model);
     }
 }

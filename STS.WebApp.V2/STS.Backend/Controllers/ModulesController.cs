@@ -52,5 +52,12 @@ namespace WebApi.Controllers
         {
             return HlsOk(_mapper.Map<ModuleDto>(_moduleRepo.Get(id)));
         }
+
+        [HttpPost("markModuleAsCompleted")]
+        public IActionResult MarkModuleAsCompleted([FromBody]MarkModuleAsCompletedInputDto input)
+        {
+            _moduleBL.MarkModuleAsCompleted(input.UserId, input.ModuleId);
+            return HlsOk();
+        }
     }
 }

@@ -24,8 +24,15 @@ export class ModuleInfoComponent implements OnInit {
   moduleInfo: ModuleModel;
   levels: LevelModel[];
   ngOnInit() {
-    this.moduleId = this.route.snapshot.params['moduleId'];
+    //this.moduleId = this.route.snapshot.params['moduleId'];
 
+    this.route.params.subscribe(params => {
+      this.moduleId = params['moduleId'];
+      this.init();
+    });
+  }
+
+  init() {
     // get current module info
     this.modulesService.getById(this.moduleId).subscribe(res => {
       let result: ResultData = <ResultData>res;
