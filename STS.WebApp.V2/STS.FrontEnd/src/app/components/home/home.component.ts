@@ -14,11 +14,10 @@ export class HomeComponent implements OnInit {
 
     }
 
-    redirectUrl = '/hearing';
     ngOnInit() {
-        const isSixLingTestCompleted: any = localStorage.getItem('isSixLingTestCompleted');
-        if (!isSixLingTestCompleted) {
-            this.redirectUrl = '/sixling';
-        }
+        // const isSixLingTestCompleted: any = localStorage.getItem('isSixLingTestCompleted');
+        // if (!isSixLingTestCompleted) {
+        //     this.redirectUrl = '/sixling';
+        // }
     }
 }
