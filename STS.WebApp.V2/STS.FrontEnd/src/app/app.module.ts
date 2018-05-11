@@ -45,6 +45,8 @@ import { SixLingTrainingComponent } from './components/sixLingTest/six-ling-trai
 import { SixLingMainComponent } from './components/sixLingTest/six-ling-main/six-ling-main.component';
 import { SixlingService } from './_services/sixling.service';
 import { TestPlaylistComponent } from './components/test-playlist/test-playlist.component';
+import { Module1TestComponent } from './_directives/module1-test/module1-test.component';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 
 @NgModule({
@@ -60,7 +62,8 @@ import { TestPlaylistComponent } from './components/test-playlist/test-playlist.
         OverlayPanelModule,
         ChartModule,
         TreeModule,
-        ProgressBarModule
+        ProgressBarModule,
+        InputSwitchModule
     ],
     declarations: [
         AppComponent,
@@ -84,7 +87,8 @@ import { TestPlaylistComponent } from './components/test-playlist/test-playlist.
         SixLingTrainingComponent,
         SixLingTestComponent,
         SixLingMainComponent,
-        TestPlaylistComponent
+        TestPlaylistComponent,
+        Module1TestComponent
     ],
     providers: [
         AuthGuard,

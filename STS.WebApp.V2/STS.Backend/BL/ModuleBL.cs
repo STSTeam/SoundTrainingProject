@@ -49,5 +49,20 @@ namespace WebApi.BL
 
             return modules;
         }
+
+        public void MarkModuleAsCompleted(int userId, int moduleId)
+        {
+            // check if module already marked for user
+            if (_userCompletedModulesDA.GetList(new { UserId = userId, ModuleId = moduleId }).ToList().Count <= 0)
+            {
+                var e = new UserCompletedModules()
+                {
+                    UserId = userId,
+                    ModuleId = moduleId,
+                    CreatedDate = DateTime.Now
+                };
+                _moduleDA.InsertUserModuleProgress(e);
+            }
+        }
     }
 }
