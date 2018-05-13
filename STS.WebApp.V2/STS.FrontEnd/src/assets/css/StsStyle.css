@@ -140,3 +140,8 @@ body .ui-tree .ui-treenode .ui-treenode-content .ui-tree-toggler{
 .thumbnail > img, .thumbnail a > div {
     margin-left: 20px;
 }
+.logosCon{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}

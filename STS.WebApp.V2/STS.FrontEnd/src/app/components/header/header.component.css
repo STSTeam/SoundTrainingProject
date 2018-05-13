@@ -31,3 +31,19 @@ nav {
     left: 10px;
 
 }
+.historyBackImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(180deg);
+    width: 120px;
+    cursor: pointer;
+}
+.historyBackTxt {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 150px;
+    text-align: center;
+    pointer-events: none;
+}

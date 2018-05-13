@@ -9,6 +9,19 @@
     تمييز الأصوات وتطوير القدرة على تحديد نوع الصوت. تطوير اللغة والاستيعاب السمعي. . </p>
 </div>
 <div class="row">
+     
+  <div  class="col-sm-12 col-md-12">
+    <a href="" [routerLink]="'/sixling'">
+      <div class="thumbnail">
+          <img style="height:auto; width:100px"  src="../assets/_support_files/Interface/1_Hearing.png" alt="">
+        <div class="caption">
+          <h3>six ling test</h3>
+          <p>six ling test descreption</p>
+        </div>
+      </div>
+    </a>
+  </div>
+    
   <div *ngFor="let module of modules" class="col-sm-12 col-md-12">
     <a [routerLink]="module.enabled ? module.id : null" routerLinkActive="is-active">
       <div class="thumbnail">

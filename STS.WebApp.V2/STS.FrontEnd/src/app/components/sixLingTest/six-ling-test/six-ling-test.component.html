@@ -34,7 +34,7 @@
       <div class="col-md-2"></div>
       <div *ngFor="let image of currentSound?.sound?.images; let index = index" class="col-md-3 img_Con" [class.col-md-offset-2]="index%2!=0"
         [class.imageBoarder]="image === selectedImage" [class.imgIsCorrect]="image.isCorrectImage == true" [class.imgIsNotCorrect]="image.isCorrectImage == false">
-        <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="height: 300px; width: 200px" (click)="imageClicked($event,resultPanel, image)">
+        <img [src]="'./assets/_support_files/pic/' + image.name +'.png'" style="max-width: 100%; max-height:100%;" (click)="imageClicked($event,resultPanel, image)">
       </div>
     </div>
     <div class="btn-group">

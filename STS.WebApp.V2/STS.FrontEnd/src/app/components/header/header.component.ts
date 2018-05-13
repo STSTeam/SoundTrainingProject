@@ -21,4 +21,8 @@ export class HeaderComponent implements OnInit {
          this.currentUser = user;
     });
   }
+
+  goBack() {
+    window.history.back();
+  }
 }

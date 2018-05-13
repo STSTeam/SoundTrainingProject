@@ -1,4 +1,9 @@
-﻿<div class="col-md-6">
+﻿<h1>&nbsp;</h1>
+<div class="col-md-6 logosCon">
+    <img style ="max-width:200px; max-height:200px;" src=".\assets\_support_files\Interface\1_pic_GJU.png" alt="">
+    <img style ="max-width:200px; max-height:200px;" src=".\assets\_support_files\Interface\logo2.png" alt="">
+</div>
+<div class="col-md-6">
     <h2>إنشاء حساب</h2>
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">

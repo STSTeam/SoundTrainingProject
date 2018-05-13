@@ -22,9 +22,9 @@ export class Module1TestComponent implements OnInit {
   ngOnInit() {
     this.allChecked = false;
     this.soundsList = [
-      { soundUrl: './assets/_support_files/MP3/1_sound_1ambulance.mp3', isChecked: false },
-      { soundUrl: './assets/_support_files/MP3/1_sound_1door.mp3', isChecked: false },
-      { soundUrl: './assets/_support_files/MP3/1_sound_1car.mp3', isChecked: false }
+      { soundUrl: './assets/_support_files/MP3/1_sound_shaker.mp3', isChecked: false },
+      { soundUrl: './assets/_support_files/MP3/1_.sound_drum.mp3', isChecked: false },
+      { soundUrl: './assets/_support_files/MP3/1_sound_saxophone.mp3', isChecked: false }
     ]
   }
 
@@ -36,10 +36,12 @@ export class Module1TestComponent implements OnInit {
 
   onNextModuleClicked() {
     this._modulesService.markModuleAsCompleted({ ModuleId: this.moduleId }).subscribe(result => {
-      debugger;
       this.alertService.success("تم اختبار الصوت بنجاح");
-      this.router.navigate(["/hearing", 2]);
+      this.router.navigate(["/hearing"]);
     }, error => { })
   }
 
+  playSound(ele) {
+    ele.play();
+  }
 }

@@ -36,8 +36,14 @@
 
 .img_Con {
     border: 3px solid #FFD79C;
+    height: 300px;
+    width: 250px;
     padding: 10px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .imageBoarder {
