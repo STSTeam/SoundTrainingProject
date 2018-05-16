@@ -6,9 +6,12 @@
     [ImageName]            NVARCHAR (150) NULL,
     [PrerequisiteModuleId] INT            NULL,
     [ImageName2]           NVARCHAR (50)  NULL,
+    [IntroParagraph]       NVARCHAR (MAX) NULL,
     CONSTRAINT [PK_Module] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Module_Module] FOREIGN KEY ([PrerequisiteModuleId]) REFERENCES [dbo].[Module] ([Id])
 );
+
+
 
 
 
