@@ -1,6 +1,8 @@
 <div class="page-header">
   <h1>{{moduleInfo?.title}}</h1>
-  <div class="jumbotron">في وحدة اكتشاف الاصوات سيتم التاكد من امكانية المستخدم لسماع الاصوات على ترددات مختلفة. حيث يتم الضغط على زر (نعم) عند ملاحظة أي ردة فعل من الطفل مثل بكاء أو ضحك أو خوف حركة يد مفاجئة</div>
+  <div class="jumbotron">
+      {{moduleInfo?.introParagraph}}
+  </div>
 </div>
 <div class="row" *ngIf="moduleId > 1">
   <div class="col-md-8 col-md-offset-2 col-sm-12">
