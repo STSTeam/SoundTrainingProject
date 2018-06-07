@@ -1,3 +1,5 @@
+https://medium.com/@levifuller/building-an-angular-application-with-asp-net-core-in-visual-studio-2017-visualized-f4b163830eaa
+
 # Stsapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
