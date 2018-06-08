@@ -6,4 +6,5 @@ export class ModuleModel {
     imageName: string;
     imageName2: string;
     enabled: boolean;
+    introParagraph: string;
 }
