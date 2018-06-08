@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8" [style.visibility]="!selectedFile ? 'hidden' : 'visible'">
+    <div class="col-sm-8">
       <div class="row">
         <h1>{{selectedSound?.displayName}}</h1>
       </div>
@@ -19,9 +19,9 @@
     </div>
     <div class="col-sm-4">
         <h3>أصوات بيئية</h3>
-      <p-tree [value]="alphaNodes" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="onNodeSelect($event)"></p-tree>
+      <p-tree [value]="alphaNodes" selectionMode="single"  (onNodeSelect)="onNodeSelect($event)"></p-tree>
       <h3>كلمات</h3>
-      <p-tree [value]="envNodes" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="onNodeSelect($event)"></p-tree>
+      <p-tree [value]="envNodes" selectionMode="single"    (onNodeSelect)="onNodeSelect($event)"></p-tree>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@ using WebApi.Repo;
 namespace WebApi.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsersController : Controller
     {
         private IUserRepository _userService;
