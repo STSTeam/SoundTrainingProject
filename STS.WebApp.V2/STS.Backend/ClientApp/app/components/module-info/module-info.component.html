@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1>{{moduleInfo?.title}}</h1>
+</div>
+<div class="row" *ngIf="moduleId > 1">
+  <div class="col-md-8 col-md-offset-2 col-sm-12">
+    <div *ngFor="let level of levels" class="col-sm-12 col-md-12">
+      <div class="thumbnail">
+        <a [routerLink]="level.levelId" routerLinkActive="is-active">
+          <div style="height: 100px; width:100px; float:right; text-align:center; display: flex; align-items: center; justify-content: center;">
+            <img style="max-height: 100%; max-width:100%;" src="../assets/_support_files/Interface/{{level.levelImageName}}.png" alt="{{img}}">
+          </div>
+        </a>
+        <div class="caption">
+          <a [routerLink]="level.levelId" routerLinkActive="is-active">
+            <h3>{{level.levelName}}</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-module1-test *ngIf="moduleId == 1" [moduleId]="moduleId"></app-module1-test>

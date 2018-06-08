@@ -1,0 +1,39 @@
+<!-- <app-training-item-view *ngIf="currentSound" [sound]="currentSound">
+
+</app-training-item-view> -->
+<div  class="container" style="margin-bottom:10px; margin-top:60px;">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1 col-sm-offset-0 col-sm-12" style="text-align: left; padding-top: 2em;">
+      <audio id="passage-audio" class="passage" controls #soundCtr>
+        <em class="error">
+          <strong>Error:</strong> Your browser doesn't appear to support HTML5 Audio.</em>
+        </audio>
+      </div>
+    <div class="col-md-5 col-sm-12">
+      <h1>{{currentGroup?.group?.sounds[0]?.displayName}}</h1>
+    </div>
+  </div>
+  <div *ngIf="isReady" class="row" style="position: relative;">
+    <div class="col-sm-10 col-sm-offset-1 imgCon">
+      <button (click)="playSound()"  class="playBtn">
+        <img src="./assets/_support_files/Interface/1_Pic_speaker_02.png" alt="play">
+      </button>
+      <img src="./assets/_support_files/pic/{{currentGroup.group.sounds[0].images[0].name}}.png" class="mainImg">
+    </div>
+  </div>
+</div>
+<div *ngIf="isReady && currentGroup.group.sounds.length > 1" class="container col-sm-12">
+  <ul class="soundCon">
+    <li *ngFor="let sound of currentGroup.group.sounds; let i = index">
+      <i class="glyphicon glyphicon-volume-up"></i>
+      <a [routerLink]=""  (click)="runSound(sound, i)" >{{sound.displayName}}</a>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <!-- <img class="mainIcons" src="../assets/_support_files/Interface/1_Pic_Forward.png" alt=""> -->
+  <button *ngIf="showNext" (click)="moveWizard('forward')" class="bigBtn">التالي</button>
+  <button *ngIf="showPre" (click)="moveWizard('backward')" class="bigBtn prevBtn">السابق</button>
+  <button *ngIf="showTestBtn" (click)="startSessionTest()" class="bigBtn testBtn">ابدأ الاختبار</button>
+
+</div>

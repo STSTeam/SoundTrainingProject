@@ -18,31 +18,14 @@
     <Compile Remove="Helpers\DataContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="wwwroot\assets\fonts.1\DINNext.svg" />
-    <None Include="wwwroot\assets\fonts\DINNext.svg" />
-    <None Include="wwwroot\assets\fonts\fontawesome-pro-light-300.svg" />
-    <None Include="wwwroot\assets\fonts\fontawesome-pro-light-300.woff2" />
-    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.svg" />
-    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.woff2" />
-    <None Include="wwwroot\assets\js\bootstrap.min.js" />
-    <None Include="wwwroot\assets\js\fontawesome\brands.min.js" />
-    <None Include="wwwroot\assets\js\fontawesome\fontawesome.min.js" />
-    <None Include="wwwroot\assets\js\fontawesome\light.min.js" />
-    <None Include="wwwroot\assets\js\fontawesome\regular.min.js" />
-    <None Include="wwwroot\assets\js\fontawesome\solid.min.js" />
-    <None Include="wwwroot\assets\js\head.min.js" />
-    <None Include="wwwroot\assets\js\jquery.bootstrap.wizard.min.js" />
-    <None Include="wwwroot\assets\js\jquery.min.js" />
-    <None Include="wwwroot\assets\js\jquery.slimscroll.min.js" />
-    <None Include="wwwroot\assets\js\jquery.waypoints.min.js" />
-    <None Include="wwwroot\assets\_support_files\pic\thumbs.db" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
     <PackageReference Include="Dapper" Version="1.50.4" />
     <PackageReference Include="Dapper.SimpleCRUD.NetCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 </Project>
