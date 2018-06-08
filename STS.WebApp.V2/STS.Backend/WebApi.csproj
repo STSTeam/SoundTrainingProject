@@ -4,12 +4,16 @@
     <RetryAttemptsForDeployment>30</RetryAttemptsForDeployment>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="dist\**" />
     <Compile Remove="Middleware\**" />
     <Compile Remove="Migrations\**" />
+    <Content Remove="dist\**" />
     <Content Remove="Middleware\**" />
     <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="dist\**" />
     <EmbeddedResource Remove="Middleware\**" />
     <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="dist\**" />
     <None Remove="Middleware\**" />
     <None Remove="Migrations\**" />
   </ItemGroup>
