@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RetryAttemptsForDeployment>30</RetryAttemptsForDeployment>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Middleware\**" />
@@ -15,6 +16,26 @@
   <ItemGroup>
     <Compile Remove="Helpers\ApiException.cs" />
     <Compile Remove="Helpers\DataContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\assets\fonts.1\DINNext.svg" />
+    <None Include="wwwroot\assets\fonts\DINNext.svg" />
+    <None Include="wwwroot\assets\fonts\fontawesome-pro-light-300.svg" />
+    <None Include="wwwroot\assets\fonts\fontawesome-pro-light-300.woff2" />
+    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\fontawesome\brands.min.js" />
+    <None Include="wwwroot\assets\js\fontawesome\fontawesome.min.js" />
+    <None Include="wwwroot\assets\js\fontawesome\light.min.js" />
+    <None Include="wwwroot\assets\js\fontawesome\regular.min.js" />
+    <None Include="wwwroot\assets\js\fontawesome\solid.min.js" />
+    <None Include="wwwroot\assets\js\head.min.js" />
+    <None Include="wwwroot\assets\js\jquery.bootstrap.wizard.min.js" />
+    <None Include="wwwroot\assets\js\jquery.min.js" />
+    <None Include="wwwroot\assets\js\jquery.slimscroll.min.js" />
+    <None Include="wwwroot\assets\js\jquery.waypoints.min.js" />
+    <None Include="wwwroot\assets\_support_files\pic\thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.0.2" />
