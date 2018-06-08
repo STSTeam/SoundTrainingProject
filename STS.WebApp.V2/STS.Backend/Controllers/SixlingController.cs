@@ -19,7 +19,7 @@ using WebApi.Dtos.UserTestModels;
 namespace WebApi.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SixlingController : ApiBaseController
     {
         IBaseRepository<UserCompletedModules, int> _userCompletedModulesDA;

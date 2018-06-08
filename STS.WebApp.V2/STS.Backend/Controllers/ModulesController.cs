@@ -17,7 +17,7 @@ using WebApi.BL;
 namespace WebApi.Controllers
 {
    [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ModulesController : ApiBaseController
     {
         private IModuleRepository _moduleRepo;

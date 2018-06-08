@@ -18,7 +18,7 @@ using System.Linq;
 namespace WebApi.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SessionsController : ApiBaseController
     {
         private ISessionRepository _sessionRepo;

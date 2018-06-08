@@ -13,6 +13,7 @@ using WebApi.DA;
 using WebApi.Filters;
 using WebApi.Entities;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace WebApi
 {
@@ -91,12 +92,24 @@ namespace WebApi
                 .AllowAnyHeader()
                 .AllowCredentials());
 
+            // redirect all non-api requests to angular 
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404 &&
+                   !Path.HasExtension(context.Request.Path.Value) &&
+                   !context.Request.Path.Value.StartsWith("/api/"))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+            });
+
             app.UseAuthentication();
 
-            // custom exception handler
-            //app.UseMiddleware(typeof(ErrorHandlingMiddleware));
-
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }

@@ -1,14 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RetryAttemptsForDeployment>30</RetryAttemptsForDeployment>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="dist\**" />
     <Compile Remove="Middleware\**" />
     <Compile Remove="Migrations\**" />
+    <Content Remove="dist\**" />
     <Content Remove="Middleware\**" />
     <Content Remove="Migrations\**" />
+    <EmbeddedResource Remove="dist\**" />
     <EmbeddedResource Remove="Middleware\**" />
     <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="dist\**" />
     <None Remove="Middleware\**" />
     <None Remove="Migrations\**" />
   </ItemGroup>
@@ -23,5 +28,8 @@
     <PackageReference Include="Dapper.SimpleCRUD.NetCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 </Project>

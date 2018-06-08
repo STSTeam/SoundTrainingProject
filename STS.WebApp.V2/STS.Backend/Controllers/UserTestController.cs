@@ -12,7 +12,7 @@ using WebApi.Repo;
 namespace WebApi.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserTestController : ApiBaseController
     {
         IUserTestRepository _userTestDA;
