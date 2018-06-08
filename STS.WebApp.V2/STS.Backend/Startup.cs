@@ -17,7 +17,7 @@ using System.IO;
 
 namespace WebApi
 {
-    public class Startup
+    public class Startup 
     {
         public Startup(IConfiguration configuration)   
         {
