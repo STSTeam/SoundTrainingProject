@@ -11,9 +11,7 @@ namespace WebApi.DA
         public DbConnection dbConnection;
         public BaseConnection()
         {
-            var connectionString = "";
-
-            connectionString = @"";
+            var connectionString = "Server=tcp:amwajrehabwebappdbserver.database.windows.net,1433;Initial Catalog=STSDb;Persist Security Info=False;User ID=asalhani;Password=@Sarahzidane05@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
 #if DEBUG
  connectionString =
