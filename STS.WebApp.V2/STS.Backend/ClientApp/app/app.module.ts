@@ -47,8 +47,6 @@ import { SixlingService } from "./_services/sixling.service";
 import { TestPlaylistComponent } from "./components/test-playlist/test-playlist.component";
 import { Module1TestComponent } from "./_directives/module1-test/module1-test.component";
 import { InputSwitchModule } from "primeng/inputswitch";
-import { GoogleAnalyticsService } from "./_services/google-analytics-service.service";
-
 
 @NgModule({
     imports: [
@@ -102,7 +100,6 @@ import { GoogleAnalyticsService } from "./_services/google-analytics-service.ser
         UserDataStore,
         SixlingService,
         UserTestServices,
-        GoogleAnalyticsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HlsHttpInterceptor,
@@ -112,6 +109,4 @@ import { GoogleAnalyticsService } from "./_services/google-analytics-service.ser
     bootstrap: [AppComponent]
 })
 
-export class AppModule {
-    constructor(protected _googleAnalyticsService: GoogleAnalyticsService) { }
-}
+export class AppModule { }
