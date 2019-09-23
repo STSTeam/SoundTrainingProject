@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>التدريب السمعي
+  </h1>
+</div>
+
+<div class="jumbotron">
+
+  <p>التدريب السمعي يساعد المستخدم لإكتساب مهارات سمعية. البرنامج مقسم الى أربع اجزاء رئيسية: كشف الصوت والتدرب على التقاط الأصوات.
+    تمييز الأصوات وتطوير القدرة على تحديد نوع الصوت. تطوير اللغة والاستيعاب السمعي. </p>
+</div>
+<div class="row">
+     
+  <div  class="col-sm-12 col-md-12">
+    <a href="" [routerLink]="'/sixling'">
+      <div class="thumbnail">
+          <img style="height:181px; width:auto"  src="../assets/_support_files/Interface/123.png" alt="">
+        <div class="caption">
+          <h3>التحقق من السماعات</h3>
+          <p></p>
+        </div>
+      </div>
+    </a>
+  </div>
+    
+  <div *ngFor="let module of modules" class="col-sm-12 col-md-12">
+    <a [routerLink]="module.enabled ? module.id : null" routerLinkActive="is-active">
+      <div class="thumbnail">
+        <img style="height:auto; width:100px" src="../assets/_support_files/Interface/{{module.imageName}}.png" alt="...">
+        <img *ngIf="module.imageName2" style="height:150px; width:auto" src="../assets/_support_files/Interface/{{module.imageName2}}.png"
+          alt="...">
+        <div class="caption">
+          <h3>{{module.title}}</h3>
+          <p>{{module.descreption}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
